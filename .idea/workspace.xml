@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="" />
+    <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../supplement-store/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../supplement-store/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supplement-store/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../supplement-store/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supplement-store/src/components/Header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../supplement-store/src/components/Header/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supplement-store/src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../supplement-store/src/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../supplement-store/src/styles/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/../supplement-store/src/styles/reset.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +188,7 @@
       <workItem from="1703178891742" duration="3318000" />
       <workItem from="1703186683135" duration="9758000" />
       <workItem from="1703342963581" duration="16647000" />
-      <workItem from="1703493812990" duration="5653000" />
+      <workItem from="1703493812990" duration="16207000" />
     </task>
     <servers />
   </component>

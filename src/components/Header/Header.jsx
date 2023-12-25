@@ -6,11 +6,11 @@ const Header = () => {
         <header className='header'>
             <div className="header__wrapper container">
                 <div className="logo header__block-1">
-                    Site
+                    Сайт для Саида
                 </div>
                 <div className="header__block-2">
                     <div className="header__search">
-                        <input type="text"/>
+                        <input placeholder="Введите название или артикул" type="text"/>
                     </div>
                     <div className="header__contacts">
                             <span className='header__contacts-element'>
@@ -30,6 +30,7 @@ const Header = () => {
                     <div className="header__cart">
                         <div className="header__cart-image">
                             <img src="./images/cart.svg" alt=""/>
+                            <div className='header__cart-amount'>55</div>
                         </div>
                         <div className="header__cart-content">
                                 <span className="header__cart-title">
