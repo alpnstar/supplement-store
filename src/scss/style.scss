@@ -1,0 +1,9 @@
+@import "./mixins";
+@import "./vars";
+@import "../styles/fonts.css";
+
+
+.container {
+    max-width: 1110px;
+    margin: 0 auto;
+}
