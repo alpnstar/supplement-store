@@ -1,0 +1,62 @@
+.products {
+  display: flex;
+  gap: 20px;
+  &__item {
+    max-width: 288px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 16px;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
+    &-availability {
+      color: #10C44D;
+
+      font-size: 12px;
+      font-weight: 600;
+      &--false {
+        color: red;
+      }
+    }
+  }
+
+  &__item-img-wrapper {
+  }
+
+  &__item-content {
+  }
+
+  &__item-block-1 {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  &__item-reviews {
+  }
+
+  &__item-block-2 {
+    display: flex;
+  }
+
+  &__item-price {
+    &--prev {
+    }
+  }
+
+  &__item-wholesale {
+  }
+
+  &__item-block-3 {
+  }
+
+  &__item-title {
+  }
+
+  &__item-description {
+  }
+
+  &__item-push-cart-button {
+  }
+}

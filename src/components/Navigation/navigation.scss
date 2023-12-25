@@ -1,0 +1,22 @@
+.nav {
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 18px;
+  &__wrapper {
+  }
+
+  &__list {
+    display: flex;
+    gap: 32px;
+
+  }
+
+  &__list-item {
+    font-weight: 500;
+
+    &--expand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+}
