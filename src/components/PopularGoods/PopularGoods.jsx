@@ -12,8 +12,8 @@ const PopularGoods = () => {
                 rating: '4.7/5',
                 total: 5,
             },
-            price: 950,
-            prevPrice: 1250,
+            price: '950$',
+            prevPrice: '1250$',
         }]
     )
     return (
