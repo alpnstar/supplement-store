@@ -1,5 +1,8 @@
 import React from 'react';
 import './header.scss';
+import telegramImg from '../../../public/imgs/telegram.svg';
+import whatsappImg from '../../../public/imgs/whatsapp.svg';
+import cartImg from '../../../public/imgs/cart.svg';
 
 const Header = () => {
     return (
@@ -15,12 +18,12 @@ const Header = () => {
                     <div className="header__contacts">
                             <span className='header__contacts-element'>
                                 <a title='telegram' href="#">
-                                    <img src="./images/telegram.svg" alt=""/>
+                                    <img src={telegramImg} alt=""/>
                                 </a>
                             </span>
                         <span className='header__contacts-element'>
                                 <a title='whatsapp' href="#">
-                                    <img src="./images/whatsapp.svg" alt=""/>
+                                    <img src={whatsappImg} alt=""/>
                                 </a>
                             </span>
                         <span className='header__contacts-element'>
@@ -29,7 +32,7 @@ const Header = () => {
                     </div>
                     <div className="header__cart">
                         <div className="header__cart-image">
-                            <img src="./images/cart.svg" alt=""/>
+                            <img src={cartImg} alt=""/>
                             <div className='header__cart-amount'>55</div>
                         </div>
                         <div className="header__cart-content">

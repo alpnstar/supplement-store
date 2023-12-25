@@ -4,7 +4,7 @@ import ProductsList from "../Products/ProductsList";
 
 const PopularGoods = () => {
     const [products, setProducts] = useState([{
-            imgSrc: './images/product-img.png',
+            imgSrc: './imgs/product-img.png',
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             availability: false,
