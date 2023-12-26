@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import ProductsList from "../Products/ProductsList";
+import ProductsList from "../../Products/ProductsList";
 
 const NewGoods = ({data}) => {
     const [sortedByDate, setSortedByDate] = useState([])

@@ -59,7 +59,6 @@ export default class ProductsRequest {
             prevPrice: '1250$',
             publicationDate: new Date('December 21, 2023 03:24:00')
         }]
-
         return response;
     }
 }

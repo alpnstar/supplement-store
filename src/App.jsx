@@ -2,10 +2,12 @@ import React, {useEffect, useState} from "react";
 import "./scss/style.scss";
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
-import Banner from "./components/Banner/Banner";
-import PopularGoods from "./components/PopularGoods/PopularGoods";
-import NewGoods from "./components/NewGoods/NewGoods";
+import Banner from "./components/Home/Banner/Banner";
+import PopularGoods from "./components/Home/PopularGoods/PopularGoods";
+import NewGoods from "./components/Home/NewGoods/NewGoods";
 import productsRequest from "./API/productsRequest";
+import NewsAndPromotionsList from "./components/NewsAndPromotions/NewsAndPromotionsList";
+import HomeNews from "./components/Home/HomeNews/HomeNews";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -24,6 +26,7 @@ const App = () => {
             <Banner/>
             <PopularGoods data={products}/>
             <NewGoods data={products}/>
+            <HomeNews/>
         </div>
     )
 }

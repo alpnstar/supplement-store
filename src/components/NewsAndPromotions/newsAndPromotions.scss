@@ -1,0 +1,44 @@
+.newsAndPromotions {
+  display: flex;
+  gap: 16px;
+
+
+  &__item {
+    display: flex;
+    max-width: 379px;
+
+    border-radius: 16px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+
+    &-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 16px;
+    }
+  }
+
+
+  img {
+    border-radius: 13px 13px 0 0;
+
+  }
+
+  &__item-title {
+    margin-bottom: 8px;
+
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__item-text {
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 150%; /* 21px */
+  }
+
+  &__item-date {
+    color: #A3A3A3;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}

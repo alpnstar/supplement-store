@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './popularGoods.scss';
-import ProductsList from "../Products/ProductsList";
+import ProductsList from "../../Products/ProductsList";
 
 const PopularGoods = ({data}) => {
     const [productsSortedByRating, setProductsSortedByRating] = useState([]);
