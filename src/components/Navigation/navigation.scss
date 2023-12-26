@@ -12,6 +12,10 @@
 
   &__list-item {
     font-weight: 500;
+    user-select: none;
+    &:hover {
+      cursor: pointer;
+    }
 
     &--expand {
       display: flex;

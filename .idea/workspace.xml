@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bundle/bundle.5f3a1910909f8e735515.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bundle/bundle.5f3a1910909f8e735515.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bundle/imgs/411dd0a4797fe90ff671.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bundle/imgs/82a2ea1f6aa5e4571efc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bundle/imgs/bc41127762cc399a3f8b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/imgs/product-img-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/imgs/product-img-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/imgs/product-img-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/API/productsRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NewGoods/NewGoods.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NewGoods/newGoods.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.3975698cb184a85f5ad2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.3975698cb184a85f5ad2.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Banner/banner.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Banner/banner.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/navigation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/navigation.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PopularGoods/PopularGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopularGoods/PopularGoods.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/Products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +58,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "20.10.0",
     "javascript.nodejs.core.library.typings.version": "20.10.5",
-    "last_opened_file_path": "C:/Users/stadg/OneDrive/Рабочий стол/supplement-store/src/components",
+    "last_opened_file_path": "C:/Users/stadg/OneDrive/Рабочий стол/supplement-store/src/components/NewGoods",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,7 +72,7 @@
     "npm.start.executor": "Run",
     "npm.uninstall.executor": "Run",
     "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "C:\\Users\\stadg\\OneDrive\\Рабочий стол\\Рабочий стол\\ulbi-react-project\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -99,6 +92,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\NewGoods" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -190,8 +184,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.build-prod" />
+        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.clear" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.bind" />
@@ -231,7 +225,7 @@
       <workItem from="1703342963581" duration="16647000" />
       <workItem from="1703493812990" duration="26556000" />
       <workItem from="1703539938114" duration="110000" />
-      <workItem from="1703540057616" duration="8660000" />
+      <workItem from="1703540057616" duration="13528000" />
     </task>
     <servers />
   </component>

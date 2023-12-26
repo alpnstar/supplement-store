@@ -124,6 +124,9 @@
       font-weight: 600;
       border-radius: 8px;
       background: #FFA800;
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 }
