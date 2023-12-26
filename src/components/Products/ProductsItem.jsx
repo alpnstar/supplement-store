@@ -14,7 +14,7 @@ const ProductsItem = ({data}) => {
                         className={`products__item-availability ${data.availability ? '' : 'products__item-availability--false'}`}>{data.availability ? 'В наличии' : 'Нет в наличии'}</span>
                     <div className="products__item-reviews">
                         <img src={starImg} alt=""/>
-                        {data.reviews.rating} ({data.reviews.total} отзывов)
+                        {data.reviews.rating}/5 ({data.reviews.total} отзывов)
                     </div>
                 </div>
                 <div className="products__item-block-2">

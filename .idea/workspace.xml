@@ -5,18 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bundle/bundle.5f3a1910909f8e735515.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bundle/bundle.5f3a1910909f8e735515.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bundle/imgs/411dd0a4797fe90ff671.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bundle/imgs/82a2ea1f6aa5e4571efc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bundle/imgs/bc41127762cc399a3f8b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/imgs/product-img-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/imgs/product-img-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/imgs/product-img-4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.c48f83e5f7e59dd59474.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.c48f83e5f7e59dd59474.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/imgs/01ceb23d61e2ace67ed8.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/imgs/1b67c280819dd544b418.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/imgs/2f45dd5bde9ffa5a5e04.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/imgs/5f7941832a634cd64512.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/bundle.3975698cb184a85f5ad2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/bundle.3975698cb184a85f5ad2.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PopularGoods/PopularGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopularGoods/PopularGoods.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/Products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,10 +190,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.build-prod" />
         <item itemvalue="npm.clear" />
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.bind" />
       </list>
     </recent_temporary>
@@ -226,7 +231,7 @@
       <workItem from="1703342963581" duration="16647000" />
       <workItem from="1703493812990" duration="26556000" />
       <workItem from="1703539938114" duration="110000" />
-      <workItem from="1703540057616" duration="1649000" />
+      <workItem from="1703540057616" duration="8660000" />
     </task>
     <servers />
   </component>
