@@ -1,4 +1,6 @@
 import React from 'react';
+import starImg from "../../../public/imgs/star.svg";
+import resetImg from "../../../public/imgs/reset.svg";
 
 const ProductsItem = ({data}) => {
     return (
@@ -11,7 +13,7 @@ const ProductsItem = ({data}) => {
                     <span
                         className={`products__item-availability ${data.availability ? '' : 'products__item-availability--false'}`}>{data.availability ? 'В наличии' : 'Нет в наличии'}</span>
                     <div className="products__item-reviews">
-                        <img src="./images/star.svg" alt=""/>
+                        <img src={starImg} alt=""/>
                         {data.reviews.rating} ({data.reviews.total} отзывов)
                     </div>
                 </div>
@@ -24,7 +26,7 @@ const ProductsItem = ({data}) => {
                     </div>
                     <div className="products__item-right-content">
                             <span className="products__item-wholesale">
-                                <img src="./images/reset.svg" alt=""/>
+                                <img src={resetImg} alt=""/>
                                 Oпт
                             </span>
                     </div>
