@@ -6,16 +6,16 @@ import Banner from "./components/Home/Banner/Banner";
 import PopularGoods from "./components/Home/PopularGoods/PopularGoods";
 import NewGoods from "./components/Home/NewGoods/NewGoods";
 import productsRequest from "./API/productsRequest";
-import NewsAndPromotionsList from "./components/NewsAndPromotions/NewsAndPromotionsList";
 import HomeNews from "./components/Home/HomeNews/HomeNews";
+import LastReviews from "./components/Home/LastReviews/LastReviews";
 
 const App = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetching();
+        productFetch();
     }, [])
 
-    async function fetching() {
+    async function productFetch() {
         const response = await productsRequest.getAll();
         setProducts(response);
     }
@@ -27,6 +27,7 @@ const App = () => {
             <PopularGoods data={products}/>
             <NewGoods data={products}/>
             <HomeNews/>
+            <LastReviews/>
         </div>
     )
 }

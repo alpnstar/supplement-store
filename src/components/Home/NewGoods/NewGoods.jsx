@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import ProductsList from "../../Products/ProductsList";
+import sortByDate from "../../../utils/sortByDate";
 
 const NewGoods = ({data}) => {
     const [sortedByDate, setSortedByDate] = useState([])
     useEffect(() => {
-        setSortedByDate(sortByDate(data));
+        setSortedByDate(sortByDate.recent(data, 'publicationName'));
     }, [data]);
 
-    function sortByDate(data) {
+   /* function sortByDate(data) {
         const sorted = [...data];
         sorted.sort((a, b) => {
             if (a.publicationDate > b.publicationDate) {
@@ -18,7 +19,8 @@ const NewGoods = ({data}) => {
             return 0;
         })
         return sorted;
-    }
+    }*/
+
 
     return (
         <article className='newGoods'>
