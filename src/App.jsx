@@ -8,6 +8,7 @@ import NewGoods from "./components/Home/NewGoods/NewGoods";
 import productsRequest from "./API/productsRequest";
 import HomeNews from "./components/Home/HomeNews/HomeNews";
 import LastReviews from "./components/Home/LastReviews/LastReviews";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -28,6 +29,7 @@ const App = () => {
             <NewGoods data={products}/>
             <HomeNews/>
             <LastReviews/>
+            <Footer/>
         </div>
     )
 }

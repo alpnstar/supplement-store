@@ -1,6 +1,7 @@
 export default class NewsRequest {
     static async getAll() {
         // const response = await axios.get('');
+
         const response = [
             {
                 id: 1,
