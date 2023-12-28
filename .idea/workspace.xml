@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Footer/Footer.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Footer/footer.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/reviewsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/reviewsRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/navigation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/navigation.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +65,7 @@
     "npm.start.executor": "Run",
     "npm.uninstall.executor": "Run",
     "settings.editor.selected.configurable": "extract.css.actions.ExtractCSSConfigurable",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "C:\\Users\\stadg\\OneDrive\\Рабочий стол\\supplement-store\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -224,7 +222,7 @@
       <workItem from="1703342963581" duration="16647000" />
       <workItem from="1703493812990" duration="26556000" />
       <workItem from="1703539938114" duration="110000" />
-      <workItem from="1703540057616" duration="33865000" />
+      <workItem from="1703540057616" duration="42539000" />
     </task>
     <servers />
   </component>
