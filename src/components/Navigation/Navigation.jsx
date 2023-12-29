@@ -38,6 +38,7 @@ const Navigation = ({context}) => {
                                                 <div className="nav__context-item-wrapper">
                                                     Здоровье
                                                     <img src={expandSvg} alt=""/>
+
                                                 </div>
                                             </li>
                                             <li className="nav__context-item">
