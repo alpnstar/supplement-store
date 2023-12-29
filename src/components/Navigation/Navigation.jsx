@@ -3,134 +3,118 @@ import './navigation.scss';
 import expandSvg from '../../../public/imgs/expand.svg'
 
 const Navigation = ({context}) => {
-    const [firstContext, setFirstContext] = useState(false);
-    const [secondContext, setSecondContext] = useState(false);
-    const [thirdContext, setThirdContext] = useState(false);
 
-    const targetRef = useRef(null);
-    const [isClickedOutside, setIsClickedOutside] = useState(false);
+    const [contexts, setContexts] = useState(Array(9).fill(false));
 
-    const handleClickOutside = (e) => {
-        if (targetRef.current && !targetRef.current.contains(e.target)) {
-           handleSetFirstContextFalse();
+    function makeContextHandle(pos) {
+        return function () {
+            setContexts((prevState) => {
+                const updated = [...prevState];
+                updated[pos] = !updated[pos];
+                return updated;
+            })
         }
-    };
-
-    useEffect(() => {
-        document.addEventListener('click', handleClickOutside)
-    },[])
-    function handleSetFirstContextTrue() {
-        setFirstContext(true);
-    }
-    function handleSetFirstContextFalse() {
-        setFirstContext(false);
-    }
-
-    function handleSetSecondContext() {
-        setSecondContext(!secondContext);
-    }
-
-    function handleSetThirdContext() {
-        setThirdContext(!thirdContext);
     }
     return (
         <nav className="nav">
             <div className="nav__wrapper container">
                 <ul className="nav__list">
                     <li
-                        ref={targetRef}
-                        onMouseEnter={handleSetFirstContextTrue}
-
-                        className={`nav__list-item nav__list-item--expand ${firstContext && `nav__list-item--expand--active`}`}>
+                        onMouseEnter={makeContextHandle(0)}
+                        onMouseLeave={makeContextHandle(0)}
+                        className={`nav__list-item nav__list-item--expand ${contexts[0] && `nav__list-item--expand--active`}`}>
                         <div
                             className="nav__list-item-wrapper">
                             Каталог продукции
                             <img className="nav__list-item-expand-img" src={expandSvg} alt=""/>
                         </div>
                         <div className="wrapper">
-                            {firstContext &&
+                            {contexts[0] &&
                                 <div
-                                    onMouseLeave={handleSetFirstContextFalse}
                                     className="nav__context nav__context--first">
-                                    <ul>
-                                        <li className="nav__context-item">
-                                            <div className="nav__context-item-wrapper">
-                                                Здоровье
-                                                <img src={expandSvg} alt=""/>
-                                            </div>
-                                            {secondContext && <div className="nav__context nav__context--second">
-                                                <ul>
-                                                    <li className="nav__context-item">
-                                                        <div className="nav__context-item-wrapper">
-                                                            Уход
-                                                            <img src={expandSvg} alt=""/>
-                                                        </div>
-                                                    </li>
-                                                    <li className="nav__context-item">
-                                                        <div className="nav__context-item-wrapper">
-                                                            Макияж
-                                                            <img src={expandSvg} alt=""/>
-                                                        </div>
-                                                    </li>
-                                                    <li className="nav__context-item">
-                                                        <div className="nav__context-item-wrapper">
-                                                            Парфюм
-                                                            <img src={expandSvg} alt=""/>
-                                                        </div>
-                                                    </li>
-                                                    <li className="nav__context-item">
-                                                        <div
-                                                            className="nav__context-item-wrapper"
-                                                            onMouseEnter={handleSetThirdContext}
-                                                            onMouseLeave={handleSetThirdContext}>
-                                                            Для детей
-                                                            <img src={expandSvg} alt=""/>
-                                                        </div>
-                                                        {thirdContext &&
-                                                            <div className="nav__context nav__context--third">
-                                                                <ul>
-                                                                    <li className="nav__context-item">
-                                                                        <div className="nav__context-item-wrapper">
-                                                                            Шампуни
-                                                                        </div>
-                                                                    </li>
-                                                                    <li className="nav__context-item">
-                                                                        <div className="nav__context-item-wrapper">
-                                                                            Гели для душа
-                                                                        </div>
-                                                                    </li>
-                                                                    <li className="nav__context-item">
-                                                                        <div className="nav__context-item-wrapper">
-                                                                            Наборы
-                                                                        </div>
-                                                                    </li>
+                                    <div className="nav__context-wrapper">
+                                        <ul>
+                                            <li className="nav__context-item">
+                                                <div className="nav__context-item-wrapper">
+                                                    Здоровье
+                                                    <img src={expandSvg} alt=""/>
+                                                </div>
+                                            </li>
+                                            <li className="nav__context-item">
+                                                <div className="nav__context-item-wrapper">
+                                                    Красота
+                                                    <img src={expandSvg} alt=""/>
+                                                </div>
+                                            </li>
+                                            <li
+                                                onMouseEnter={makeContextHandle(1)}
+                                                onMouseLeave={makeContextHandle(1)}
+                                                className="nav__context-item">
+                                                <div
+                                                    className="nav__context-item-wrapper">
+                                                    Парфюм
+                                                    <img src={expandSvg} alt=""/>
+                                                </div>
+                                                {contexts[1] && <div className="nav__context nav__context--second">
+                                                    <ul>
+                                                        <li className="nav__context-item">
+                                                            <div className="nav__context-item-wrapper">
+                                                                Уход
+                                                                <img src={expandSvg} alt=""/>
+                                                            </div>
+                                                        </li>
+                                                        <li className="nav__context-item">
+                                                            <div className="nav__context-item-wrapper">
+                                                                Макияж
+                                                                <img src={expandSvg} alt=""/>
+                                                            </div>
+                                                        </li>
+                                                        <li className="nav__context-item">
+                                                            <div className="nav__context-item-wrapper">
+                                                                Парфюм
+                                                                <img src={expandSvg} alt=""/>
+                                                            </div>
+                                                        </li>
+                                                        <li
+                                                            onMouseEnter={makeContextHandle(2)}
+                                                            onMouseLeave={makeContextHandle(2)}
+                                                            className="nav__context-item">
+                                                            <div
+                                                                className="nav__context-item-wrapper"
+                                                            >
+                                                                Для детей
+                                                                <img src={expandSvg} alt=""/>
+                                                            </div>
+                                                            {contexts[2] &&
+                                                                <div
+                                                                    className="nav__context nav__context--third">
+                                                                    <ul>
+                                                                        <li className="nav__context-item">
+                                                                            <div className="nav__context-item-wrapper">
+                                                                                Шампуни
+                                                                            </div>
+                                                                        </li>
+                                                                        <li className="nav__context-item">
+                                                                            <div className="nav__context-item-wrapper">
+                                                                                Гели для душа
+                                                                            </div>
+                                                                        </li>
+                                                                        <li className="nav__context-item">
+                                                                            <div className="nav__context-item-wrapper">
+                                                                                Наборы
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>}
 
-                                                                </ul>
-                                                            </div>}
+                                                        </li>
+                                                    </ul>
+                                                </div>}
 
-                                                    </li>
-                                                </ul>
-                                            </div>}
-                                        </li>
-                                        <li className="nav__context-item">
-                                            <div className="nav__context-item-wrapper">
-                                                Красота
-                                                <img src={expandSvg} alt=""/>
-                                            </div>
-                                        </li>
-                                        <li
-                                            onMouseEnter={handleSetSecondContext}
-                                            onMouseLeave={handleSetSecondContext}
-                                            className="nav__context-item">
+                                            </li>
 
-                                            <div
-                                                className="nav__context-item-wrapper">
-                                                Парфюм
-                                                <img src={expandSvg} alt=""/>
-                                            </div>
-                                        </li>
-
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>}
 
                         </div>
