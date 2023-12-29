@@ -11,6 +11,9 @@ export default class ProductsRequest {
             imgSrc: productImg,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 3.2,
@@ -24,6 +27,9 @@ export default class ProductsRequest {
             imgSrc: product2Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 2.1,
@@ -37,6 +43,9 @@ export default class ProductsRequest {
             imgSrc: product3Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 1.9,
@@ -50,6 +59,9 @@ export default class ProductsRequest {
             imgSrc: product4Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 2,
@@ -63,6 +75,9 @@ export default class ProductsRequest {
             imgSrc: product4Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 2,
@@ -76,6 +91,9 @@ export default class ProductsRequest {
             imgSrc: product4Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 2,
@@ -89,6 +107,9 @@ export default class ProductsRequest {
             imgSrc: product4Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 2,
@@ -102,6 +123,9 @@ export default class ProductsRequest {
             imgSrc: product4Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 2,
@@ -115,6 +139,9 @@ export default class ProductsRequest {
             imgSrc: product4Img,
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            vendorCode: '25634552345',
+            mainCategory: 'Здоровье',
+            secondCategory: '',
             availability: false,
             reviews: {
                 rating: 2,
