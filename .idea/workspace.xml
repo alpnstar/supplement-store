@@ -181,10 +181,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.deploy" />
-        <item itemvalue="npm.build-prod" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.clear" />
+        <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.build-prod" />
         <item itemvalue="npm.bind" />
       </list>
     </recent_temporary>
@@ -222,7 +222,7 @@
       <workItem from="1703342963581" duration="16647000" />
       <workItem from="1703493812990" duration="26556000" />
       <workItem from="1703539938114" duration="110000" />
-      <workItem from="1703540057616" duration="42539000" />
+      <workItem from="1703540057616" duration="45870000" />
     </task>
     <servers />
   </component>
