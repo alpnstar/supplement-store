@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from "../Navigation/Navigation";
+import Nav from "../Nav/Nav";
 import './footer.scss';
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
                     </span>
                 </div>
                 <div className="footer__right-content">
-                    <Navigation/>
+                    <Nav/>
                 </div>
             </div>
         </footer>

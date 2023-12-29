@@ -1,8 +1,17 @@
-import React, {useEffect, useRef, useState} from 'react';
-import './navigation.scss';
+import React, {useState} from 'react';
+import './nav.scss';
 import expandSvg from '../../../public/imgs/expand.svg'
+import {useNavigate} from "react-router";
 
-const Navigation = ({context}) => {
+const Nav = ({context}) => {
+    const navigate = useNavigate();
+
+    function makeNavigateHandle(param) {
+        return function () {
+            navigate(param);
+        }
+    }
+
 
     const [contexts, setContexts] = useState(Array(9).fill(false));
 
@@ -35,14 +44,18 @@ const Navigation = ({context}) => {
                                     <div className="nav__context-wrapper">
                                         <ul>
                                             <li className="nav__context-item">
-                                                <div className="nav__context-item-wrapper">
+                                                <div
+                                                    onClick={makeNavigateHandle('/catalog/zdorove')}
+                                                    className="nav__context-item-wrapper">
                                                     Здоровье
                                                     <img src={expandSvg} alt=""/>
 
                                                 </div>
                                             </li>
                                             <li className="nav__context-item">
-                                                <div className="nav__context-item-wrapper">
+                                                <div
+                                                    onClick={makeNavigateHandle('/catalog/krasota')}
+                                                    className="nav__context-item-wrapper">
                                                     Красота
                                                     <img src={expandSvg} alt=""/>
                                                 </div>
@@ -52,6 +65,7 @@ const Navigation = ({context}) => {
                                                 onMouseLeave={makeContextHandle(1)}
                                                 className="nav__context-item">
                                                 <div
+                                                    onClick={makeNavigateHandle('/catalog/parfyum')}
                                                     className="nav__context-item-wrapper">
                                                     Парфюм
                                                     <img src={expandSvg} alt=""/>
@@ -59,19 +73,24 @@ const Navigation = ({context}) => {
                                                 {contexts[1] && <div className="nav__context nav__context--second">
                                                     <ul>
                                                         <li className="nav__context-item">
-                                                            <div className="nav__context-item-wrapper">
-                                                                Уход
+                                                            <div
+                                                                onClick={makeNavigateHandle('/catalog/parfyum/turetskie')}
+                                                                className="nav__context-item-wrapper">
+                                                                Турецкий парфюм
                                                                 <img src={expandSvg} alt=""/>
                                                             </div>
                                                         </li>
                                                         <li className="nav__context-item">
-                                                            <div className="nav__context-item-wrapper">
-                                                                Макияж
+                                                            <div
+                                                                onClick={makeNavigateHandle('/catalog/parfyum/dubayskie')}
+                                                                className="nav__context-item-wrapper">
+                                                                Дубайский парфюм
                                                                 <img src={expandSvg} alt=""/>
                                                             </div>
                                                         </li>
                                                         <li className="nav__context-item">
-                                                            <div className="nav__context-item-wrapper">
+                                                            <div
+                                                                className="nav__context-item-wrapper">
                                                                 Парфюм
                                                                 <img src={expandSvg} alt=""/>
                                                             </div>
@@ -86,28 +105,6 @@ const Navigation = ({context}) => {
                                                                 Для детей
                                                                 <img src={expandSvg} alt=""/>
                                                             </div>
-                                                            {contexts[2] &&
-                                                                <div
-                                                                    className="nav__context nav__context--third">
-                                                                    <ul>
-                                                                        <li className="nav__context-item">
-                                                                            <div className="nav__context-item-wrapper">
-                                                                                Шампуни
-                                                                            </div>
-                                                                        </li>
-                                                                        <li className="nav__context-item">
-                                                                            <div className="nav__context-item-wrapper">
-                                                                                Гели для душа
-                                                                            </div>
-                                                                        </li>
-                                                                        <li className="nav__context-item">
-                                                                            <div className="nav__context-item-wrapper">
-                                                                                Наборы
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>}
-
                                                         </li>
                                                     </ul>
                                                 </div>}
@@ -132,4 +129,4 @@ const Navigation = ({context}) => {
     );
 };
 
-export default Navigation;
+export default Nav;

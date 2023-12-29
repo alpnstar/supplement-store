@@ -5,21 +5,8 @@ import sortByDate from "../../../utils/sortByDate";
 const NewGoods = ({data}) => {
     const [sortedByDate, setSortedByDate] = useState([])
     useEffect(() => {
-        setSortedByDate(sortByDate.recent(data, 'publicationName'));
+        setSortedByDate(sortByDate.recent(data, 'publicationName').splice(0,4));
     }, [data]);
-
-   /* function sortByDate(data) {
-        const sorted = [...data];
-        sorted.sort((a, b) => {
-            if (a.publicationDate > b.publicationDate) {
-                return -1;
-            } else if (a.publicationDate < b.publicationDate) {
-                return 1;
-            }
-            return 0;
-        })
-        return sorted;
-    }*/
 
 
     return (

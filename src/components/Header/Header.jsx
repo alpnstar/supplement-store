@@ -3,12 +3,20 @@ import './header.scss';
 import telegramImg from '../../../public/imgs/telegram.svg';
 import whatsappImg from '../../../public/imgs/whatsapp.svg';
 import cartImg from '../../../public/imgs/cart.svg';
+import {useNavigate} from "react-router";
 
 const Header = () => {
+    const navigation = useNavigate();
+
+    function homeNavigate() {
+        navigation('/home')
+    }
     return (
         <header className='header'>
             <div className="header__wrapper container">
-                <div className="logo header__block-1">
+                <div
+                    onClick={homeNavigate}
+                    className="logo header__block-1">
                     Сайт для Саида
                 </div>
                 <div className="header__block-2">

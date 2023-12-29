@@ -17,14 +17,14 @@ const LastReviews = () => {
         fetchReviews();
     }, []);
     useEffect(() => {
-        setSortedReviews(sortByDate.recent(reviews, 'publicationDate'));
+        setSortedReviews(sortByDate.recent(reviews, 'publicationDate').slice(0,3));
     }, [reviews]);
 
     return (
         <article className="lastReviews">
             <div className="lastReviews__wrapper container">
                 <h2>Последние отзывы</h2>
-                <ReviewsList data={reviews}/>
+                <ReviewsList data={sortedReviews}/>
             </div>
         </article>
     );

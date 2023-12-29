@@ -1,0 +1,38 @@
+.catalog {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__sortParams {
+    border: 2px black solid;
+    border-radius: 16px;
+    flex-shrink: 0;
+    width: 288px;
+    height: 282px;
+  }
+
+  &__block-2 {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+
+  &__block-1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__path {
+    font-weight: 500;
+  }
+
+  &__title-category-main {
+    margin: 16px 0 24px 0;
+  }
+
+
+
+
+}

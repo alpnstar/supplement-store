@@ -58,6 +58,71 @@ export default class ProductsRequest {
             price: '950$',
             prevPrice: '1250$',
             publicationDate: new Date('December 21, 2023 03:24:00')
+        }, {
+            id: 5,
+            imgSrc: product4Img,
+            title: 'ORZAX Ocean B Complex 50 capsules',
+            description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            availability: false,
+            reviews: {
+                rating: 2,
+                total: 2,
+            },
+            price: '950$',
+            prevPrice: '1250$',
+            publicationDate: new Date('December 21, 2023 03:24:00')
+        }, {
+            id: 6,
+            imgSrc: product4Img,
+            title: 'ORZAX Ocean B Complex 50 capsules',
+            description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            availability: false,
+            reviews: {
+                rating: 2,
+                total: 2,
+            },
+            price: '950$',
+            prevPrice: '1250$',
+            publicationDate: new Date('December 21, 2023 03:24:00')
+        }, {
+            id: 7,
+            imgSrc: product4Img,
+            title: 'ORZAX Ocean B Complex 50 capsules',
+            description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            availability: false,
+            reviews: {
+                rating: 2,
+                total: 2,
+            },
+            price: '950$',
+            prevPrice: '1250$',
+            publicationDate: new Date('December 21, 2023 03:24:00')
+        }, {
+            id: 8,
+            imgSrc: product4Img,
+            title: 'ORZAX Ocean B Complex 50 capsules',
+            description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            availability: false,
+            reviews: {
+                rating: 2,
+                total: 2,
+            },
+            price: '950$',
+            prevPrice: '1250$',
+            publicationDate: new Date('December 21, 2023 03:24:00')
+        }, {
+            id: 9,
+            imgSrc: product4Img,
+            title: 'ORZAX Ocean B Complex 50 capsules',
+            description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
+            availability: false,
+            reviews: {
+                rating: 2,
+                total: 2,
+            },
+            price: '950$',
+            prevPrice: '1250$',
+            publicationDate: new Date('December 21, 2023 03:24:00')
         }]
         return response;
     }

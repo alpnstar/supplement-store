@@ -16,7 +16,7 @@ const HomeNews = () => {
         newsFetch();
     }, [])
     useEffect(() => {
-        setSortedNewsAndPromotions(sortByDate.recent(newsAndPromotions, 'publicationDate'))
+        setSortedNewsAndPromotions(sortByDate.recent(newsAndPromotions, 'publicationDate').slice(0,3))
     }, [newsAndPromotions]);
 
     return (
