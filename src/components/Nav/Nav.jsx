@@ -12,7 +12,6 @@ const Nav = ({context}) => {
         }
     }
 
-
     const [contexts, setContexts] = useState(Array(9).fill(false));
 
     function makeContextHandle(pos) {
@@ -85,24 +84,6 @@ const Nav = ({context}) => {
                                                                 onClick={makeNavigateHandle('/catalog/parfyum/dubayskie')}
                                                                 className="nav__context-item-wrapper">
                                                                 Дубайский парфюм
-                                                                <img src={expandSvg} alt=""/>
-                                                            </div>
-                                                        </li>
-                                                        <li className="nav__context-item">
-                                                            <div
-                                                                className="nav__context-item-wrapper">
-                                                                Парфюм
-                                                                <img src={expandSvg} alt=""/>
-                                                            </div>
-                                                        </li>
-                                                        <li
-                                                            onMouseEnter={makeContextHandle(2)}
-                                                            onMouseLeave={makeContextHandle(2)}
-                                                            className="nav__context-item">
-                                                            <div
-                                                                className="nav__context-item-wrapper"
-                                                            >
-                                                                Для детей
                                                                 <img src={expandSvg} alt=""/>
                                                             </div>
                                                         </li>
