@@ -40,42 +40,72 @@
     align-items: baseline;
   }
 
+
   &__params {
     display: flex;
     flex-direction: column;
+    max-width: 288px;
     gap: 24px;
     flex-shrink: 0;
 
-
-    &-block-price {
-    }
-
-    &-setPrice {
-    }
 
     &-element-wrapper {
       display: flex;
       flex-direction: column;
       gap: 8px;
+
     }
 
     &-title {
       font-weight: 500;
     }
 
-    &-input-wrapper {
+    &-inputs-wrapper {
       position: relative;
 
+      input {
+        max-width: 140px;
+        flex-grow: 1;
+      }
+
+      &--setPrice {
+        display: flex;
+        gap: 8px;
+      }
     }
 
     &-input {
       display: block;
       padding: 10px 16px;
       cursor: pointer;
+      font-weight: 500;
       border-radius: 16px;
       border: 1px solid #E0E0E0;
       box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+
+      &--expand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+      }
+
+      &--setPrice {
+        padding-left: 40px;
+      }
     }
+
+    &-expandImg {
+      transform: rotate(0deg);
+      transition: transform 0.2s linear;
+
+      &--active {
+        transform: rotate(180deg);
+        transition: transform 0.2s linear;
+      }
+    }
+
 
     &-input-options {
       position: absolute;
@@ -86,17 +116,41 @@
       background: #FFF;
       z-index: 1;
       box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.15);
+
       li {
         padding: 10px 0;
         cursor: pointer;
         border-bottom: 1px lightgray solid;
+
         &:last-child {
           border: 0;
         }
       }
     }
 
-    &-setPrice {
+    &-input-wrapper {
+      position: relative;
+
+      &:after {
+        color: #B3B3B3;
+        font-weight: 500;
+
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(1):after {
+
+        position: absolute;
+        content: 'От';
+      }
+
+      &:nth-child(2):after {
+
+        position: absolute;
+        content: 'До';
+      }
     }
 
     &-reset {
@@ -106,7 +160,9 @@
       background: #F0F0F0;
     }
 
-  }
-
-
+    }
 }
+
+
+
+

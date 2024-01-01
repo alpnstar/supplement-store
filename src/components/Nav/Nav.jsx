@@ -3,7 +3,7 @@ import './nav.scss';
 import expandSvg from '../../../public/imgs/expand.svg'
 import {useNavigate} from "react-router";
 
-const Nav = ({context}) => {
+const Nav = () => {
     const navigate = useNavigate();
 
     function makeNavigateHandle(param) {
@@ -36,7 +36,6 @@ const Nav = ({context}) => {
                             Каталог продукции
                             <img className="nav__list-item-expand-img" src={expandSvg} alt=""/>
                         </div>
-                        <div className="wrapper">
                             {contexts[0] &&
                                 <div
                                     className="nav__context nav__context--first">
@@ -96,7 +95,6 @@ const Nav = ({context}) => {
                                     </div>
                                 </div>}
 
-                        </div>
                     </li>
 
 
