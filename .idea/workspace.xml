@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bundle/bundle.213433b50e3b2da5f968.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bundle/bundle.213433b50e3b2da5f968.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/categoriesData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bundle/bundle.23b6a8d6cd3b3dd054dd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bundle/bundle.23b6a8d6cd3b3dd054dd.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/API/categoriesRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Nav/NavContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Nav/NavContextItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/bundle.213433b50e3b2da5f968.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/bundle.213433b50e3b2da5f968.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/bundle.dc1113b2fce01e2d8c84.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/bundle.dc1113b2fce01e2d8c84.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bundle/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/productsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/productsRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Nav/nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/nav.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/categoriesData.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Catalog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +117,8 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm run start" />
+      <command value="build-prod" />
+      <command value="deploy" />
       <command value="start" />
     </option>
   </component>

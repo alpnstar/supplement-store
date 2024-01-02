@@ -3,22 +3,17 @@ import ProductsRequest from "../API/productsRequest";
 import expandImg from "../../public/imgs/expand.svg"
 import '../components/Catalog/catalog.scss';
 import ProductsList from "../components/Products/ProductsList";
-import {categoryTemplates, subcategories} from "../data/categoriesData";
 import {useNavigate, useParams} from "react-router";
 
-const Catalog = () => {
+const Catalog = ({path}) => {
     const navigate = useNavigate();
     const params = useParams();
-    const [subcategoriesCurrent, setSubcategoriesCurrent] = useState();
-    useEffect(() => {
-        setSubcategoriesCurrent(paramsLastCategory());
-    });
-
-    function paramsLastCategory() {
-        const values = Object.values(params);
-        return values[values.length - 1];
-
+    const categories = categoriesParser(path);
+    function categoriesParser(data) {
+        const splited = data.split('/');
+        return splited.filter(item => item !== 'catalog' && item !== '')
     }
+
     const [products, setProducts] = useState([]);
 
     const optionsParams1 = ['Популярные', 'Новинки', 'Высокий рейтинг'];
@@ -39,7 +34,7 @@ const Catalog = () => {
             func(prev => !prev);
 
         }
-    };
+    }
 
     function handleOptionSelect(func, option, close) {
         return function () {
@@ -47,7 +42,7 @@ const Catalog = () => {
             close(false);
 
         }
-    };
+    }
     const handleChangePriceParams = (func) => {
         const regex = /^[0-9\b]+$/;
         return function (event) {
@@ -92,16 +87,16 @@ const Catalog = () => {
             <div className="catalog__wrapper container">
                 <div className="catalog__block-1">
                     <span
-                        className="catalog__path">Главная / Каталог продукции{params.category2 ? ' / ' + categoryTemplates[params.category] : ''}</span>
-                    <h2 className="catalog__title-category-main">{categoryTemplates[params.category2] || categoryTemplates[params.category]}</h2>
+                        className="catalog__path">Главная / Каталог продукции{categories.map(item => item && ` / ${item}`)}</span>
+                    <h2 className="catalog__title-category-main">{params.category2 || params.category}</h2>
                     <ul className="catalog__subcategories">
-                        {subcategories[subcategoriesCurrent]
-                            && subcategories[subcategoriesCurrent]
-                                .filter(item => item.title !== subcategoriesCurrent && item)
-                                .map(item2 => <li onClick={() => navigate(item2.path)}
-                                                  className="catalog__subcategories-item"
-                                                  key={item2.title}>{item2.title}</li>)
-                        }
+                        {/*{subcategories[subcategoriesCurrent]*/}
+                        {/*    && subcategories[subcategoriesCurrent]*/}
+                        {/*        .filter(item => item.title !== subcategoriesCurrent && item)*/}
+                        {/*        .map(item2 => <li onClick={() => navigate(item2.path)}*/}
+                        {/*                          className="catalog__subcategories-item"*/}
+                        {/*                          key={item2.title}>{item2.title}</li>)*/}
+                        {/*}*/}
                     </ul>
                 </div>
                 <div className="catalog__block-2">

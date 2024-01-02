@@ -12,7 +12,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -28,7 +28,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -44,7 +44,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -60,7 +60,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -76,7 +76,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -92,7 +92,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -108,7 +108,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -124,7 +124,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
@@ -140,7 +140,7 @@ export default class ProductsRequest {
             title: 'ORZAX Ocean B Complex 50 capsules',
             description: 'OCEAN B-КОМПЛЕКСФормула Ocean B-Complex содержит все компоненты группы витаминов',
             vendorCode: '25634552345',
-            mainCategory: 'Здоровье',
+            mainCategory: 'zdorove',
             secondCategory: '',
             availability: false,
             reviews: {
