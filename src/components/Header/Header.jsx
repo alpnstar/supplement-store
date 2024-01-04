@@ -6,10 +6,10 @@ import cartImg from '../../../public/imgs/cart.svg';
 import {useNavigate} from "react-router";
 
 const Header = () => {
-    const navigation = useNavigate();
+    const navigate = useNavigate();
 
     function homeNavigate() {
-        navigation('/home')
+        navigate('/home')
     }
     return (
         <header className='header'>
@@ -38,10 +38,10 @@ const Header = () => {
                                 <a href="tel:+8800500-50-50">8&nbsp;800&nbsp;500-50-50</a>
                             </span>
                     </div>
-                    <div className="header__cart">
+                    <div onClick={() => navigate('/cart')} className="header__cart">
                         <div className="header__cart-image">
                             <img src={cartImg} alt=""/>
-                            <div className='header__cart-amount'>55</div>
+                            <div className='header__cart-amount'>{'nn'}</div>
                         </div>
                         <div className="header__cart-content">
                                 <span className="header__cart-title">

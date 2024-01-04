@@ -7,6 +7,9 @@
 
   &__path {
     font-weight: 500;
+    &-item {
+      cursor: pointer;
+    }
   }
 
   &__title-category-main {
@@ -96,37 +99,7 @@
       }
     }
 
-    &-expandImg {
-      transform: rotate(0deg);
-      transition: transform 0.2s linear;
 
-      &--active {
-        transform: rotate(180deg);
-        transition: transform 0.2s linear;
-      }
-    }
-
-
-    &-input-options {
-      position: absolute;
-      width: 100%;
-      padding: 0 8px;
-      border-radius: 10px 10px 10px 10px;
-      border: 1px solid #E0E0E0;
-      background: #FFF;
-      z-index: 1;
-      box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.15);
-
-      li {
-        padding: 10px 0;
-        cursor: pointer;
-        border-bottom: 1px lightgray solid;
-
-        &:last-child {
-          border: 0;
-        }
-      }
-    }
 
     &-input-wrapper {
       position: relative;

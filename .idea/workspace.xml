@@ -5,24 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bundle/bundle.23b6a8d6cd3b3dd054dd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bundle/bundle.23b6a8d6cd3b3dd054dd.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/API/categoriesRequest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Nav/NavContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Nav/NavContextItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/imgs/cart-remove.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cart/cart.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Catalog/Block1.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/Select/CustomSelect.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/About.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Contacts.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/NewsAndPromotions.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ShipAndPay.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.213433b50e3b2da5f968.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.213433b50e3b2da5f968.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.dc1113b2fce01e2d8c84.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/bundle.dc1113b2fce01e2d8c84.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bundle/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/bundle/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/productsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/productsRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/categoriesRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/categoriesRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav/nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/nav.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/categoriesData.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Catalog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -53,42 +58,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.App.jsx.executor&quot;: &quot;Run&quot;,
-    &quot;ReactCreateComponentLastSelected&quot;: &quot;arrowFunctionComponent&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.10.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.10.5&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/stadg/OneDrive/Рабочий стол/supplement-store/src/API&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.bind.executor&quot;: &quot;Run&quot;,
-    &quot;npm.build-prod.executor&quot;: &quot;Run&quot;,
-    &quot;npm.clear.executor&quot;: &quot;Run&quot;,
-    &quot;npm.deploy.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start (1).executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;npm.uninstall.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;extract.css.actions.ExtractCSSConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\stadg\\OneDrive\\Рабочий стол\\supplement-store\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JavaScript Debug.index.html.executor": "Run",
+    "Node.js.App.jsx.executor": "Run",
+    "ReactCreateComponentLastSelected": "arrowFunctionComponent",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.nodejs.core.library.configured.version": "20.10.0",
+    "javascript.nodejs.core.library.typings.version": "20.10.5",
+    "last_opened_file_path": "C:/Users/stadg/OneDrive/Рабочий стол/supplement-store/src/components/Cart",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.bind.executor": "Run",
+    "npm.build-prod.executor": "Run",
+    "npm.clear.executor": "Run",
+    "npm.deploy.executor": "Run",
+    "npm.start (1).executor": "Run",
+    "npm.start.executor": "Run",
+    "npm.uninstall.executor": "Run",
+    "settings.editor.selected.configurable": "extract.css.actions.ExtractCSSConfigurable",
+    "ts.external.directory.path": "C:\\Users\\stadg\\OneDrive\\Рабочий стол\\supplement-store\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;SCSS&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "SCSS"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -100,11 +105,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\Cart" />
+      <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\pages" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\API" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\Home" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\NewsAndPromotions" />
-      <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\NewGoods" />
-      <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components" />
@@ -245,6 +250,7 @@
       <workItem from="1703829522409" duration="39000" />
       <workItem from="1703829572593" duration="1804000" />
       <workItem from="1703831410769" duration="32224000" />
+      <workItem from="1704288820221" duration="24261000" />
     </task>
     <servers />
   </component>

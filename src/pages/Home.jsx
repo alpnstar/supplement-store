@@ -20,11 +20,13 @@ const Home = () => {
 
     return (
         <div className="home">
-            <Banner/>
-            <PopularGoods data={products}/>
-            <NewGoods data={products}/>
-            <HomeNews/>
-            <LastReviews/>
+            <div className="home__wrapper">
+                <Banner/>
+                <PopularGoods data={products}/>
+                <NewGoods data={products}/>
+                <HomeNews/>
+                <LastReviews/>
+            </div>
         </div>
     );
 };

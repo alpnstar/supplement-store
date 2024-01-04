@@ -24,6 +24,7 @@ const Nav = () => {
             <div className="nav__wrapper container">
                 <ul className="nav__list">
                     <li
+                        onClick={() => setContextState(false)}
                         onMouseEnter={() => setContextState(true)}
                         onMouseLeave={() => setContextState(false)}
                         className='nav__list-item nav__list-item--expand'>
@@ -36,10 +37,11 @@ const Nav = () => {
                     </li>
 
 
-                    <li className="nav__list-item">Доставка и оплата</li>
-                    <li className="nav__list-item">Новости и акции</li>
-                    <li className="nav__list-item">О магазине</li>
-                    <li className="nav__list-item">Контакты</li>
+                    <li className="nav__list-item" onClick={() => navigate('/dostavka-i-oplata')}>Доставка и оплата
+                    </li>
+                    <li className="nav__list-item" onClick={() => navigate('/novosti-i-akcii')}>Новости и акции</li>
+                    <li className="nav__list-item" onClick={() => navigate('/o-magazine')}>О магазине</li>
+                    <li className="nav__list-item" onClick={() => navigate('/contacti')}>Контакты</li>
                 </ul>
             </div>
         </nav>
