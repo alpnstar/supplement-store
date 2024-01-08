@@ -5,28 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/imgs/cart-remove.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Cart/cart.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Catalog/Block1.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UI/Select/CustomSelect.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/About.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Contacts.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NewsAndPromotions.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShipAndPay.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/categoriesRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/categoriesRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/productsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/productsRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cart/cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart/cart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/NewGoods/NewGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/NewGoods/NewGoods.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/PopularGoods/PopularGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/PopularGoods/PopularGoods.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Catalog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +78,7 @@
     "npm.start (1).executor": "Run",
     "npm.start.executor": "Run",
     "npm.uninstall.executor": "Run",
-    "settings.editor.selected.configurable": "extract.css.actions.ExtractCSSConfigurable",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "C:\\Users\\stadg\\OneDrive\\Рабочий стол\\supplement-store\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -122,12 +116,12 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm run start" />
+      <command value="start" />
       <command value="build-prod" />
       <command value="deploy" />
-      <command value="start" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.deploy">
     <configuration default="true" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -204,9 +198,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.deploy" />
         <item itemvalue="npm.build-prod" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.clear" />
         <item itemvalue="npm.bind" />
       </list>
@@ -250,7 +244,9 @@
       <workItem from="1703829522409" duration="39000" />
       <workItem from="1703829572593" duration="1804000" />
       <workItem from="1703831410769" duration="32224000" />
-      <workItem from="1704288820221" duration="24261000" />
+      <workItem from="1704288820221" duration="45146000" />
+      <workItem from="1704629528575" duration="1124000" />
+      <workItem from="1704640500590" duration="9744000" />
     </task>
     <servers />
   </component>

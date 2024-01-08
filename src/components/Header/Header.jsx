@@ -5,12 +5,13 @@ import whatsappImg from '../../../public/imgs/whatsapp.svg';
 import cartImg from '../../../public/imgs/cart.svg';
 import {useNavigate} from "react-router";
 
-const Header = () => {
+const Header = ({cartTotalPrice, cartTotalCount}) => {
     const navigate = useNavigate();
 
     function homeNavigate() {
         navigate('/home')
     }
+
     return (
         <header className='header'>
             <div className="header__wrapper container">
@@ -41,14 +42,14 @@ const Header = () => {
                     <div onClick={() => navigate('/cart')} className="header__cart">
                         <div className="header__cart-image">
                             <img src={cartImg} alt=""/>
-                            <div className='header__cart-amount'>{'nn'}</div>
+                            <div className='header__cart-amount'>{cartTotalCount}</div>
                         </div>
                         <div className="header__cart-content">
                                 <span className="header__cart-title">
                                     Корзина
                                 </span>
                             <span className="header__cart-sum">
-                                    5.000$
+                                {cartTotalPrice + ' ₽'}
                                 </span>
                         </div>
                     </div>

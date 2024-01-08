@@ -16,12 +16,15 @@ import Cart from "./pages/Cart";
 const App = () => {
     const location = useLocation();
     const navigate = useNavigate();
+
+    const [cartTotalPrice, setCartTotalPrice] = useState(localStorage.getItem('cartTotalPrice') || 0);
+    const [cartTotalCount, setCartTotalCount] = useState(localStorage.getItem('cartTotalCount') || 0);
+
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         location.pathname === '/' && navigate('/home');
         categoriesFetch();
     }, []);
-
     async function categoriesFetch() {
         const response = await categoriesRequest();
         setCategories(response);
@@ -35,7 +38,9 @@ const App = () => {
                 <Route key={path}>
                     <Route
                         path={path}
-                        element={<Catalog path={path} category={category}/>} // Замените на ваш компонент
+                        element={<Catalog
+                            setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
+                            path={path} category={category}/>} // Замените на ваш компонент
                     >
                         {/* Если есть подкатегории, вызываем рекурсивно */}
                     </Route>
@@ -48,17 +53,22 @@ const App = () => {
     };
     return (
         <div className='app'>
-            <Header/>
+            <Header cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
             <Nav/>
             <Routes>
-                <Route path="/home" element={<Home/>}/>
+                <Route path="/home"
+                       element={<Home setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}/>}/>
                 {renderRoutes(categories)}
-                <Route path = "/catalog/*" element={<h1>Категория не найдена</h1>}/>
+                <Route path="/catalog/*" element={<h1>Категория не найдена</h1>}/>
                 <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
                 <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>
                 <Route path="/o-magazine" element={<About/>}/>
                 <Route path="/contacti" element={<Contacts/>}/>
-                <Route path="/cart" element={<Cart/>}/>
+                <Route path="/cart"
+                       element={<Cart
+                           cartTotalPrice={cartTotalPrice}
+                           setCartTotalCount={setCartTotalCount}
+                           setCartTotalPrice={setCartTotalPrice}/>}/>
                 <Route path="/*" element={<h1>Ошибка</h1>}/>
             </Routes>
             <Footer/>

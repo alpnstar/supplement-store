@@ -4,8 +4,8 @@ import {useNavigate} from "react-router";
 import ProductsRequest from "../../API/productsRequest";
 import CustomSelect from "../UI/Select/CustomSelect";
 
-const Block2 = ({category}) => {
-    const navigate = useNavigate();
+const Block2 = ({ setCartTotalPrice, setCartTotalCount}) => {
+
     const [products, setProducts] = useState([]);
 
     const optionsParams1 = ['Популярные', 'Новинки', 'Высокий рейтинг'];
@@ -14,8 +14,7 @@ const Block2 = ({category}) => {
     const [paramsSelected1, setParamsSelected1] = useState(optionsParams1[0]);
     const [paramsSelected2, setParamsSelected2] = useState(optionsParams2[0]);
 
-    const [paramsShow1, setParamsShow1] = useState(false);
-    const [paramsShow2, setParamsShow2] = useState(false);
+
 
     const [startPrice, setStartPrice] = useState('');
     const [endPrice, setEndPrice] = useState('');
@@ -102,7 +101,10 @@ const Block2 = ({category}) => {
                 paramsSelected1={paramsSelected1}
                 paramsSelected2={paramsSelected2}
                 startPrice={startPrice}
-                endPrice={endPrice}/>
+                endPrice={endPrice}
+                setCartTotalCount ={setCartTotalCount}
+                setCartTotalPrice={setCartTotalPrice}
+            />
         </div>
     );
 };

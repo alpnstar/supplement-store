@@ -9,12 +9,14 @@
   &__cart-content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 40px;
     flex-grow: 1.4;
   }
 
   &__goods-list {
-
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   &__goods-item {
@@ -76,10 +78,19 @@
     cursor: pointer;
   }
 
+  &__totalPrice {
+    align-self: flex-end;
+  }
   &__form {
     flex-grow: 1;
-
+    max-width: 344px;
     form {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    &-wrapper {
       display: flex;
       flex-direction: column;
       gap: 24px;

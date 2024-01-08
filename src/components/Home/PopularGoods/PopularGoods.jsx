@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './popularGoods.scss';
 import ProductsList from "../../Products/ProductsList";
 
-const PopularGoods = ({data}) => {
+const PopularGoods = ({data,setCartTotalPrice, setCartTotalCount }) => {
     const [productsSortedByRating, setProductsSortedByRating] = useState([]);
 
     function sortGoods(data) {
@@ -24,7 +24,7 @@ const PopularGoods = ({data}) => {
         <article className="popularGoods">
             <div className="popularGoods__wrapper container">
                 <h2>Популярные товары</h2>
-                <ProductsList data={productsSortedByRating}/>
+                <ProductsList setCartTotalCount={setCartTotalCount} setCartTotalPrice ={setCartTotalPrice } data={productsSortedByRating}/>
             </div>
         </article>
     );

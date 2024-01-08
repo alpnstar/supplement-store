@@ -19,8 +19,8 @@ export default class ProductsRequest {
                 rating: 3.2,
                 total: 1,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 5, 2023 03:24:00')
         }, {
             id: 2,
@@ -35,8 +35,8 @@ export default class ProductsRequest {
                 rating: 2.1,
                 total: 2,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 1, 2023 03:24:00')
         }, {
             id: 3,
@@ -51,8 +51,8 @@ export default class ProductsRequest {
                 rating: 1.9,
                 total: 6,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 29, 2023 03:24:00')
         }, {
             id: 4,
@@ -67,8 +67,8 @@ export default class ProductsRequest {
                 rating: 2,
                 total: 2,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 21, 2023 03:24:00')
         }, {
             id: 5,
@@ -83,8 +83,8 @@ export default class ProductsRequest {
                 rating: 2,
                 total: 2,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 21, 2023 03:24:00')
         }, {
             id: 6,
@@ -99,8 +99,8 @@ export default class ProductsRequest {
                 rating: 2,
                 total: 2,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 21, 2023 03:24:00')
         }, {
             id: 7,
@@ -115,8 +115,8 @@ export default class ProductsRequest {
                 rating: 2,
                 total: 2,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 21, 2023 03:24:00')
         }, {
             id: 8,
@@ -131,8 +131,8 @@ export default class ProductsRequest {
                 rating: 2,
                 total: 2,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 1250,
+            prevPrice: 1250,
             publicationDate: new Date('December 21, 2023 03:24:00')
         }, {
             id: 9,
@@ -147,8 +147,8 @@ export default class ProductsRequest {
                 rating: 2,
                 total: 2,
             },
-            price: '950$',
-            prevPrice: '1250$',
+            price: 950,
+            prevPrice: 1250,
             publicationDate: new Date('December 21, 2023 03:24:00')
         }]
         return response;

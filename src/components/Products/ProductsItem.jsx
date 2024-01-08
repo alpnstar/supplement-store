@@ -2,7 +2,35 @@ import React from 'react';
 import starImg from "../../../public/imgs/star.svg";
 import resetImg from "../../../public/imgs/reset.svg";
 
-const ProductsItem = ({data}) => {
+const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
+
+    function addToCart(PurchaseType) {
+        !localStorage.getItem('cartElements')
+        && localStorage.setItem('cartElements', '[]');
+        const cartItems = JSON.parse(localStorage.getItem('cartElements'));
+        const item = {
+            product: {...data},
+            details: {
+                count: 1,
+                PurchaseType: PurchaseType,
+            }
+        }
+        cartItems.push(item);
+        localStorage.setItem('cartElements', JSON.stringify(cartItems));
+
+        const getPrice = localStorage.getItem('cartTotalPrice');
+        !getPrice && localStorage.setItem('cartTotalPrice', '0');
+        let parsedPrice = JSON.parse(getPrice);
+        parsedPrice = +parsedPrice +data.price;
+        setCartTotalPrice(parsedPrice);
+        localStorage.setItem('cartTotalPrice', parsedPrice);
+
+        setCartTotalCount(prev => {
+            const newValue = +prev + 1;
+            localStorage.setItem('cartTotalCount', newValue);
+            return newValue;
+        });
+    }
     return (
         <article className="products__item">
             <div className="products__item-img-wrapper">
@@ -25,7 +53,9 @@ const ProductsItem = ({data}) => {
                         </div>
                     </div>
                     <div className="products__item-right-content">
-                            <span className="products__item-wholesale">
+                            <span onClick={() => {
+                                addToCart('bulk');
+                            }} className="products__item-wholesale">
                                 <img src={resetImg} alt=""/>
                                 Oпт
                             </span>
@@ -37,7 +67,9 @@ const ProductsItem = ({data}) => {
                     <p className="products__item-description">{data.description}</p>
                 </div>
                 <div className="products__item-push-cart-button">
-                    <button>
+                    <button onClick={() => {
+                        addToCart('retail');
+                    }}>
                         Добавить в корзину
                     </button>
                 </div>

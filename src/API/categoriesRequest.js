@@ -1,4 +1,15 @@
 export default function () {
+    let a = {
+        title: 'Здоровье',
+        path: '/catalog/zdorove',
+        subCategories: [
+            {
+                title: 'Турецкие витамины/бады',
+                path: '/catalog/zdorove/turetskie-vitaminy',
+                prev: [{title: 'Здоровье', path: '/catalog/zdorove'}],
+            }]
+    }
+
     return [
         {
             title: 'Здоровье',

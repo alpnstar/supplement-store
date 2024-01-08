@@ -7,7 +7,7 @@ import HomeNews from "../components/Home/HomeNews/HomeNews";
 import LastReviews from "../components/Home/LastReviews/LastReviews";
 import productsRequest from "../API/productsRequest";
 
-const Home = () => {
+const Home = ({setCartTotalPrice, setCartTotalCount}) => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         productFetch();
@@ -22,8 +22,9 @@ const Home = () => {
         <div className="home">
             <div className="home__wrapper">
                 <Banner/>
-                <PopularGoods data={products}/>
-                <NewGoods data={products}/>
+                <PopularGoods setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
+                              data={products}/>
+                <NewGoods setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice} data={products}/>
                 <HomeNews/>
                 <LastReviews/>
             </div>
