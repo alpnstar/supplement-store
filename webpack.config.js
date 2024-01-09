@@ -12,7 +12,7 @@ module.exports = {
     devtool,
     target,
 
-    entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.jsx')],
+    entry: ['@babel/polyfill', path.resolve(__dirname, './src/Index.jsx')],
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },

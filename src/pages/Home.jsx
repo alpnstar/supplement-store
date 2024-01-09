@@ -7,16 +7,7 @@ import HomeNews from "../components/Home/HomeNews/HomeNews";
 import LastReviews from "../components/Home/LastReviews/LastReviews";
 import productsRequest from "../API/productsRequest";
 
-const Home = ({setCartTotalPrice, setCartTotalCount}) => {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        productFetch();
-    }, [])
-
-    async function productFetch() {
-        const response = await productsRequest.getAll();
-        setProducts(response);
-    }
+const Home = ({products, setCartTotalPrice, setCartTotalCount}) => {
 
     return (
         <div className="home">

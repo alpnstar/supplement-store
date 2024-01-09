@@ -4,16 +4,13 @@ import {useNavigate} from "react-router";
 import ProductsRequest from "../../API/productsRequest";
 import CustomSelect from "../UI/Select/CustomSelect";
 
-const Block2 = ({ setCartTotalPrice, setCartTotalCount}) => {
-
-    const [products, setProducts] = useState([]);
+const Block2 = ({products, setCartTotalPrice, setCartTotalCount}) => {
 
     const optionsParams1 = ['Популярные', 'Новинки', 'Высокий рейтинг'];
     const optionsParams2 = ['Выберите бренд', 'Orzax Ocean B'];
 
     const [paramsSelected1, setParamsSelected1] = useState(optionsParams1[0]);
     const [paramsSelected2, setParamsSelected2] = useState(optionsParams2[0]);
-
 
 
     const [startPrice, setStartPrice] = useState('');
@@ -49,14 +46,6 @@ const Block2 = ({ setCartTotalPrice, setCartTotalCount}) => {
         setEndPrice('');
     }
 
-    async function fetchProducts() {
-        const data = await ProductsRequest.getAll();
-        setProducts(data);
-    }
-
-    useEffect(() => {
-        fetchProducts();
-    }, []);
 
     return (
         <div className="catalog__block-2">
@@ -102,7 +91,7 @@ const Block2 = ({ setCartTotalPrice, setCartTotalCount}) => {
                 paramsSelected2={paramsSelected2}
                 startPrice={startPrice}
                 endPrice={endPrice}
-                setCartTotalCount ={setCartTotalCount}
+                setCartTotalCount={setCartTotalCount}
                 setCartTotalPrice={setCartTotalPrice}
             />
         </div>

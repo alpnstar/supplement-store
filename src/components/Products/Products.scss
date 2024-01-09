@@ -16,8 +16,10 @@
 
       font-size: 12px;
       font-weight: 600;
-      &--false {
+      &--sold-out {
         color: red;
+      }&--coming-soon {
+        color: orange;
       }
     }
 
@@ -40,6 +42,7 @@
   }
 
   &__item-content {
+    width: 100%;
   }
   &__item-block-1 {
     display: flex;
@@ -105,6 +108,7 @@
   }
 
   &__item-description {
+    height: 42px;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 6px 0 24px 0;

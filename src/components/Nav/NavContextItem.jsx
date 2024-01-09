@@ -19,12 +19,13 @@ const NavContextItem = ({data}) => {
             onMouseLeave={() => setState(false)}
             className="nav__context-item">
             <div
-                onClick={data.path && makeNavigateHandle(data.path)}
+                onClick={data.attributes.path && makeNavigateHandle(data.attributes.path)}
                 className="nav__context-item-wrapper">
-                {data.title}
-                {data.subCategories && <img src={expandSvg} alt=""/>}
+                {data.attributes.name}
+                {data.attributes.subCategories.length !== 0 && <img src={expandSvg} alt=""/>}
             </div>
-            {data.subCategories && <NavContext key={Math.random()} state={state} data={data.subCategories}/>
+            {data.attributes.subCategories.length != 0 &&
+                <NavContext state={state} categories={data.attributes.subCategories}/>
             }
         </li>
     )

@@ -5,22 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/API/categoriesRequest2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/categoriesRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/categoriesRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/productsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/productsRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Cart/cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart/cart.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/NewGoods/NewGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/NewGoods/NewGoods.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/PopularGoods/PopularGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/PopularGoods/PopularGoods.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Nav/NavContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/NavContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Nav/NavContextItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/NavContextItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/Products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Catalog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +31,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file:///app/share/jetbrains-flatpak-wrapper/first_run.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -64,8 +68,8 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "20.10.0",
-    "javascript.nodejs.core.library.typings.version": "20.10.5",
-    "last_opened_file_path": "C:/Users/stadg/OneDrive/Рабочий стол/supplement-store/src/components/Cart",
+    "javascript.nodejs.core.library.typings.version": "20.10.8",
+    "last_opened_file_path": "/home/alpnstar/Рабочий стол/supplement-store",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,7 +83,7 @@
     "npm.start.executor": "Run",
     "npm.uninstall.executor": "Run",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "C:\\Users\\stadg\\OneDrive\\Рабочий стол\\supplement-store\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "/home/alpnstar/Рабочий стол/supplement-store/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -119,9 +123,10 @@
       <command value="start" />
       <command value="build-prod" />
       <command value="deploy" />
+      <command value="clear" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.deploy">
+  <component name="RunManager" selected="npm.start">
     <configuration default="true" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -198,9 +203,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.deploy" />
         <item itemvalue="npm.build-prod" />
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.clear" />
         <item itemvalue="npm.bind" />
       </list>
@@ -247,6 +252,19 @@
       <workItem from="1704288820221" duration="45146000" />
       <workItem from="1704629528575" duration="1124000" />
       <workItem from="1704640500590" duration="9744000" />
+      <workItem from="1704741096402" duration="326000" />
+      <workItem from="1704741436880" duration="850000" />
+      <workItem from="1704742299224" duration="133000" />
+      <workItem from="1704742443669" duration="333000" />
+      <workItem from="1704742785639" duration="136000" />
+      <workItem from="1704742941849" duration="181000" />
+      <workItem from="1704743405545" duration="1179000" />
+      <workItem from="1704744665224" duration="16420000" />
+      <workItem from="1704815064781" duration="645000" />
+      <workItem from="1704820963705" duration="43000" />
+      <workItem from="1704821042437" duration="49000" />
+      <workItem from="1704821841044" duration="28000" />
+      <workItem from="1704821869552" duration="5550000" />
     </task>
     <servers />
   </component>

@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './nav.scss';
 import expandSvg from '../../../public/imgs/expand.svg';
 import {useNavigate} from "react-router";
-import categoriesRequest from "../../API/categoriesRequest";
 import NavContext from "./NavContext";
+import CategoriesRequest from "../../API/categoriesRequest";
 
 const Nav = () => {
     const navigate = useNavigate();
@@ -11,11 +11,13 @@ const Nav = () => {
     const [categories, setCategories] = useState([]);
 
     async function categoriesFetch() {
-        const response = await categoriesRequest();
+        const response = await CategoriesRequest.getAll();
         setCategories(response);
     }
 
-
+    useEffect(() => {
+        console.log(categories.data);
+    }, [categories]);
     useEffect(() => {
         categoriesFetch();
     }, []);
@@ -33,7 +35,7 @@ const Nav = () => {
                             Каталог продукции
                             <img className="nav__list-item-expand-img" src={expandSvg} alt=""/>
                         </div>
-                        <NavContext data={categories} state={contextState}/>
+                        <NavContext categories={categories.data} state={contextState}/>
                     </li>
 
 

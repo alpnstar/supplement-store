@@ -1,6 +1,7 @@
 .cart {
   * {
   }
+
   &__wrapper {
     display: flex;
     gap: 40px;
@@ -17,6 +18,10 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  &__goods-empty-title {
+    margin: 0 auto;
   }
 
   &__goods-item {
@@ -81,9 +86,11 @@
   &__totalPrice {
     align-self: flex-end;
   }
+
   &__form {
     flex-grow: 1;
     max-width: 344px;
+
     form {
       display: flex;
       flex-direction: column;
