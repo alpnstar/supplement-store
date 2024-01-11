@@ -1,14 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import starImg from "../../../public/imgs/star.svg";
 import resetImg from "../../../public/imgs/reset.svg";
 
 const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
-    function addToCart(PurchaseType) {
+    const [purchaseTypeBulk, setPurchaseTypeBulk] = useState(false);
+
+    function handleChangePurchaseType() {
+        return function () {
+            setPurchaseTypeBulk(!purchaseTypeBulk);
+        }
+
+    }
+
+    function addToCart(isBulk) {
         const newItem = {
+            id: Math.random(),
             product: {...data},
             details: {
-                count: 1,
-                PurchaseType: PurchaseType,
+                quantity: 1,
+                is_bulk: isBulk,
             }
         }
         const cartItems = getCartElements();
@@ -31,7 +41,8 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
 
         function presenceCheck() {
             const check = cartItems.findIndex(item => {
-                return item.product.id === newItem.product.id;
+                return item.product.id === newItem.product.id
+                    && item.details.is_bulk === newItem.details.is_bulk;
             })
             if (check !== -1) {
                 const elem = cartItems[check];
@@ -39,7 +50,7 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
                     ...elem,
                     details: {
                         ...elem.details,
-                        count: elem.details.count + 1,
+                        quantity: elem.details.quantity + 1,
                     }
                 };
                 return;
@@ -84,18 +95,17 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
                 </div>
                 <div className="products__item-block-2">
                     <div className="products__item-left-content">
-                        <span className="products__item-price">{data.attributes.price + '₽'} </span>
+                        <span
+                            className="products__item-price">{(purchaseTypeBulk ? data.attributes.bulk_price : data.attributes.price) + '₽'} </span>
                         <div className="products__item-price--prev">
-                            <s>{data.attributes.old_price + '₽'}</s>
+                            <s>{(purchaseTypeBulk ? data.attributes.old_bulk_price : data.attributes.old_price) + '₽'}</s>
                         </div>
                     </div>
 
                     <div className="products__item-right-content">
-                            <span onClick={() => {
-                                addToCart('bulk');
-                            }} className="products__item-wholesale">
+                            <span onClick={handleChangePurchaseType()} className="products__item-wholesale">
                                 <img src={resetImg} alt=""/>
-                                Oпт
+                                {purchaseTypeBulk ? 'Роз' : 'Oпт'}
                             </span>
                     </div>
 
@@ -107,7 +117,7 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
                 </div>
                 <div className="products__item-push-cart-button">
                     <button onClick={() => {
-                        addToCart('retail');
+                        addToCart(purchaseTypeBulk);
                     }}>
                         Добавить в корзину
                     </button>

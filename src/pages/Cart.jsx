@@ -79,7 +79,7 @@ const CartGoodsList = ({goods, setCartTotalPrice, setCartElements, setCartTotalC
     return (
         <div className="cart__goods-list">
             {goods.length !== 0 ? goods.map(item => <CartGoodsItem
-                key={item.product.id}
+                key={item.id}
                 goods={goods}
                 setCartTotalPrice={setCartTotalPrice}
                 setCartTotalCount={setCartTotalCount}
@@ -93,25 +93,69 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
     const product = data.product;
     const details = data.details;
 
-    function removeItem() {
-        const cleanedItems = goods.filter(item => {
-            return item.product.id !== data.product.id;
+    function increaseCount() {
+        let newItems = [];
+        goods.forEach(item => {
+            if (item.id !== data.id) {
+                newItems.push(item);
+            } else {
+                if (details.quantity > 1) {
+                    newItems.push({
+                        ...item,
+                        details: {
+                            ...item.details,
+                            quantity: item.details.quantity + 1,
+                        }
+                    })
+                }
+            }
         })
-        setCartElements(cleanedItems);
-        localStorage.setItem('cartElements', JSON.stringify(cleanedItems));
+        updateCart(newItems, (prev) => prev + product.attributes.price)
+    }
+
+    function decreaseCount() {
+        let newItems = [];
+        goods.forEach(item => {
+            if (item.id !== data.id) {
+                newItems.push(item);
+            } else {
+                if (details.quantity > 1) {
+                    newItems.push({
+                        ...item,
+                        details: {
+                            ...item.details,
+                            quantity: item.details.quantity - 1,
+                        }
+                    })
+                }
+            }
+        })
+        updateCart(newItems, (prev) => prev - product.attributes.price)
+
+
+    }
+
+    function removeItem() {
+        let newItems = goods.filter(item => item.id !== data.id);
+        updateCart(newItems, (prev) => prev - product.attributes.price * details.quantity)
+
+    }
+
+    function updateCart(items, priceCalc) {
+        setCartElements(items);
+        localStorage.setItem('cartElements', JSON.stringify(items));
 
         setCartTotalCount(() => {
-            const newCount = cleanedItems.length;
+            const newCount = items.length;
             localStorage.setItem('cartTotalCount', newCount);
             return newCount;
         });
 
         setCartTotalPrice(prev => {
-            const newPrice = prev - product.attributes.price;
+            const newPrice = priceCalc(prev);
             localStorage.setItem('cartTotalPrice', newPrice);
             return newPrice;
         })
-
     }
 
     return (
@@ -124,12 +168,21 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
                     <span
                         className="cart__goods-item-title">{product.attributes.name}</span>
                     <span
-                        className="cart__goods-item-viewPrice">{details.PurchaseType === 'bulk' ? 'Оптовая' : 'Розничная'} цена</span>
+                        className="cart__goods-item-viewPrice">{details.is_bulk ? 'Оптовая' : 'Розничная'} цена</span>
                 </div>
             </div>
             <div className="cart__goods-item-content-right">
                 <div className="cart__goods-item-counter">
-                    {details.count}
+                    <span onClick={() => decreaseCount()} className="cart__goods-item-counter-control">
+                        -
+                    </span>
+                    <span className="cart__goods-item-counter-display">
+                        {details.quantity}
+                    </span>
+                    <span onClick={() => increaseCount()} className="cart__goods-item-counter-control">
+                        +
+                    </span>
+
                 </div>
                 <div className="cart__goods-item-price">
                     {product.attributes.price} ₽

@@ -116,6 +116,7 @@ const Block2 = ({setCartTotalPrice, setCartTotalCount}) => {
                     {productsData.meta && productsData.meta.links.map((item, index, array) => {
                         return (
                             <div
+                                key={item.label}
                                 className={`catalog__products-pagination-item-wrapper ${index === 0 || index === array.length - 1 ? 'catalog__products-pagination-item-wrapper--control-wrapper' : ''}`}>
                                 <span
                                     className={`catalog__products-pagination-item ${item.active ? `catalog__products-pagination-item--active` : ''}`}
