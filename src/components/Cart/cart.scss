@@ -71,12 +71,15 @@
     display: flex;
     gap: 20px;
     padding: 10px 16px;
+    user-select: none;
     font-weight: 700;
     border-radius: 16px;
     background: #F0F0F0;
 
     &-display {
-
+      display: inline-block;
+      text-align: center;
+      min-width: 23px;
     }
 
     &-control {

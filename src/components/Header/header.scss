@@ -113,6 +113,8 @@
     }
 
     &-sum {
+      display: inline-block;
+      min-width: 70px;
     }
   }
 }

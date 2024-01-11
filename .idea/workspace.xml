@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.prod" beforeDir="false" afterPath="$PROJECT_DIR$/.env.prod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Cart/cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart/cart.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,8 +190,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.clear" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.clear" />
         <item itemvalue="npm.deploy" />
         <item itemvalue="npm.build-prod" />
         <item itemvalue="npm.bind" />
@@ -259,7 +256,7 @@
       <workItem from="1704882329161" duration="609000" />
       <workItem from="1704882949031" duration="8336000" />
       <workItem from="1704900385094" duration="6262000" />
-      <workItem from="1704906660458" duration="16185000" />
+      <workItem from="1704906660458" duration="17428000" />
     </task>
     <servers />
   </component>

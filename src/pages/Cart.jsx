@@ -99,18 +99,16 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
             if (item.id !== data.id) {
                 newItems.push(item);
             } else {
-                if (details.quantity > 1) {
-                    newItems.push({
-                        ...item,
-                        details: {
-                            ...item.details,
-                            quantity: item.details.quantity + 1,
-                        }
-                    })
-                }
+                newItems.push({
+                    ...item,
+                    details: {
+                        ...item.details,
+                        quantity: item.details.quantity + 1,
+                    }
+                })
             }
         })
-        updateCart(newItems, (prev) => prev + product.attributes.price)
+        updateCart(newItems, (prev) => +prev + product.attributes.price)
     }
 
     function decreaseCount() {
@@ -130,14 +128,14 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
                 }
             }
         })
-        updateCart(newItems, (prev) => prev - product.attributes.price)
+        updateCart(newItems, (prev) => +prev - product.attributes.price)
 
 
     }
 
     function removeItem() {
         let newItems = goods.filter(item => item.id !== data.id);
-        updateCart(newItems, (prev) => prev - product.attributes.price * details.quantity)
+        updateCart(newItems, (prev) => +prev - product.attributes.price * details.quantity)
 
     }
 
