@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require('dotenv-webpack');
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
@@ -32,15 +34,18 @@ module.exports = {
             template: path.resolve(__dirname, './public/index.html'),
             minify: true,
         }),
+
         new MiniCssExtractPlugin(),
+        new Dotenv({
+            path: devMode ? './.env.dev' : './.env.prod',
+        }),
     ],
     module: {
         rules: [
             {
                 test: /\.html$/i,
                 loader: "html-loader",
-                options: {
-                }
+                options: {}
             },
             // {
             //     test: /\.tsx?$/,

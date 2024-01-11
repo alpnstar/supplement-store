@@ -1,14 +1,13 @@
 import './newsAndPromotions.scss';
 import React from 'react';
-import dateParser from "../../utils/dateParser";
 
 const NewsAndPromotions = ({data}) => {
-    const parsedDate = dateParser(data.publicationDate);
+
 
 
     return (
         <article className="newsAndPromotions__item">
-            <img src={data.imgSrc} alt=""/>
+            <img src={data.preview_image} alt=""/>
             <div className="newsAndPromotions__item-content-wrapper">
 
                 <div className="newsAndPromotions__item-description">
@@ -16,10 +15,10 @@ const NewsAndPromotions = ({data}) => {
                 {data.title}
             </span>
                     <div className="newsAndPromotions__item-text">
-                        {data.description}
+                        {data.content}
                     </div>
                 </div>
-                <span className="newsAndPromotions__item-date">{`${parsedDate[0]} ${parsedDate[1]} ${parsedDate[2]}`}</span>
+                <span className="newsAndPromotions__item-date">{data.created_at}</span>
 
             </div>
         </article>

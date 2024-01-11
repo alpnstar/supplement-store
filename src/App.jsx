@@ -22,10 +22,7 @@ const App = () => {
     const [cartTotalCount, setCartTotalCount] = useState(localStorage.getItem('cartTotalCount') || 0);
 
     const [categories, setCategories] = useState([]);
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        productFetch();
-    }, [])
+
 
     useEffect(() => {
         location.pathname === '/' && navigate('/home');
@@ -38,11 +35,6 @@ const App = () => {
 
     }
 
-    async function productFetch() {
-        const response = await productsRequest.getAll();
-        setProducts(response.data);
-    }
-
     const renderRoutes = (data) => {
         return data.map(category => {
             const path = category.attributes.path;
@@ -51,7 +43,7 @@ const App = () => {
                     <Route
                         path={path}
                         element={<Catalog
-                            products={products}
+
                             setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
                             path={path} category={category}/>} // Замените на ваш компонент
                     >
@@ -71,7 +63,7 @@ const App = () => {
             <Routes>
                 <Route path="/home"
                        element={<Home
-                           products={products}
+
                            setCartTotalCount={setCartTotalCount}
                            setCartTotalPrice={setCartTotalPrice}/>}/>
                 {renderRoutes(categories)}

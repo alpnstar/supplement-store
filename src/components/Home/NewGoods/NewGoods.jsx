@@ -1,19 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import ProductsList from "../../Products/ProductsList";
-import sortByDate from "../../../utils/sortByDate";
+import ProductsRequest from "../../../API/productsRequest";
 
-const NewGoods = ({data, setCartTotalPrice, setCartTotalCount }) => {
-    const [sortedByDate, setSortedByDate] = useState([])
+const NewGoods = ({setCartTotalPrice, setCartTotalCount}) => {
+    const [newGoods, setNewGoods] = useState([]);
+
+    async function newGoodsFetch() {
+        const response = await ProductsRequest.newProducts();
+        setNewGoods(response.data);
+    }
+
     useEffect(() => {
-        setSortedByDate(sortByDate.recent(data, 'publicationName').splice(0,4));
-    }, [data]);
+        newGoodsFetch()
+    }, []);
 
 
     return (
         <article className='newGoods'>
             <div className="newGoods__wrapper container">
                 <h2>Новинки</h2>
-                <ProductsList setCartTotalCount={setCartTotalCount} setCartTotalPrice ={setCartTotalPrice } data={sortedByDate}/>
+                <ProductsList setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
+                              data={newGoods}/>
             </div>
         </article>
     );

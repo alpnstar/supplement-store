@@ -1,5 +1,5 @@
 import './newsAndPromotions.scss';
-import React, {useState} from 'react';
+import React from 'react';
 import NewsAndPromotionsItem from "./NewsAndPromotionsItem";
 
 const NewsAndPromotionsList = ({data}) => {

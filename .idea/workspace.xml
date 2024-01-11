@@ -5,22 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/API/categoriesRequest2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.prod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/RecentNews/recentNews.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/categoriesRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/categoriesRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/categoriesRequest2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/newsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/newsRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/productsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/productsRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/reviewsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/reviewsRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Cart/cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart/cart.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/Block2.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/Nav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav/NavContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/NavContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav/NavContextItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/NavContextItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog/catalog.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/HomeNews/HomeNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/RecentNews/RecentNews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/HomeNews/homeNews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/LastReviews/LastReviews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LastReviews/LastReviews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/NewGoods/NewGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/NewGoods/NewGoods.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/PopularGoods/PopularGoods.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/PopularGoods/PopularGoods.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsAndPromotions/NewsAndPromotionsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsAndPromotions/NewsAndPromotionsItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsAndPromotions/NewsAndPromotionsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsAndPromotions/NewsAndPromotionsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsAndPromotions/newsAndPromotions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsAndPromotions/newsAndPromotions.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/Products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Reviews/ReviewsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/ReviewsItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Catalog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/dateParser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/sortByDate.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +96,7 @@
     "npm.start (1).executor": "Run",
     "npm.start.executor": "Run",
     "npm.uninstall.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/home/alpnstar/Рабочий стол/supplement-store/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -103,11 +117,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\Cart" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\pages" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\API" />
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\Home" />
-      <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components\NewsAndPromotions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\stadg\OneDrive\Рабочий стол\supplement-store\src\components" />
@@ -120,10 +134,10 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="npm run start" />
-      <command value="start" />
       <command value="build-prod" />
       <command value="deploy" />
       <command value="clear" />
+      <command value="start" />
     </option>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -264,7 +278,12 @@
       <workItem from="1704820963705" duration="43000" />
       <workItem from="1704821042437" duration="49000" />
       <workItem from="1704821841044" duration="28000" />
-      <workItem from="1704821869552" duration="5550000" />
+      <workItem from="1704821869552" duration="6787000" />
+      <workItem from="1704882282583" duration="36000" />
+      <workItem from="1704882329161" duration="609000" />
+      <workItem from="1704882949031" duration="8336000" />
+      <workItem from="1704900385094" duration="6262000" />
+      <workItem from="1704906660458" duration="7571000" />
     </task>
     <servers />
   </component>

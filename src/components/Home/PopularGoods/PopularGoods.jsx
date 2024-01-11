@@ -1,30 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import './popularGoods.scss';
 import ProductsList from "../../Products/ProductsList";
+import ProductsRequest from "../../../API/productsRequest";
 
-const PopularGoods = ({data,setCartTotalPrice, setCartTotalCount }) => {
-    const [productsSortedByRating, setProductsSortedByRating] = useState([]);
+const PopularGoods = ({setCartTotalPrice, setCartTotalCount}) => {
+    const [popularGoods, setPopularGoods] = useState([]);
 
-    function sortGoods(data) {
-        if (data.length !== 0) {
-            const sortedGoods = [...data];
-            sortedGoods.sort((a, b) => {
-                return b.reviews.rating - a.reviews.rating;
-            })
-            return sortedGoods.splice(0, 4);
-
-        }
-        return [];
+    async function popularGoodsFetch() {
+        const response = await ProductsRequest.popularProducts();
+        setPopularGoods(response.data);
     }
 
     useEffect(() => {
-        setProductsSortedByRating(sortGoods(data));
-    }, [data])
+        popularGoodsFetch();
+    }, []);
     return (
         <article className="popularGoods">
             <div className="popularGoods__wrapper container">
                 <h2>Популярные товары</h2>
-                <ProductsList setCartTotalCount={setCartTotalCount} setCartTotalPrice ={setCartTotalPrice } data={productsSortedByRating}/>
+                <ProductsList setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
+                              data={popularGoods}/>
             </div>
         </article>
     );

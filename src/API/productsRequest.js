@@ -1,16 +1,35 @@
-import productImg from "../../public/imgs/product-img.png";
-import product2Img from "../../public/imgs/product-img-2.png";
-import product3Img from "../../public/imgs/product-img-3.png";
-import product4Img from "../../public/imgs/product-img-4.png";
 import axios from "axios";
 
 export default class ProductsRequest {
-    static async getAll() {
-        const response = await axios.get('http://172.12.0.2/api/products');
+
+
+    static allProducts = {
+        async getAll() {
+            const response = await axios.get(process.env.API_URL + 'api/products', {
+                params: {
+                    'pagination[per_page]': 1,
+                }
+            });
+            return response.data;
+        },
+        async getById(id) {
+            const response = await axios.get(process.env.API_URL + 'api/products', {
+                params: {
+                    'id': id,
+                }
+            });
+            return response.data;
+        }
+    }
+
+    static async newProducts() {
+        const response = await axios.get(process.env.API_URL + 'api/main/new-products');
         return response.data;
     }
-    static async getById() {
 
+    static async popularProducts() {
+        const response = await axios.get(process.env.API_URL + 'api/main/popular-products');
+        return response.data;
     }
-}
 
+}

@@ -2,29 +2,26 @@ import React, {useEffect, useState} from 'react';
 import './lastReviews.scss';
 import ReviewsList from "../../Reviews/ReviewsList";
 import ReviewsRequest from "../../../API/reviewsRequest";
-import sortByDate from "../../../utils/sortByDate";
 
 const LastReviews = () => {
     const [reviews, setReviews] = useState([]);
-    const [sortedReviews, setSortedReviews] = useState([]);
+
 
     async function fetchReviews() {
-        const data = await ReviewsRequest.getAll();
-        setReviews(data);
+        const response = await ReviewsRequest.lastReviews();
+        setReviews(response.data);
     }
 
     useEffect(() => {
         fetchReviews();
     }, []);
-    useEffect(() => {
-        setSortedReviews(sortByDate.recent(reviews, 'publicationDate').slice(0,3));
-    }, [reviews]);
+
 
     return (
         <article className="lastReviews">
             <div className="lastReviews__wrapper container">
                 <h2>Последние отзывы</h2>
-                <ReviewsList data={sortedReviews}/>
+                <ReviewsList data={reviews}/>
             </div>
         </article>
     );

@@ -1,4 +1,0 @@
-export default function (date) {
-    const [, month, day, year] = date.toString().split(' ');
-    return [day, month, year];
-}

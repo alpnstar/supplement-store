@@ -5,7 +5,9 @@ import './reviews.scss';
 const ReviewsList = ({data}) => {
     return (
         <div className="reviews">
-            {data.map(item => <ReviewsItem key ={item.id} data={item}/>)}
+            {data && Array.isArray(data)
+                ? data.map(item => <ReviewsItem key={item.id} data={item}/>)
+                : <ReviewsItem key={item.id} data={item}/>}
         </div>
     );
 };

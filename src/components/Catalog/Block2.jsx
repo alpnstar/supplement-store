@@ -1,11 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import ProductsList from "../Products/ProductsList";
 import {useNavigate} from "react-router";
-import ProductsRequest from "../../API/productsRequest";
+import productsRequest from "../../API/productsRequest";
 import CustomSelect from "../UI/Select/CustomSelect";
+import axios from "axios";
 
-const Block2 = ({products, setCartTotalPrice, setCartTotalCount}) => {
+const Block2 = ({setCartTotalPrice, setCartTotalCount}) => {
+    const navigate = useNavigate();
+    const [productsData, setProductsData] = useState([]);
 
+    async function productsFetch(url) {
+        const response = await productsRequest.allProducts.getAll();
+        setProductsData(response);
+    }
+
+    async function productsFooFetch(url) {
+        const response = await axios.get(url);
+        setProductsData(response.data);
+    }
+
+    useEffect(() => {
+        productsFetch();
+    }, []);
     const optionsParams1 = ['Популярные', 'Новинки', 'Высокий рейтинг'];
     const optionsParams2 = ['Выберите бренд', 'Orzax Ocean B'];
 
@@ -85,15 +101,33 @@ const Block2 = ({products, setCartTotalPrice, setCartTotalCount}) => {
                 </div>
                 <input onClick={resetParams} className="catalog__params-reset" type="button" value="Сбросить"/>
             </div>
-            <ProductsList
-                data={products}
-                paramsSelected1={paramsSelected1}
-                paramsSelected2={paramsSelected2}
-                startPrice={startPrice}
-                endPrice={endPrice}
-                setCartTotalCount={setCartTotalCount}
-                setCartTotalPrice={setCartTotalPrice}
-            />
+            <div className="catalog__products">
+                {productsData.length !== 0
+                    && <ProductsList
+                        data={productsData.data}
+                        paramsSelected1={paramsSelected1}
+                        paramsSelected2={paramsSelected2}
+                        startPrice={startPrice}
+                        endPrice={endPrice}
+                        setCartTotalCount={setCartTotalCount}
+                        setCartTotalPrice={setCartTotalPrice}
+                    />}
+                <div className="catalog__products-pagination">
+                    {productsData.meta && productsData.meta.links.map((item, index, array) => {
+                        return (
+                            <div
+                                className={`catalog__products-pagination-item-wrapper ${index === 0 || index === array.length - 1 ? 'catalog__products-pagination-item-wrapper--control-wrapper' : ''}`}>
+                                <span
+                                    className={`catalog__products-pagination-item ${item.active ? `catalog__products-pagination-item--active` : ''}`}
+                                    onClick={() => {
+                                        item.url && productsFooFetch(item.url);
+                                    }}>{item.label}</span>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+
         </div>
     );
 };

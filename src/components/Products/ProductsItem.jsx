@@ -1,13 +1,9 @@
 import React from 'react';
 import starImg from "../../../public/imgs/star.svg";
 import resetImg from "../../../public/imgs/reset.svg";
-import cart from "../../pages/Cart";
 
 const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
     function addToCart(PurchaseType) {
-        !localStorage.getItem('cartElements')
-        && localStorage.setItem('cartElements', '[]');
-        const cartItems = JSON.parse(localStorage.getItem('cartElements'));
         const newItem = {
             product: {...data},
             details: {
@@ -15,8 +11,25 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
                 PurchaseType: PurchaseType,
             }
         }
+        const cartItems = getCartElements();
+        presenceCheck();
+        setPrice();
+        localStorage.setItem('cartElements', JSON.stringify(cartItems));
 
-        function foo() {
+
+        setCartTotalCount(prev => {
+            const newValue = +prev + 1;
+            localStorage.setItem('cartTotalCount', newValue);
+            return newValue;
+        });
+
+        function getCartElements() {
+            !localStorage.getItem('cartElements')
+            && localStorage.setItem('cartElements', '[]');
+            return JSON.parse(localStorage.getItem('cartElements'));
+        }
+
+        function presenceCheck() {
             const check = cartItems.findIndex(item => {
                 return item.product.id === newItem.product.id;
             })
@@ -34,23 +47,16 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
             cartItems.push(newItem);
         }
 
-        foo()
-        console.log(cartItems)
-        localStorage.setItem('cartElements', JSON.stringify(cartItems));
-        console.log(JSON.parse(localStorage.getItem('cartElements')))
+        function setPrice() {
+            const getPrice = localStorage.getItem('cartTotalPrice');
+            !getPrice && localStorage.setItem('cartTotalPrice', '0');
+            let parsedPrice = JSON.parse(getPrice);
+            parsedPrice = +parsedPrice + data.attributes.price;
+            setCartTotalPrice(parsedPrice);
+            localStorage.setItem('cartTotalPrice', parsedPrice);
 
-        const getPrice = localStorage.getItem('cartTotalPrice');
-        !getPrice && localStorage.setItem('cartTotalPrice', '0');
-        let parsedPrice = JSON.parse(getPrice);
-        parsedPrice = +parsedPrice + data.attributes.price;
-        setCartTotalPrice(parsedPrice);
-        localStorage.setItem('cartTotalPrice', parsedPrice);
+        }
 
-        setCartTotalCount(prev => {
-            const newValue = +prev + 1;
-            localStorage.setItem('cartTotalCount', newValue);
-            return newValue;
-        });
     }
 
     return (
@@ -65,7 +71,7 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
                             className='products__item-availability products__item-availability--sold-out'>Распродано</span>
                         : data.attributes.status === 'coming-soon'
                             ? <span
-                                className='products__item-availability products__item-availability--coming-soon'>Скоро в поступлении</span>
+                                className='products__item-availability products__item-availability--coming-soon'>Скоро<br/> в поступлении</span>
                             : <span
                                 className='products__item-availability'>В наличии</span>
 
@@ -73,7 +79,7 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
 
                     <div className="products__item-reviews">
                         <img src={starImg} alt=""/>
-                        {/*{data.reviews.rating}/5 ({data.reviews.total} отзывов)*/}
+                        {data.attributes.average_rating}/5 ({data.attributes.reviews_count} отзывов)
                     </div>
                 </div>
                 <div className="products__item-block-2">
