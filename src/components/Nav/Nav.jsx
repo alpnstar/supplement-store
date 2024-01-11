@@ -16,9 +16,6 @@ const Nav = () => {
     }
 
     useEffect(() => {
-        console.log(categories.data);
-    }, [categories]);
-    useEffect(() => {
         categoriesFetch();
     }, []);
     return (

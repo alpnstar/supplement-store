@@ -13,6 +13,7 @@ import Contacts from "./pages/Contacts";
 import Cart from "./pages/Cart";
 import CategoriesRequest from "./API/categoriesRequest";
 import productsRequest from "./API/productsRequest";
+import ProductsCard from "./components/Products/ProductCard/ProductsCard";
 
 const App = () => {
     const location = useLocation();
@@ -63,10 +64,10 @@ const App = () => {
             <Routes>
                 <Route path="/home"
                        element={<Home
-
                            setCartTotalCount={setCartTotalCount}
                            setCartTotalPrice={setCartTotalPrice}/>}/>
                 {renderRoutes(categories)}
+                <Route path="/:productId" element={<ProductsCard/>}></Route>
                 <Route path="/catalog/*" element={<h1>Категория не найдена</h1>}/>
                 <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
                 <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>

@@ -1,15 +1,23 @@
 import React, {useState} from 'react';
 import starImg from "../../../public/imgs/star.svg";
 import resetImg from "../../../public/imgs/reset.svg";
+import {useNavigate} from "react-router";
+import ProductsItemInner from "./ProductsItemInner";
 
 const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
     const [purchaseTypeBulk, setPurchaseTypeBulk] = useState(false);
+    const navigate = useNavigate();
+    console.log(navigate);
 
     function handleChangePurchaseType() {
         return function () {
             setPurchaseTypeBulk(!purchaseTypeBulk);
         }
 
+    }
+
+    function handleNavigate() {
+        navigate('../'+data.id);
     }
 
     function addToCart(isBulk) {
@@ -72,58 +80,10 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
 
     return (
         <article className="products__item">
-            <div className="products__item-img-wrapper">
+            <div onClick={handleNavigate} className="products__item-img-wrapper">
                 <img src={data.attributes.image} alt={data.attributes.name}/>
             </div>
-            <div className="products__item-content">
-                <div className="products__item-block-1">
-                    {data.attributes.status === 'sold-out' ?
-                        <span
-                            className='products__item-availability products__item-availability--sold-out'>Распродано</span>
-                        : data.attributes.status === 'coming-soon'
-                            ? <span
-                                className='products__item-availability products__item-availability--coming-soon'>Скоро<br/> в поступлении</span>
-                            : <span
-                                className='products__item-availability'>В наличии</span>
-
-                    }
-
-                    <div className="products__item-reviews">
-                        <img src={starImg} alt=""/>
-                        {data.attributes.average_rating}/5 ({data.attributes.reviews_count} отзывов)
-                    </div>
-                </div>
-                <div className="products__item-block-2">
-                    <div className="products__item-left-content">
-                        <span
-                            className="products__item-price">{(purchaseTypeBulk ? data.attributes.bulk_price : data.attributes.price) + '₽'} </span>
-                        <div className="products__item-price--prev">
-                            <s>{(purchaseTypeBulk ? data.attributes.old_bulk_price : data.attributes.old_price) + '₽'}</s>
-                        </div>
-                    </div>
-
-                    <div className="products__item-right-content">
-                            <span onClick={handleChangePurchaseType()} className="products__item-wholesale">
-                                <img src={resetImg} alt=""/>
-                                {purchaseTypeBulk ? 'Роз' : 'Oпт'}
-                            </span>
-                    </div>
-
-                </div>
-                <div className="products__item-block-3">
-                    <h3 className="products__item-title">{data.attributes.name}</h3>
-                    <div className="products__item-description"
-                         dangerouslySetInnerHTML={{__html: data.attributes.description}}></div>
-                </div>
-                <div className="products__item-push-cart-button">
-                    <button onClick={() => {
-                        addToCart(purchaseTypeBulk);
-                    }}>
-                        Добавить в корзину
-                    </button>
-                </div>
-
-            </div>
+            <ProductsItemInner/>
         </article>
     );
 };

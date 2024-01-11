@@ -13,11 +13,7 @@ export default class ProductsRequest {
             return response.data;
         },
         async getById(id) {
-            const response = await axios.get(process.env.API_URL + 'api/products', {
-                params: {
-                    'id': id,
-                }
-            });
+            const response = await axios.get(process.env.API_URL + 'api/products/'+id);
             return response.data;
         }
     }
