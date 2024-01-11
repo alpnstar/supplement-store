@@ -3,15 +3,16 @@ import starImg from "../../../public/imgs/star.svg";
 import resetImg from "../../../public/imgs/reset.svg";
 import {useNavigate} from "react-router";
 
-const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount}) => {
+const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount, full}) => {
     const [purchaseTypeBulk, setPurchaseTypeBulk] = useState(false);
+    const [counter, setCounter] = useState(1);
+
     const navigate = useNavigate();
 
     function handleChangePurchaseType() {
         return function () {
             setPurchaseTypeBulk(!purchaseTypeBulk);
         }
-
     }
 
     function handleNavigate() {
@@ -23,7 +24,7 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount}) => {
             id: Math.random(),
             product: {...data},
             details: {
-                quantity: 1,
+                quantity: counter,
                 is_bulk: isBulk,
             }
         }
@@ -34,7 +35,7 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount}) => {
 
 
         setCartTotalCount(prev => {
-            const newValue = +prev + 1;
+            const newValue = +prev + counter;
             localStorage.setItem('cartTotalCount', newValue);
             return newValue;
         });
@@ -56,7 +57,7 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount}) => {
                     ...elem,
                     details: {
                         ...elem.details,
-                        quantity: elem.details.quantity + 1,
+                        quantity: elem.details.quantity + counter,
                     }
                 };
                 return;
@@ -68,7 +69,7 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount}) => {
             const getPrice = localStorage.getItem('cartTotalPrice');
             !getPrice && localStorage.setItem('cartTotalPrice', '0');
             let parsedPrice = JSON.parse(getPrice);
-            parsedPrice = +parsedPrice + data.attributes.price;
+            parsedPrice = +parsedPrice + (isBulk ? data.attributes.bulk_price : data.attributes.price) * counter;
             setCartTotalPrice(parsedPrice);
             localStorage.setItem('cartTotalPrice', parsedPrice);
 
@@ -108,7 +109,7 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount}) => {
                 <div className="products__item-right-content">
                             <span onClick={handleChangePurchaseType()} className="products__item-wholesale">
                                 <img src={resetImg} alt=""/>
-                                {purchaseTypeBulk ? 'Роз' : 'Oпт'}
+                                {purchaseTypeBulk ? (full ? 'Розничная' : 'Роз') : full ? 'Оптовая' : 'Опт'}
                             </span>
                 </div>
 
@@ -118,15 +119,38 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount}) => {
                 <div className="products__item-description"
                      dangerouslySetInnerHTML={{__html: data.attributes.description}}></div>
             </div>
-            <div className="products__item-push-cart-button">
-                <button onClick={() => {
-                    addToCart(purchaseTypeBulk);
-                }}>
-                    Добавить в корзину
-                </button>
+            <div className="products__item-inputs">
+                <div className="products__item-push-cart-button">
+                    <button onClick={() => {
+                        addToCart(purchaseTypeBulk);
+                    }}>
+                        Добавить в корзину
+                    </button>
+                </div>
+                {full &&
+                    <div className="cart__goods-item-counter">
+                    <span onClick={() => setCounter(prev => {
+                        if (counter > 1) return prev - 1;
+                        return prev;
+                    })} className="cart__goods-item-counter-control">
+                        -
+                    </span>
+                        <span className="cart__goods-item-counter-display">
+                        {counter}
+                    </span>
+                        <span onClick={() => setCounter(prev => {
+                            if (counter < 50) return prev + 1;
+                            return prev;
+                        })} className="cart__goods-item-counter-control">
+                        +
+                    </span>
+
+                    </div>
+                }
             </div>
+
         </div>
     );
 };
 
-export default ProductsItem;
+export default ProductsItemInner;

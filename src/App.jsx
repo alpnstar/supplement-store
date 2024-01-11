@@ -67,7 +67,7 @@ const App = () => {
                            setCartTotalCount={setCartTotalCount}
                            setCartTotalPrice={setCartTotalPrice}/>}/>
                 {renderRoutes(categories)}
-                <Route path="/:productId" element={<ProductsCard/>}></Route>
+                <Route path="/:productId" element={<ProductsCard setCartTotalPrice={setCartTotalPrice} setCartTotalCount={setCartTotalCount}/>}></Route>
                 <Route path="/catalog/*" element={<h1>Категория не найдена</h1>}/>
                 <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
                 <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>

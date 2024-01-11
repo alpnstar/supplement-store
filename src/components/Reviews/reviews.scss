@@ -1,12 +1,13 @@
 .reviews {
   display: flex;
   align-items: baseline;
+  flex-wrap: nowrap;
   gap: 16px;
 
   &__item {
     display: flex;
     flex-direction: column;
-    width: 389px;
+    flex-grow: 1;
     padding: 16px;
     border-radius: 16px;
     border: 1px solid #E0E0E0;

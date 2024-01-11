@@ -108,7 +108,7 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
                 })
             }
         })
-        updateCart(newItems, (prev) => +prev + product.attributes.price)
+        updateCart(newItems, (prev) => +prev + (details.is_bulk ? product.attributes.bulk_price : product.attributes.price))
     }
 
     function decreaseCount() {
@@ -128,14 +128,17 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
                 }
             }
         })
-        updateCart(newItems, (prev) => +prev - product.attributes.price)
+        updateCart(newItems, (prev) =>
+            +prev - (details.is_bulk ? product.attributes.bulk_price : product.attributes.price))
 
 
     }
 
     function removeItem() {
         let newItems = goods.filter(item => item.id !== data.id);
-        updateCart(newItems, (prev) => +prev - product.attributes.price * details.quantity)
+        const curPrice = details.is_bulk ? product.attributes.bulk_price : product.attributes.price;
+        updateCart(newItems, (prev) =>
+            +prev - curPrice * details.quantity)
 
     }
 
@@ -183,7 +186,7 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
 
                 </div>
                 <div className="cart__goods-item-price">
-                    {product.attributes.price} ₽
+                    {(details.is_bulk ? product.attributes.bulk_price : product.attributes.price) * details.quantity} ₽
                 </div>
                 <img onClick={removeItem} src={cartRemoveImg} alt="" className="cart__goods-item-deleteImg"/>
             </div>

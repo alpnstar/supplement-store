@@ -13,14 +13,18 @@
     border-radius: 16px;
     border: 1px solid #E0E0E0;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
+
     &-availability {
       color: #10C44D;
 
       font-size: 12px;
       font-weight: 600;
+
       &--sold-out {
         color: red;
-      }&--coming-soon {
+      }
+
+      &--coming-soon {
         color: orange;
       }
     }
@@ -39,6 +43,8 @@
     height: 253px;
     min-width: 233px;
     padding-bottom: 20px;
+    cursor: pointer;
+
     img {
       height: 100%;
     }
@@ -47,6 +53,7 @@
   &__item-content {
     width: 100%;
   }
+
   &__item-block-1 {
     display: flex;
     align-items: center;
@@ -77,6 +84,7 @@
   &__item-price {
     font-size: 24px;
     font-weight: 600;
+
     &--prev {
       display: flex;
       color: #A3A3A3;
@@ -124,7 +132,13 @@
     line-height: 150%; /* 21px */
   }
 
+  &__item-inputs {
+    display: flex;
+    gap: 12px;
+  }
+
   &__item-push-cart-button {
+    flex-grow: 1;
     button {
       width: 100%;
       gap: 10px;
@@ -132,9 +146,10 @@
 
       color: white;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 16px;
       background: #FFA800;
-      &:hover{
+
+      &:hover {
         cursor: pointer;
       }
     }

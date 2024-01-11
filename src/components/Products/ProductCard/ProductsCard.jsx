@@ -5,8 +5,9 @@ import './productsCard.scss'
 import ReviewsList from "../../Reviews/ReviewsList";
 import {useParams} from "react-router";
 import ProductsRequest from "../../../API/productsRequest";
+import ProductsItemInner from "../ProductsItemInner";
 
-const ProductCard = ({data}) => {
+const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
     const params = useParams();
     const [product, setProduct] = useState();
 
@@ -28,14 +29,20 @@ const ProductCard = ({data}) => {
                             <div className="productCard__img-wrapper">
                                 <img src={product.attributes.image} alt=""/>
                             </div>
-                            <div className="productCard__description" dangerouslySetInnerHTML={{__html:product.attributes.description}}>
-
+                            <div className="productCard__description">
+                                <h2>Описание</h2>
+                                <p dangerouslySetInnerHTML={{__html: product.attributes.description}}>
+                                </p>
                             </div>
                             <div className="productCard__reviews">
+                                <h2>Отзывы</h2>
                                 <ReviewsList productView={false} reviews={product.attributes.reviews}/>
                             </div>
                         </div>
-                        <div className="productCard__content-right"></div>
+                        <div className="productCard__content-right">
+                            <ProductsItemInner data={product} setCartTotalPrice={setCartTotalPrice}
+                                               setCartTotalCount={setCartTotalCount} full={true}/>
+                        </div>
                     </>
                     : <h2>Товар не найден</h2>}
             </div>
