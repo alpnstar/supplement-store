@@ -14,6 +14,7 @@ import Cart from "./pages/Cart";
 import CategoriesRequest from "./API/categoriesRequest";
 import ProductsCard from "./components/Products/ProductCard/ProductsCard";
 import Reviews from "./pages/Reviews";
+import Error from "./pages/Error";
 
 const App = () => {
     const location = useLocation();
@@ -69,7 +70,7 @@ const App = () => {
                 {renderRoutes(categories)}
                 <Route path="/:productId" element={<ProductsCard setCartTotalPrice={setCartTotalPrice} setCartTotalCount={setCartTotalCount}/>}></Route>
                 <Route path="/reviews/:productId" element={<Reviews/>}/>
-                <Route path="/catalog/*" element={<h1>Категория не найдена</h1>}/>
+                <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
                 <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
                 <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>
                 <Route path="/o-magazine" element={<About/>}/>
@@ -79,7 +80,7 @@ const App = () => {
                            cartTotalPrice={cartTotalPrice}
                            setCartTotalCount={setCartTotalCount}
                            setCartTotalPrice={setCartTotalPrice}/>}/>
-                <Route path="/*" element={<h1>Ошибка</h1>}/>
+                <Route path="/*" element={<Error>Ошибка</Error>}/>
             </Routes>
             <Footer/>
         </div>

@@ -32,6 +32,8 @@ const Block2 = ({setCartTotalPrice, setCartTotalCount}) => {
     const [startPrice, setStartPrice] = useState('');
     const [endPrice, setEndPrice] = useState('');
 
+
+
     function handleOptionShow(func) {
         return function () {
             func(prev => !prev);
