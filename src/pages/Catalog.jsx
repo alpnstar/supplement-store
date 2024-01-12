@@ -9,7 +9,7 @@ const Catalog = ({category, setCartTotalPrice, setCartTotalCount}) => {
             className="catalog">
             <div className="catalog__wrapper container">
                 <Block1 category={category}/>
-                <Block2  setCartTotalCount={setCartTotalCount}
+                <Block2 setCartTotalCount={setCartTotalCount}
                         setCartTotalPrice={setCartTotalPrice}/>
             </div>
         </div>

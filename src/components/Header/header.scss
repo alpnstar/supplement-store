@@ -5,8 +5,8 @@
   font-weight: 700;
   cursor: pointer;
 }
-.header {
 
+.header {
   &__wrapper {
     padding: 24px 10px;
     flex-wrap: nowrap;
@@ -44,6 +44,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+
     &-element {
       display: inline-block;
       background: #F0F0F0;
@@ -66,6 +67,7 @@
       }
     }
   }
+
   &__cart {
     display: flex;
     align-items: center;

@@ -22,7 +22,8 @@ const Reviews = () => {
         function handleSendPostRequest(event) {
             return async function () {
                 event.preventDefault();
-                if (inputName && inputReview !== '') {
+                const regex = /^\s*$/;
+                if (!regex.test(inputName) && !regex.test(inputReview)) {
                     const data = {
                         product_id: productId,
                         author: inputName,
@@ -32,10 +33,10 @@ const Reviews = () => {
                     const response = await axios.post(process.env.API_URL + "api/reviews", data);
                     await reviewsFetch();
 
-                    setInputReview('');
-                    setInputName('');
 
                 }
+                setInputReview('');
+                setInputName('');
             }
         }
 
@@ -58,17 +59,19 @@ const Reviews = () => {
                             <span className="reviews__form-input-title">
                                 Ваше имя
                             </span>
-                                <input maxLength='25' required value={inputName} onChange={handleInputChange(setInputName)} type="text"
+                                <input maxLength='25' required value={inputName} onChange={handleInputChange(setInputName)}
+                                       type="text"
                                        className="main-style-input"/>
                             </div>
                             <div className="reviews__form-input-wrapper">
                             <span className="reviews__form-input-title">
                                 Ваш отзыв
                             </span>
-                                <textarea maxLength='900' required value={inputReview} onChange={handleInputChange(setInputReview)}
+                                <textarea maxLength='900' required value={inputReview}
+                                          onChange={handleInputChange(setInputReview)}
                                           className="main-style-input"/>
                             </div>
-                            <input  onClick={handleSendPostRequest(event)} type="submit" className="main-style-button"/>
+                            <input onClick={handleSendPostRequest(event)} type="submit" className="main-style-button"/>
                         </form>
                         <ReviewsList full={true} reviews={reviews}/>
                     </div>

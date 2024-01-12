@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Cart/CartGoodsItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Cart/CartGoodsList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/LastReviews/LastReviews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LastReviews/LastReviews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductCard/ProductsCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductCard/ProductsCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cart/cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cart/cart.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/ProductCard/productsCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductCard/productsCard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Reviews/reviews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/reviews.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/Products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Catalog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Reviews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Reviews.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,8 +115,8 @@
       <command value="npm run start" />
       <command value="build-prod" />
       <command value="deploy" />
-      <command value="clear" />
       <command value="start" />
+      <command value="clear" />
     </option>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -261,6 +264,7 @@
       <workItem from="1704900385094" duration="6262000" />
       <workItem from="1704906660458" duration="37771000" />
       <workItem from="1705061922975" duration="11309000" />
+      <workItem from="1705083550433" duration="1124000" />
     </task>
     <servers />
   </component>
