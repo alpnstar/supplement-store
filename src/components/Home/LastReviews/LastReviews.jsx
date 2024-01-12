@@ -23,10 +23,10 @@ const LastReviews = () => {
             <div className="lastReviews__wrapper container">
                 <h2>Последние отзывы</h2>
                 <ReviewsList>
-                    {products.map(product =>
-                        product.attributes.reviews.map(review =>
-                            <ReviewsItem key={Math.random()} data={review} product={product} productView={true}/>)
-                    )}
+                    {products.map(product => <ReviewsItem key={Math.random()} data={product.attributes.last_review}
+                                                          product={product} productView={true}/>)}
+
+
                 </ReviewsList>
             </div>
         </article>
