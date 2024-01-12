@@ -15,13 +15,14 @@
 
   &List {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     flex-wrap: nowrap;
     gap: 16px;
 
     &__item {
       display: flex;
       flex-direction: column;
+      flex-basis: 0;
       flex-grow: 1;
       padding: 16px;
       border-radius: 16px;
@@ -39,6 +40,7 @@
       display: flex;
       align-items: center;
       gap: 3px;
+      min-height: 63px;
       padding: 4px 15px 4px 4px;
 
       border-radius: 8px;
