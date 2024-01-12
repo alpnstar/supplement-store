@@ -70,7 +70,7 @@ const Reviews = () => {
                             </div>
                             <input  onClick={handleSendPostRequest(event)} type="submit" className="main-style-button"/>
                         </form>
-                        <ReviewsList reviews={reviews}/>
+                        <ReviewsList full={true} reviews={reviews}/>
                     </div>
                 </div>
             </div>

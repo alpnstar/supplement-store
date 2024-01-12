@@ -43,7 +43,7 @@ const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
                                         Оставить отзыв
                                     </button>
                                 </div>
-                                <ReviewsList productView={false} reviews={product.attributes.reviews}/>
+                                <ReviewsList productView={false} full={true} reviews={product.attributes.reviews}/>
                             </div>
                         </div>
                         <div className="productCard__content-right">

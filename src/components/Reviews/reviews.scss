@@ -10,23 +10,7 @@
       max-width: 600px;
       width: 100%;
 
-      .reviewsList {
-        flex-direction: column;
 
-        &__item {
-          width: 100%;
-
-          &-review-body {
-            overflow: hidden;
-
-            p {
-              max-width: 590px;
-              max-height: none;
-              white-space: normal;
-            }
-          }
-        }
-      }
     }
   }
 
@@ -69,17 +53,16 @@
   }
 
 }
+
 .reviewsList {
   display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
   gap: 16px;
 
   &__item {
     display: flex;
     flex-direction: column;
-    flex-basis: 0;
-    flex-grow: 1;
+    width: 100%;
+    max-width: 386px;
     padding: 16px;
     border-radius: 16px;
     border: 1px solid #E0E0E0;
@@ -154,6 +137,30 @@
     font-size: 12px;
     font-weight: 600;
     color: #A3A3A3;
+  }
+
+  &--full {
+    flex-direction: column;
+
+
+    .reviewsList {
+      &__item {
+        width: 100%;
+        max-width: none;
+        overflow: hidden;
+
+
+        &-review-body {
+          overflow: hidden;
+
+          p {
+            max-width: none;
+            max-height: none;
+            white-space: normal;
+          }
+        }
+      }
+    }
   }
 }
 

@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/LastReviews/LastReviews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LastReviews/LastReviews.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductCard/ProductsCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductCard/ProductsCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductCard/productsCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductCard/productsCard.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Reviews/reviews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/reviews.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Reviews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Reviews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/reset.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

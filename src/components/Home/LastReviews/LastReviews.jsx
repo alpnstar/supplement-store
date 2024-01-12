@@ -22,7 +22,7 @@ const LastReviews = () => {
         <article className="lastReviews">
             <div className="lastReviews__wrapper container">
                 <h2>Последние отзывы</h2>
-                <ReviewsList>
+                <ReviewsList >
                     {products.map(product => <ReviewsItem key={Math.random()} data={product.attributes.last_review}
                                                           product={product} productView={true}/>)}
 
