@@ -1,108 +1,159 @@
 .reviews {
+  h2 {
+    margin-bottom: 20px;
+  }
+
   &__wrapper {
+    display: flex;
+
     &-inner {
       max-width: 600px;
+      width: 100%;
 
       .reviewsList {
         flex-direction: column;
 
         &__item {
           width: 100%;
-          &-review-body p {
-            max-width: none;
-            white-space: normal;
+
+          &-review-body {
+            overflow: hidden;
+
+            p {
+              max-width: 590px;
+              max-height: none;
+              white-space: normal;
+            }
           }
         }
       }
     }
   }
 
-  &List {
+  &__form {
     display: flex;
+    flex-direction: column;
+    gap: 24px;
     align-items: flex-start;
-    flex-wrap: nowrap;
-    gap: 16px;
 
-    &__item {
-      display: flex;
-      flex-direction: column;
-      flex-basis: 0;
-      flex-grow: 1;
-      padding: 16px;
-      border-radius: 16px;
-      border: 1px solid #E0E0E0;
-      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+    margin-bottom: 40px;
+  }
 
-      &-img-wrapper {
-        width: 53px;
-        padding-bottom: 2px;
+  &__form-input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
-      }
+    input {
+      max-width: 296px;
     }
 
-    &__item-title-block {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      min-height: 63px;
-      padding: 4px 15px 4px 4px;
-
-      border-radius: 8px;
-      background: #F0F0F0;
-
-      h3 {
-        font-weight: 600;
-      }
-    }
-
-    &__item-review-content {
-      display: flex;
-      flex-direction: column;
-      //max-width: 357px;
-    }
-
-    &__item-review-header {
-      margin: 12px 0 4px 0;
-      font-weight: 600;
-      max-width: 357px;
-      max-height: 37px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-
-    }
-
-    &__item-review-body {
-      font-weight: 500;
-      margin: 0 0 8px 0;
-
-      p {
-        max-width: 357px;
-        max-height: 37px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-    }
-
-    &__item-review-info {
-      display: flex;
-      flex-direction: column;
-
-      line-height: 140%; /* 16.8px */
-    }
-
-    &__item-review-user {
-      font-weight: 600;
-
-    }
-
-    &__item-review-date {
-      font-size: 12px;
-      font-weight: 600;
-      color: #A3A3A3;
+    textarea {
+      width: 100%;
+      resize: none;
+      height: 106px;
     }
   }
 
+  &__form-input-title {
+    font-weight: 500;
+  }
+
+
+  .main-style-input {
+  }
+
+  .main-style-button {
+    width: auto;
+  }
+
 }
+.reviewsList {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 16px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 1;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+
+    &-img-wrapper {
+      width: 53px;
+      padding-bottom: 2px;
+
+    }
+  }
+
+  &__item-title-block {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 63px;
+    padding: 4px 15px 4px 4px;
+
+    border-radius: 8px;
+    background: #F0F0F0;
+
+    h3 {
+      font-weight: 600;
+    }
+  }
+
+  &__item-review-content {
+    display: flex;
+    flex-direction: column;
+    //max-width: 357px;
+  }
+
+  &__item-review-header {
+    margin: 12px 0 4px 0;
+    font-weight: 600;
+    max-width: 357px;
+    max-height: 37px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+  }
+
+  &__item-review-body {
+    font-weight: 500;
+    margin: 0 0 8px 0;
+
+    p {
+      max-width: 357px;
+      max-height: 37px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__item-review-info {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 140%; /* 16.8px */
+  }
+
+  &__item-review-user {
+    font-weight: 600;
+
+  }
+
+  &__item-review-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: #A3A3A3;
+  }
+}
+

@@ -4,7 +4,9 @@
     margin: 0px;
     border: none;
 }
-
+textarea:focus{
+    outline: 0;
+}
 *,
 *::before,
 *::after {
