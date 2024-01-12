@@ -1,11 +1,8 @@
 .productCard {
-  h2 {
-    margin-bottom: 20px;
-  }
-
   &__wrapper {
     display: flex;
     flex-wrap: nowrap;
+    flex-grow: 1;
   }
 
   &__content-left {
@@ -27,10 +24,16 @@
   }
 
   &__reviews {
+    &-title {
+      align-content: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
   }
 
   &__content-right {
-    max-width: 472px;
+    flex-grow: 0.5;
 
     .products {
       &__item-content {
@@ -83,8 +86,12 @@
     }
   }
 
-  .reviews {
-    flex-wrap: wrap;
+  .reviewsList {
+    flex-direction: column;
+
+    &__item {
+      width: 100%;
+    }
 
     &__item-review-body p {
       max-width: none;

@@ -12,8 +12,8 @@ import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import Cart from "./pages/Cart";
 import CategoriesRequest from "./API/categoriesRequest";
-import productsRequest from "./API/productsRequest";
 import ProductsCard from "./components/Products/ProductCard/ProductsCard";
+import Reviews from "./pages/Reviews";
 
 const App = () => {
     const location = useLocation();
@@ -68,6 +68,7 @@ const App = () => {
                            setCartTotalPrice={setCartTotalPrice}/>}/>
                 {renderRoutes(categories)}
                 <Route path="/:productId" element={<ProductsCard setCartTotalPrice={setCartTotalPrice} setCartTotalCount={setCartTotalCount}/>}></Route>
+                <Route path="/reviews/:productId" element={<Reviews/>}/>
                 <Route path="/catalog/*" element={<h1>Категория не найдена</h1>}/>
                 <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
                 <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>

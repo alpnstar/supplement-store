@@ -1,85 +1,102 @@
 .reviews {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: nowrap;
-  gap: 16px;
+  &__wrapper {
+    &-inner {
+      max-width: 600px;
 
-  &__item {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 16px;
-    border-radius: 16px;
-    border: 1px solid #E0E0E0;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+      .reviewsList {
+        flex-direction: column;
 
-    &-img-wrapper {
-      width: 53px;
-      padding-bottom: 2px;
-
+        &__item {
+          width: 100%;
+        }
+      }
     }
   }
 
-  &__item-title-block {
+  &List {
     display: flex;
-    align-items: center;
-    gap: 3px;
-    padding: 4px 15px 4px 4px;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 16px;
 
-    border-radius: 8px;
-    background: #F0F0F0;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid #E0E0E0;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
 
-    h3 {
+      &-img-wrapper {
+        width: 53px;
+        padding-bottom: 2px;
+
+      }
+    }
+
+    &__item-title-block {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 4px 15px 4px 4px;
+
+      border-radius: 8px;
+      background: #F0F0F0;
+
+      h3 {
+        font-weight: 600;
+      }
+    }
+
+    &__item-review-content {
+      display: flex;
+      flex-direction: column;
+      //max-width: 357px;
+    }
+
+    &__item-review-header {
+      margin: 12px 0 4px 0;
       font-weight: 600;
-    }
-  }
-
-  &__item-review-content {
-    display: flex;
-    flex-direction: column;
-    //max-width: 357px;
-  }
-
-  &__item-review-header {
-    margin: 12px 0 4px 0;
-    font-weight: 600;
-    max-width: 357px;
-    max-height: 37px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-
-  }
-
-  &__item-review-body {
-    font-weight: 500;
-    margin: 0 0 8px 0;
-
-    p {
       max-width: 357px;
       max-height: 37px;
-      overflow: hidden;
       white-space: nowrap;
+      overflow: hidden;
       text-overflow: ellipsis;
+
+
+    }
+
+    &__item-review-body {
+      font-weight: 500;
+      margin: 0 0 8px 0;
+
+      p {
+        max-width: 357px;
+        max-height: 37px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &__item-review-info {
+      display: flex;
+      flex-direction: column;
+
+      line-height: 140%; /* 16.8px */
+    }
+
+    &__item-review-user {
+      font-weight: 600;
+
+    }
+
+    &__item-review-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: #A3A3A3;
     }
   }
 
-  &__item-review-info {
-    display: flex;
-    flex-direction: column;
-
-    line-height: 140%; /* 16.8px */
-  }
-
-  &__item-review-user {
-    font-weight: 600;
-
-  }
-
-  &__item-review-date {
-    font-size: 12px;
-    font-weight: 600;
-    color: #A3A3A3;
-  }
 }

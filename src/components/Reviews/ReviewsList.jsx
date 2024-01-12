@@ -4,7 +4,7 @@ import './reviews.scss';
 
 const ReviewsList = ({reviews, product, children, productView}) => {
     return (
-        <div className="reviews">
+        <div className="reviewsList">
             {children}
             {!children && reviews.map(item => <ReviewsItem key={Math.random()} data={item}/>)}
         </div>

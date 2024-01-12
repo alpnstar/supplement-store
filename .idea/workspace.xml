@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcd0c56e-02a6-434a-ace3-b0955b1fbd59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/Reviews.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/reviewsRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/reviewsRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/LastReviews/lastReviews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LastReviews/lastReviews.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/ProductCard/ProductsCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductCard/ProductsCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/ProductCard/productsCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductCard/productsCard.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/Products.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/ProductsItemInner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/ProductsItemInner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Reviews/ReviewsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/ReviewsItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/ReviewsList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Reviews/reviews.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Reviews/reviews.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JSX File" />
         <option value="JavaScript File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -49,42 +50,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "JavaScript Debug.index.html.executor": "Run",
-    "Node.js.App.jsx.executor": "Run",
-    "ReactCreateComponentLastSelected": "arrowFunctionComponent",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "20.10.0",
-    "javascript.nodejs.core.library.typings.version": "20.10.8",
-    "last_opened_file_path": "/home/alpnstar/Рабочий стол/supplement-store/src/components/Products",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.bind.executor": "Run",
-    "npm.build-prod.executor": "Run",
-    "npm.clear.executor": "Run",
-    "npm.deploy.executor": "Run",
-    "npm.start (1).executor": "Run",
-    "npm.start.executor": "Run",
-    "npm.uninstall.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/home/alpnstar/Рабочий стол/supplement-store/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.App.jsx.executor&quot;: &quot;Run&quot;,
+    &quot;ReactCreateComponentLastSelected&quot;: &quot;arrowFunctionComponent&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.10.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.10.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alpnstar/Рабочий стол/supplement-store/src/components/Products&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.bind.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build-prod.executor&quot;: &quot;Run&quot;,
+    &quot;npm.clear.executor&quot;: &quot;Run&quot;,
+    &quot;npm.deploy.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.uninstall.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/alpnstar/Рабочий стол/supplement-store/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "SCSS"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;SCSS&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -115,11 +116,11 @@
       <command value="npm run start" />
       <command value="build-prod" />
       <command value="deploy" />
-      <command value="start" />
       <command value="clear" />
+      <command value="start" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.clear">
+  <component name="RunManager" selected="npm.start">
     <configuration default="true" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -262,7 +263,8 @@
       <workItem from="1704882329161" duration="609000" />
       <workItem from="1704882949031" duration="8336000" />
       <workItem from="1704900385094" duration="6262000" />
-      <workItem from="1704906660458" duration="36453000" />
+      <workItem from="1704906660458" duration="37771000" />
+      <workItem from="1705061922975" duration="5403000" />
     </task>
     <servers />
   </component>

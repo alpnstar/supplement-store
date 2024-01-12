@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import starImg from "../../../../public/imgs/star.svg";
-import resetImg from "../../../../public/imgs/reset.svg";
 import './productsCard.scss'
 import ReviewsList from "../../Reviews/ReviewsList";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import ProductsRequest from "../../../API/productsRequest";
 import ProductsItemInner from "../ProductsItemInner";
 
 const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
+    const navigate = useNavigate();
     const params = useParams();
     const [product, setProduct] = useState();
 
@@ -16,6 +15,9 @@ const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
         setProduct(response.data);
     }
 
+    function handleNavigate() {
+        navigate('../reviews/' + product.id);
+    }
 
     useEffect(() => {
         productFetch();
@@ -35,7 +37,12 @@ const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
                                 </p>
                             </div>
                             <div className="productCard__reviews">
-                                <h2>Отзывы</h2>
+                                <div className="productCard__reviews-title">
+                                    <h2>Отзывы</h2>
+                                    <button onClick={handleNavigate} className="second-style-button">
+                                        Оставить отзыв
+                                    </button>
+                                </div>
                                 <ReviewsList productView={false} reviews={product.attributes.reviews}/>
                             </div>
                         </div>

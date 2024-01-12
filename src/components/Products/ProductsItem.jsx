@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import starImg from "../../../public/imgs/star.svg";
-import resetImg from "../../../public/imgs/reset.svg";
+import React from 'react';
 import {useNavigate} from "react-router";
 import ProductsItemInner from "./ProductsItemInner";
 
