@@ -14,7 +14,7 @@ const ReviewsItem = ({data, product, productView}) => {
                 </div>}
             <div className="reviewsList__item-review-content">
                 {/*<span className="reviewsList__item-review-header">{data.title}</span>*/}
-                <span className="reviewsList__item-review-body"><p>{data.content}</p></span>
+                <div className="reviewsList__item-review-body"><p>{data.content}</p></div>
                 <div className="reviewsList__item-review-info">
                     <span className="reviewsList__item-review-user">{data.author}</span>
                     <span className="reviewsList__item-review-date">

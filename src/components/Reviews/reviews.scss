@@ -147,13 +147,15 @@
       &__item {
         width: 100%;
         max-width: none;
-        overflow: hidden;
 
-
+        &-review-content {
+          width: 100%;
+        }
         &-review-body {
-          overflow: hidden;
+          width: 100%;
 
           p {
+            width: 100%;
             max-width: none;
             max-height: none;
             white-space: normal;
