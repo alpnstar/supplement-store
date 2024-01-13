@@ -22,6 +22,9 @@
   }
 
   &__description {
+    h2 {
+      margin-bottom: 20px;
+    }
   }
 
   &__reviews {
@@ -81,7 +84,7 @@
       }
 
       &__item-description {
-        height: 192px;
+        max-height: 192px;
       }
 
       &__item-push-cart-button {

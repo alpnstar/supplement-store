@@ -1,0 +1,36 @@
+.pagination {
+  display: flex;
+
+  &-item {
+    display: inline-block;
+    padding: 10px 14.5px;
+
+    cursor: pointer;
+    border-radius: 16px;
+    font-weight: 500;
+
+
+    &--active {
+      background: #F0F0F0;
+
+    }
+
+    &-wrapper {
+      display: flex;
+
+      &--control-wrapper {
+        flex-grow: 1;
+
+        &:last-child {
+          display: flex;
+          justify-content: end;
+        }
+
+        .pagination-item {
+          background: #F0F0F0;
+
+        }
+      }
+    }
+  }
+}

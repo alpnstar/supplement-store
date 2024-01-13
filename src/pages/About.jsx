@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div className="about">
             <div className="about__wrapper container">
-                <h2>О нас</h2>
+                <h2>О магазине</h2>
             </div>
         </div>
     );

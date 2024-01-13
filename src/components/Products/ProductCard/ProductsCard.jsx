@@ -8,6 +8,7 @@ import ProductsItemInner from "../ProductsItemInner";
 const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
     const navigate = useNavigate();
     const params = useParams();
+
     const [product, setProduct] = useState();
 
     async function productFetch() {

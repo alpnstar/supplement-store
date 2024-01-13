@@ -88,12 +88,13 @@
     &-amount {
       display: flex;
       align-items: center;
+      justify-content: center;
       position: absolute;
       left: 74%;
       bottom: 70%;
-      width: fit-content;
-      height: 16px;
-      padding: 1px 4.5px 2px 4.5px;
+      width: 20px;
+      height: 20px;
+      padding-top: 1px;
 
       border-radius: 20px;
       border: 2px solid #FFF;

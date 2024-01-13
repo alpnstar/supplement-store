@@ -8,6 +8,7 @@ export default class NewsRequest {
                     'pagination[per_page]': 12,
                 }
             });
+            return response.data;
         },
         async getById(id) {
             const response = await axios.get(process.env.API_URL + 'api/posts', {
@@ -15,6 +16,7 @@ export default class NewsRequest {
                     'id': id,
                 }
             });
+            return response.data;
         }
     }
 

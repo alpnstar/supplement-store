@@ -4,6 +4,7 @@ import {useNavigate, useParams} from "react-router";
 import productsRequest from "../../API/productsRequest";
 import CustomSelect from "../UI/Select/CustomSelect";
 import axios from "axios";
+import Pagination from "../Pagination/Pagination";
 
 const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     const navigate = useNavigate();
@@ -134,21 +135,7 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
                         setCartTotalCount={setCartTotalCount}
                         setCartTotalPrice={setCartTotalPrice}
                     />}
-                <div className="catalog__products-pagination">
-                    {productsData.meta && productsData.meta.links.map((item, index, array) => {
-                        return (
-                            <div
-                                key={item.label}
-                                className={`catalog__products-pagination-item-wrapper ${index === 0 || index === array.length - 1 ? 'catalog__products-pagination-item-wrapper--control-wrapper' : ''}`}>
-                                <span
-                                    className={`catalog__products-pagination-item ${item.active ? `catalog__products-pagination-item--active` : ''}`}
-                                    onClick={() => {
-                                        item.url && productsFetch(item.url);
-                                    }}>{item.label}</span>
-                            </div>
-                        )
-                    })}
-                </div>
+                <Pagination data={productsData.meta} setData={setProductsData}/>
             </div>
 
         </div>
