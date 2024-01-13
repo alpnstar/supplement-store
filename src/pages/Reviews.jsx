@@ -48,6 +48,10 @@ const Reviews = () => {
 
         useEffect(() => {
             reviewsFetch();
+            window.scrollTo({
+                top: 0,
+                behavior: 'auto' // Добавление плавности прокрутки (не обязательно)
+            });
         }, []);
         return (
             <div className="reviews">

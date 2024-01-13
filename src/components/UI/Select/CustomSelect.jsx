@@ -45,7 +45,7 @@ const CustomSelect = ({options, selected, setSelected, disabled}) => {
                 <div className="custom-select-options">
                     <ul>
                         {options.filter((item) => {
-                            return item !== selected;
+                            return item.title !== selected.title;
                         }).map((item, index) =>
                             <li key={index}
                                 onClick={handleOptionSelect(setSelected, item, setOptionsShow)}>{item.title}</li>)}

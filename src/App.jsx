@@ -82,7 +82,7 @@ const App = () => {
                            setCartTotalPrice={setCartTotalPrice}/>}/>
                 <Route path="/*" element={<Error>Ошибка</Error>}/>
             </Routes>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

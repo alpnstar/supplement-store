@@ -12,7 +12,7 @@ const Footer = () => {
                     </span>
                 </div>
                 <div className="footer__right-content">
-                    <Nav/>
+                    <Nav footer={true}/>
                 </div>
             </div>
         </footer>
