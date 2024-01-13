@@ -52,7 +52,7 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     }
     useEffect(() => {
         productsPrimaryFetch(filterParams)
-    }, [filterSelected1, filterSelected2, filterStartPrice,filterEndPrice]);
+    }, [filterSelected1, filterSelected2, filterStartPrice, filterEndPrice]);
 
     function handleOptionShow(func) {
         return function () {
@@ -80,8 +80,8 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     function resetParams() {
         setFilterSelected1(filterOptions1[0]);
         setFilterSelected2(filterOptions2[0]);
-        setFilterStartPrice('');
-        setFilterEndPrice('');
+        setFilterStartPrice(0);
+        setFilterEndPrice(20000);
     }
 
 
