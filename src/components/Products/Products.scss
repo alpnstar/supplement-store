@@ -1,9 +1,12 @@
 .products {
   display: flex;
-  gap: 10px;
+  column-gap: 16px;
+  row-gap: 30px;
 
   &__item {
-    width: 288px;
+    max-width: 284px;
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;

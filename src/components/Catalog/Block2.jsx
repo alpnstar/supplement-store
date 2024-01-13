@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import ProductsList from "../Products/ProductsList";
-import {useNavigate} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import productsRequest from "../../API/productsRequest";
 import CustomSelect from "../UI/Select/CustomSelect";
 import axios from "axios";
 
-const Block2 = ({setCartTotalPrice, setCartTotalCount}) => {
+const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     const navigate = useNavigate();
     const [productsData, setProductsData] = useState([]);
 
-    async function productsPrimaryFetch(url, params = {}) {
+    async function productsPrimaryFetch(params = {}) {
         const response = await productsRequest.allProducts.getAll(params);
         setProductsData(response);
     }
@@ -20,34 +20,39 @@ const Block2 = ({setCartTotalPrice, setCartTotalCount}) => {
     }
 
     useEffect(() => {
-        productsPrimaryFetch();
+        // productsPrimaryFetch(filterParams);
     }, []);
+
     const filterOptions1 = [
         {
             title: 'Популярные',
-            modifier: 'sort[popular]',
+            modifier: 'popular',
         },
         {
             title: 'Новинки',
-            modifier: 'sort[new]',
+            modifier: 'new',
         },
         {
             title: 'Высокий рейтинг',
-            modifier: 'sort[high_rating]',
+            modifier: 'high_rating',
         }
     ];
     const filterOptions2 = ['Выберите бренд', 'Orzax Ocean B'];
 
-    const [filterSelected1, setFilterSelected1] = useState(filterOptions1[0]);
+    const [filterSelected1, setFilterSelected1] = useState(filterOptions1[2]);
     const [filterSelected2, setFilterSelected2] = useState(filterOptions2[0]);
-    const params = {
-        [filterSelected1.modifier]: '',
-        [filterSelected2.modifier]: '',
-    }
-    console.log(params)
-    const [filterStartPrice, setFilterStartPrice] = useState('');
-    const [filterEndPrice, setFilterEndPrice] = useState('');
 
+    const [filterStartPrice, setFilterStartPrice] = useState(0);
+    const [filterEndPrice, setFilterEndPrice] = useState(20000);
+
+    const filterParams = {
+        // category: category.id,
+        sort: filterSelected1.modifier,
+        'filter[price_between]': `${filterStartPrice},${filterEndPrice}`,
+    }
+    useEffect(() => {
+        productsPrimaryFetch(filterParams)
+    }, [filterSelected1, filterSelected2, filterStartPrice,filterEndPrice]);
 
     function handleOptionShow(func) {
         return function () {
@@ -86,10 +91,10 @@ const Block2 = ({setCartTotalPrice, setCartTotalCount}) => {
                 <div className="catalog__params-element-wrapper">
                     <span className="catalog__params-title">Сортировка</span>
                     <div className="catalog__params-inputs-wrapper">
-                        {/*<CustomSelect
+                        <CustomSelect
                             options={filterOptions1}
                             selected={filterSelected1}
-                            setSelected={setFilterSelected1}/>*/}
+                            setSelected={setFilterSelected1}/>
                     </div>
                 </div>
                 <div className="catalog__params-element-wrapper">

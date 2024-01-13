@@ -7,11 +7,12 @@ import CartGoodsList from "../components/Cart/CartGoodsList";
 const Cart = ({setCartTotalCount, cartTotalPrice, setCartTotalPrice}) => {
     const [cartItems, setCartItems] = useState([]);
 
-    const [countries, setCountries] = useState(['Выберите страну', 'Российская Федерация']);
+    const [countries, setCountries] = useState([{title: 'Российская Федерация'}]);
     const [countriesSelected, setCountriesSelected] = useState(countries[0]);
 
-    const [regions, setRegions] = useState(['Выберите регион', 'Республика Дагестан']);
+    const [regions, setRegions] = useState([{title:'Выберите регион'}, {title:'Республика Дагестан'}]);
     const [regionsSelected, setRegionsSelected] = useState(regions[0]);
+
     function getCartItems() {
         return JSON.parse(localStorage.getItem('cartElements'));
     }
@@ -20,7 +21,6 @@ const Cart = ({setCartTotalCount, cartTotalPrice, setCartTotalPrice}) => {
         const items = getCartItems();
         items && setCartItems(items) && setCartTotalCount(items.length);
     }, []);
-
 
 
     return (
@@ -52,7 +52,7 @@ const Cart = ({setCartTotalCount, cartTotalPrice, setCartTotalPrice}) => {
                                 <span className="cart__form-input-title">Страна <span
                                     className="required-symbol">*</span></span>
                                 <CustomSelect options={countries} selected={countriesSelected}
-                                              setSelected={setCountriesSelected}/>
+                                              setSelected={setCountriesSelected} disabled={true}/>
                             </div>
                             <div className="cart__form-input-wrapper">
                                 <span className="cart__form-input-title">Регион <span

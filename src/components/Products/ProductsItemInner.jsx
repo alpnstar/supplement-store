@@ -102,7 +102,10 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount, full}) =
                         <span
                             className="products__item-price">{(purchaseTypeBulk ? data.attributes.bulk_price : data.attributes.price) + '₽'} </span>
                     <div className="products__item-price--prev">
-                        <s>{(purchaseTypeBulk ? data.attributes.old_bulk_price : data.attributes.old_price) + '₽'}</s>
+                        <s>{(purchaseTypeBulk ?
+                            ((data.attributes.old_bulk_price !== 0
+                                && data.attributes.old_bulk_price + '₽') || '')
+                            : ((data.attributes.old_price !== 0 && data.attributes.old_price + '₽') || ''))}</s>
                     </div>
                 </div>
 
