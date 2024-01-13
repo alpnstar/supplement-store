@@ -138,7 +138,7 @@ const Block2 = ({setCartTotalPrice, setCartTotalCount}) => {
                                 <span
                                     className={`catalog__products-pagination-item ${item.active ? `catalog__products-pagination-item--active` : ''}`}
                                     onClick={() => {
-                                        item.url && productsFooFetch(item.url);
+                                        item.url && productsFetch(item.url);
                                     }}>{item.label}</span>
                             </div>
                         )

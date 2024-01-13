@@ -5,95 +5,104 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 .container {
-    max-width: 1210px;
-    padding: 0 10px;
-    margin: 0 auto;
+  max-width: 1210px;
+  padding: 0 10px;
+  margin: 0 auto;
 }
+
 * {
-    font-family: 'Inter', serif;
-    flex-wrap: wrap;
+  font-family: 'Inter', serif;
+  flex-wrap: wrap;
 }
+
 body {
-    font-size: 14px;
+  font-size: 14px;
 }
+
 h2 {
-    font-size: 32px;
-    font-weight: 700;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 .custom-select {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 16px;
-    cursor: pointer;
-    font-weight: 500;
-    border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 16px;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+
+
+  &-options {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 0 8px;
+    border-radius: 10px 10px 10px 10px;
     border: 1px solid #E0E0E0;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+    background: #FFF;
+    z-index: 1;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.15);
 
+    li {
+      padding: 10px 0;
+      cursor: pointer;
+      border-bottom: 1px lightgray solid;
 
-    &-options {
-        position: absolute;
-        top: 100%;
-        width: 100%;
-        padding: 0 8px;
-        border-radius: 10px 10px 10px 10px;
-        border: 1px solid #E0E0E0;
-        background: #FFF;
-        z-index: 1;
-        box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.15);
-
-        li {
-            padding: 10px 0;
-            cursor: pointer;
-            border-bottom: 1px lightgray solid;
-
-            &:last-child {
-                border: 0;
-            }
-        }
+      &:last-child {
+        border: 0;
+      }
     }
+  }
 
-    &-img {
-        transform: rotate(0deg);
-        transition: transform 0.2s linear;
+  &-img {
+    transform: rotate(0deg);
+    transition: transform 0.2s linear;
 
-        &--active {
-            transform: rotate(180deg);
-            transition: transform 0.2s linear;
-        }
+    &--active {
+      transform: rotate(180deg);
+      transition: transform 0.2s linear;
     }
+  }
 }
 
 .main-style-input {
-    width: 100%;
-    display: block;
-    padding: 10px 16px;
-    cursor: pointer;
-    font-weight: 500;
-    border-radius: 16px;
-    border: 1px solid #E0E0E0;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: block;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 16px;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
 
-    &:focus {
-        cursor: auto;
-    }
+  &:focus {
+    cursor: auto;
+  }
 }
 
 .main-style-button {
-    width: 100%;
-    gap: 10px;
-    padding: 10px 24px;
-    color: white;
-    font-weight: 600;
-    border-radius: 16px;
-    background: #FFA800 !important;
-}
-.second-style-button {
+  width: 100%;
+  gap: 10px;
+  padding: 10px 24px;
+  color: white;
+  font-weight: 600;
+  border-radius: 16px;
+  background: #FFA800 !important;
+
+  &:hover {
     cursor: pointer;
-    border-radius: 16px;
-    font-weight: 600;
-    padding: 10px;
-    background: #F0F0F0;
+    background-color: #e9a31b;
+  }
+}
+
+.second-style-button {
+  cursor: pointer;
+  border-radius: 16px;
+  font-weight: 600;
+  padding: 10px;
+  background: #F0F0F0;
 }

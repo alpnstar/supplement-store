@@ -1,7 +1,6 @@
 .products {
   display: flex;
-  justify-content: space-between;
-  row-gap: 10px;
+  gap: 10px;
 
   &__item {
     width: 288px;
@@ -104,6 +103,7 @@
     align-items: center;
     gap: 4px;
 
+    cursor: pointer;
     font-size: 12px;
     font-weight: 600;
     border-radius: 6px;
@@ -152,6 +152,7 @@
 
       &:hover {
         cursor: pointer;
+        background-color: #e9a31b;
       }
     }
   }
