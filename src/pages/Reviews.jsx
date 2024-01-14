@@ -20,7 +20,7 @@ const Reviews = () => {
         }
 
         function handleSendPostRequest(event) {
-            return async function () {
+            return async function (event) {
                 event.preventDefault();
                 const regex = /^\s*$/;
                 if (!regex.test(inputName) && !regex.test(inputReview)) {
@@ -75,7 +75,7 @@ const Reviews = () => {
                                           onChange={handleInputChange(setInputReview)}
                                           className="main-style-input"/>
                             </div>
-                            <input onClick={handleSendPostRequest(event)} type="submit" className="main-style-button"/>
+                            <input onClick={handleSendPostRequest()} type="submit" className="main-style-button"/>
                         </form>
                         <ReviewsList full={true} reviews={reviews}/>
                     </div>

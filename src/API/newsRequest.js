@@ -5,7 +5,7 @@ export default class NewsRequest {
         async getAll() {
             const response = await axios.get(process.env.API_URL + 'api/posts', {
                 params: {
-                    'pagination[per_page]': 12,
+
                 }
             });
             return response.data;

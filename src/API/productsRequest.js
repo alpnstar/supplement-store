@@ -7,7 +7,6 @@ export default class ProductsRequest {
         async getAll(params = {}) {
             const response = await axios.get(process.env.API_URL + 'api/products', {
                 params: {
-                    'pagination[per_page]': 12,
                     ...params,
                 }
             });

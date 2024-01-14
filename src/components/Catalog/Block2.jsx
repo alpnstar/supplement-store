@@ -5,80 +5,128 @@ import productsRequest from "../../API/productsRequest";
 import CustomSelect from "../UI/Select/CustomSelect";
 import axios from "axios";
 import Pagination from "../Pagination/Pagination";
+import brandsRequest from "../../API/brandsRequest";
 
 const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     const navigate = useNavigate();
     const [productsData, setProductsData] = useState([]);
+    const [brands, setBrands] = useState([{
+        attributes: {name: 'Выберите бренд'},
+    }]);
+
+    async function brandsFetch() {
+        const response = await brandsRequest();
+        setBrands(prev =>
+            [...prev, ...response.data]);
+    }
 
     async function productsPrimaryFetch(params = {}) {
         const response = await productsRequest.allProducts.getAll(params);
         setProductsData(response);
     }
 
-    async function productsFetch(url) {
-        const response = await axios.get(url);
-        setProductsData(response.data);
-    }
-
+    useEffect(() => {
+        productsPrimaryFetch();
+        brandsFetch();
+    }, []);
 
     const filterOptions1 = [
         {
-            title: 'Популярные',
+            name: 'Выберите сортировку',
+            modifier: '',
+        },
+        {
+            name: 'Популярные',
             modifier: 'popular',
         },
         {
-            title: 'Новинки',
+            name: 'Новинки',
             modifier: 'new',
         },
         {
-            title: 'Высокий рейтинг',
+            name: 'Высокий рейтинг',
             modifier: 'high_rating',
         }
     ];
-    const filterOptions2 = ['Выберите бренд', 'Orzax Ocean B'];
 
-    const [filterSelected1, setFilterSelected1] = useState(filterOptions1[2]);
-    const [filterSelected2, setFilterSelected2] = useState(filterOptions2[0]);
+    const [filterSelected1, setFilterSelected1] = useState(filterOptions1[0]);
+    const [brandsSelected, setBrandsSelected] = useState(brands[0]);
 
-    const [filterStartPrice, setFilterStartPrice] = useState(0);
-    const [filterEndPrice, setFilterEndPrice] = useState(20000);
+    const [filterStartPrice, setFilterStartPrice] = useState('');
+    const [filterEndPrice, setFilterEndPrice] = useState('');
 
-    const filterParams = {
-        'sort': filterSelected1.modifier,
-        'filter[price_between]': `${filterStartPrice != '' ? filterStartPrice : 0},${filterEndPrice != '' ? filterEndPrice : 20000}`,
-    }
-    useEffect(() => {
-        productsPrimaryFetch(filterParams)
-    }, [filterSelected1, filterSelected2, filterStartPrice, filterEndPrice]);
+    const [filterParams, setFilterParams] = useState({});
 
-    function handleOptionShow(func) {
+    function handleOptionSelectBrands(option, close) {
         return function () {
-            func(prev => !prev);
-
-        }
-    }
-
-    function handleOptionSelect(func, option, close) {
-        return function () {
-            func(option);
+            setBrandsSelected(prev => {
+                setFilterParams(prev => {
+                    const newParams = {...prev}
+                    if (option.attributes.name !== 'Выберите бренд') newParams['filter[brand_id]'] = option.id;
+                    else delete newParams['filter[brand_id]'];
+                    console.log(newParams);
+                    productsPrimaryFetch(newParams);
+                    return newParams;
+                })
+            });
+            setBrandsSelected(option);
             close(false);
 
         }
     }
 
-    const handleChangePriceParams = (func) => {
+    function handleOptionSelectFilter1(option, close) {
+        return function () {
+            setFilterSelected1(prev => {
+                setFilterParams(prev => {
+                    const newParams = {...prev}
+                    if (option.modifier !== '') newParams.sort = option.modifier;
+                    else delete newParams.sort;
+                    productsPrimaryFetch(newParams);
+                    return newParams;
+                })
+            });
+            setFilterSelected1(option);
+            close(false);
+
+        }
+    }
+
+
+    const handleChangePriceParams = (func, which) => {
         const regex = /^[0-9\b]+$/;
         return function (event) {
-            if (event.target.value === '' || regex.test(event.target.value))
-                func(event.target.value);
+            if (event.target.value === '' || regex.test(event.target.value)) {
+                setFilterParams(prev => {
+                    const newParams = changePriceRange(prev, which, event.target.value);
+                    if (newParams['filter[price_between]'].length <= 1) {
+                        delete newParams["filter[price_between]"];
+                    }
+                    productsPrimaryFetch(newParams);
+                    return newParams;
+
+                })
+            }
+        }
+
+        function changePriceRange(params, foo, value) {
+            let prices = params['filter[price_between]']
+                ? params['filter[price_between]'].split(',') : ['', ''];
+
+            if (foo === 'min') prices[0] = value
+            else if (foo === 'max') prices[1] = value;
+
+            return {...params, 'filter[price_between]': prices.join(',')}
         }
     }
 
     function resetParams() {
         setFilterSelected1(filterOptions1[0]);
-        setFilterSelected2(filterOptions2[0]);
-        setFilterStartPrice(0);
-        setFilterEndPrice(20000);
+        setBrandsSelected(brands[0]);
+        setFilterStartPrice('');
+        setFilterEndPrice('');
+        setFilterParams({})
+        productsPrimaryFetch();
     }
 
 
@@ -91,30 +139,32 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
                         <CustomSelect
                             options={filterOptions1}
                             selected={filterSelected1}
-                            setSelected={setFilterSelected1}/>
+                            altSetSelected={handleOptionSelectFilter1}/>
                     </div>
                 </div>
                 <div className="catalog__params-element-wrapper">
                     <span className="catalog__params-title">Бренды</span>
                     <div className="catalog__params-inputs-wrapper">
-                        {/*<CustomSelect
-                            options={filterOptions2}
-                            selected={filterSelected2}
-                            setSelected={setFilterSelected2}/>*/}
+                            <CustomSelect
+                                altOptions={brands}
+                                selected={brandsSelected}
+                                altSetSelected={handleOptionSelectBrands}
+                            />
                     </div>
                 </div>
                 <div className="catalog__params-element-wrapper">
                     <span className="catalog__params-title">Сортировка</span>
                     <div className="catalog__params-inputs-wrapper catalog__params-inputs-wrapper--setPrice">
                         <div className="catalog__params-input-wrapper">
-                            <input value={filterStartPrice} onChange={handleChangePriceParams(setFilterStartPrice)}
-                                   className="catalog__params-input catalog__params-input--setPrice"
-                                   type="text"
-                                   maxLength={7}
+                            <input
+                                onChange={handleChangePriceParams(setFilterStartPrice, 'min')}
+                                className="catalog__params-input catalog__params-input--setPrice"
+                                type="text"
+                                maxLength={7}
                             />
                         </div>
                         <div className="catalog__params-input-wrapper">
-                            <input value={filterEndPrice} onChange={handleChangePriceParams(setFilterEndPrice)}
+                            <input onChange={handleChangePriceParams(setFilterEndPrice, 'max')}
                                    className="catalog__params-input catalog__params-input--setPrice"
                                    type="text"
                                    maxLength={7}/>
@@ -128,7 +178,7 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
                     && <ProductsList
                         data={productsData.data}
                         paramsSelected1={filterSelected1}
-                        paramsSelected2={filterSelected2}
+                        paramsSelected2={brandsSelected}
                         startPrice={filterStartPrice}
                         endPrice={filterEndPrice}
                         setCartTotalCount={setCartTotalCount}

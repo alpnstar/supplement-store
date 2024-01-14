@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import expandImg from "../../../../public/imgs/expand.svg";
 
-const CustomSelect = ({options, selected, setSelected, disabled}) => {
+const CustomSelect = ({options, altOptions, selected, setSelected, disabled, altSetSelected}) => {
     const ref = useRef();
     const [optionsShow, setOptionsShow] = useState(false);
 
@@ -36,7 +36,7 @@ const CustomSelect = ({options, selected, setSelected, disabled}) => {
         <span
             onClick={handleOptionsShow(setOptionsShow)}
             className="custom-select">
-            {selected.title}
+            {!altOptions ? selected.name : selected.attributes.name}
             {!disabled && <img
                 className={`custom-select-img ${optionsShow && `custom-select-img--active`}`}
                 src={expandImg} alt=""/>}
@@ -44,11 +44,18 @@ const CustomSelect = ({options, selected, setSelected, disabled}) => {
             {!disabled && optionsShow &&
                 <div className="custom-select-options">
                     <ul>
-                        {options.filter((item) => {
-                            return item.title !== selected.title;
+                        {!altOptions && options
+                            ? options.filter((item) => {
+                                return item.name !== selected.name;
+                            }).map((item, index) =>
+                                <li key={index}
+                                    onClick={!altSetSelected ? handleOptionSelect(setSelected, item, setOptionsShow) : altSetSelected(item, setOptionsShow)}>{item.name}</li>)
+                            : altOptions && altOptions.filter((item) => {
+                            return item.attributes.name !== selected.attributes.name;
                         }).map((item, index) =>
                             <li key={index}
-                                onClick={handleOptionSelect(setSelected, item, setOptionsShow)}>{item.title}</li>)}
+                                onClick={!altSetSelected ? handleOptionSelect(setSelected, item, setOptionsShow) : altSetSelected(item, setOptionsShow)}>{item.attributes.name}</li>)}
+
                     </ul>
                 </div>
             }
