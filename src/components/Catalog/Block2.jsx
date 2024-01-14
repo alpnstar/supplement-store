@@ -20,9 +20,6 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
         setProductsData(response.data);
     }
 
-    useEffect(() => {
-        // productsPrimaryFetch(filterParams);
-    }, []);
 
     const filterOptions1 = [
         {
@@ -47,9 +44,8 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     const [filterEndPrice, setFilterEndPrice] = useState(20000);
 
     const filterParams = {
-        // category: category.id,
-        sort: filterSelected1.modifier,
-        'filter[price_between]': `${filterStartPrice},${filterEndPrice}`,
+        'sort': filterSelected1.modifier,
+        'filter[price_between]': `${filterStartPrice != '' ? filterStartPrice : 0},${filterEndPrice != '' ? filterEndPrice : 20000}`,
     }
     useEffect(() => {
         productsPrimaryFetch(filterParams)

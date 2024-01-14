@@ -10,7 +10,7 @@ const Cart = ({setCartTotalCount, cartTotalPrice, setCartTotalPrice}) => {
     const [countries, setCountries] = useState([{title: 'Российская Федерация'}]);
     const [countriesSelected, setCountriesSelected] = useState(countries[0]);
 
-    const [regions, setRegions] = useState([{title:'Выберите регион'}, {title:'Республика Дагестан'}]);
+    const [regions, setRegions] = useState([{title: 'Выберите регион'}, {title: 'Республика Дагестан'}]);
     const [regionsSelected, setRegionsSelected] = useState(regions[0]);
 
     function getCartItems() {
