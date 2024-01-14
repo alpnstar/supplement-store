@@ -109,12 +109,15 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
                         <div className="catalog__params-input-wrapper">
                             <input value={filterStartPrice} onChange={handleChangePriceParams(setFilterStartPrice)}
                                    className="catalog__params-input catalog__params-input--setPrice"
-                                   type="text"/>
+                                   type="text"
+                                   maxLength={7}
+                            />
                         </div>
                         <div className="catalog__params-input-wrapper">
                             <input value={filterEndPrice} onChange={handleChangePriceParams(setFilterEndPrice)}
                                    className="catalog__params-input catalog__params-input--setPrice"
-                                   type="text"/>
+                                   type="text"
+                                   maxLength={7}/>
                         </div>
                     </div>
                 </div>
