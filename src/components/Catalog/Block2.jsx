@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import ProductsList from "../Products/ProductsList";
 import {useNavigate, useParams} from "react-router";
 import productsRequest from "../../API/productsRequest";
@@ -7,12 +7,23 @@ import axios from "axios";
 import Pagination from "../Pagination/Pagination";
 import brandsRequest from "../../API/brandsRequest";
 
-const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
+const Block2 = ({productsData, setProductsData, category, setCartTotalPrice, setCartTotalCount}) => {
     const navigate = useNavigate();
-    const [productsData, setProductsData] = useState([]);
+
     const [brands, setBrands] = useState([{
         attributes: {name: 'Выберите бренд'},
     }]);
+    const [filterParams, setFilterParams] = useState({
+        'filter[category_id]': category.id,
+    });
+    useEffect(() => {
+        setFilterParams(prev => {
+            return {
+                ...prev,
+                'filter[category_id]': category.id,
+            }
+        })
+    }, [category]);
 
     async function brandsFetch() {
         const response = await brandsRequest();
@@ -26,10 +37,11 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     }
 
     useEffect(() => {
-        productsPrimaryFetch();
+        productsPrimaryFetch(filterParams);
+    }, [filterParams]);
+    useEffect(() => {
         brandsFetch();
     }, []);
-
     const filterOptions1 = [
         {
             name: 'Выберите сортировку',
@@ -55,7 +67,6 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
     const [filterStartPrice, setFilterStartPrice] = useState('');
     const [filterEndPrice, setFilterEndPrice] = useState('');
 
-    const [filterParams, setFilterParams] = useState({});
 
     function handleOptionSelectBrands(option, close) {
         return function () {
@@ -125,8 +136,8 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
         setBrandsSelected(brands[0]);
         setFilterStartPrice('');
         setFilterEndPrice('');
-        setFilterParams({})
-        productsPrimaryFetch();
+        setFilterParams({'filter[category_id]': category.id})
+        productsPrimaryFetch(filterParams);
     }
 
 
@@ -145,11 +156,11 @@ const Block2 = ({category, setCartTotalPrice, setCartTotalCount}) => {
                 <div className="catalog__params-element-wrapper">
                     <span className="catalog__params-title">Бренды</span>
                     <div className="catalog__params-inputs-wrapper">
-                            <CustomSelect
-                                altOptions={brands}
-                                selected={brandsSelected}
-                                altSetSelected={handleOptionSelectBrands}
-                            />
+                        <CustomSelect
+                            altOptions={brands}
+                            selected={brandsSelected}
+                            altSetSelected={handleOptionSelectBrands}
+                        />
                     </div>
                 </div>
                 <div className="catalog__params-element-wrapper">

@@ -1,22 +1,29 @@
 import React from 'react';
 import {useNavigate} from "react-router";
 
-const Block1 = ({category}) => {
+const Block1 = ({productsData, category}) => {
+    console.log(productsData)
     const navigate = useNavigate();
+    const currentCategory = productsData.breadcrumbs && productsData.breadcrumbs[productsData.breadcrumbs.length - 1]
+
     return (
         <div className="catalog__block-1">
             <div
                 className="catalog__path">
                 <span className="catalog__path-item"
                       onClick={() => navigate('/home')}>Главная</span> / Каталог
-                продукции{category.prev && category.prev.map(item => item && <span key={item.title}> / <span  className="catalog__path-item" onClick={() => navigate(item.path)}> {item.title}</span></span>)}
+                продукции {productsData.breadcrumbs && productsData.breadcrumbs.map(item => {
+                return (!item.isSelected ? <span key={item.name}>
+                    / <span className="catalog__path-item"
+                            onClick={() => navigate('/' + item.path)}> {item.name}</span></span> : '')
+            })}
             </div>
-            <h2 className="catalog__title-category-main">{category.title}</h2>
+            <h2 className="catalog__title-category-main">{currentCategory && currentCategory.name}</h2>
             <ul className="catalog__subcategories">
-                {category.subCategories && category.subCategories.map(item => <li
-                    key ={item.title}
+                {currentCategory && currentCategory.subCategories.map(item => <li
+                    key={item.name}
                     className="catalog__subcategories-item"
-                    onClick={() => navigate(item.path)}>{item.title}</li>)}
+                    onClick={() => navigate('/' + item.path)}>{item.name}</li>)}
             </ul>
         </div>
 
