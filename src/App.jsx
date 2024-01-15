@@ -16,6 +16,7 @@ import ProductsCard from "./components/Products/ProductCard/ProductsCard";
 import Reviews from "./pages/Reviews";
 import Error from "./pages/Error";
 import SuccessOrder from "./pages/SuccessOrder";
+import NewsCard from "./components/NewsAndPromotions/NewsCard";
 
 const App = () => {
     const location = useLocation();
@@ -72,6 +73,7 @@ const App = () => {
                 <Route path="/:productId" element={<ProductsCard setCartTotalPrice={setCartTotalPrice}
                                                                  setCartTotalCount={setCartTotalCount}/>}></Route>
                 <Route path="/reviews/:productId" element={<Reviews/>}/>
+                <Route path="/blog/:newId" element={<NewsCard/>}/>
                 <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
                 <Route path={"/success-order"} element={<SuccessOrder/>}/>
                 <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>

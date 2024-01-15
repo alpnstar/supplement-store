@@ -1,13 +1,14 @@
 import './newsAndPromotions.scss';
 import React from 'react';
+import {useNavigate} from "react-router";
 
-const NewsAndPromotions = ({data}) => {
-
-
+const NewsAndPromotionsItem = ({data}) => {
+    const navigate = useNavigate();
+    console.log(data)
 
     return (
         <article className="newsAndPromotionsList__item">
-            <div className="newsAndPromotionsList__item-img-wrapper">
+            <div onClick={() => navigate('')} className="newsAndPromotionsList__item-img-wrapper">
                 <img src={data.preview_image} alt=""/>
             </div>
             <div className="newsAndPromotionsList__item-content-wrapper">
@@ -21,10 +22,9 @@ const NewsAndPromotions = ({data}) => {
                     </div>
                 </div>
                 <span className="newsAndPromotionsList__item-date">{data.created_at}</span>
-
             </div>
         </article>
     );
 };
 
-export default NewsAndPromotions;
+export default NewsAndPromotionsItem;

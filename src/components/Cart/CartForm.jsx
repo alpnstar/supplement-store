@@ -24,45 +24,38 @@ const CartForm = ({orderData, setOrderData}) => {
 
 
     useEffect(() => {
-        changeOrderField(regionsSelected.name, setOrderData, 'Выберите регион', 'delivery', 'state');
+        changeOrderField(regionsSelected.name, 'Выберите регион', 'delivery', 'state');
     }, [regionsSelected]);
     useEffect(() => {
-        changeOrderField(countriesSelected.name, setOrderData, 'Выберите страну', 'delivery', 'country');
+        changeOrderField(countriesSelected.name, 'Выберите страну', 'delivery', 'country');
     }, [countriesSelected]);
     useEffect(() => {
-        changeOrderField(phone, setOrderData, '', 'customer', 'phone');
+        changeOrderField(phone, '', 'customer', 'phone');
     }, [phone]);
     useEffect(() => {
         const splited = orderData.customer.name.split(' ');
         splited[0] = name;
-        changeOrderField(splited.join(' '), setOrderData, '', 'customer', 'name');
+        changeOrderField(splited.join(' '), '', 'customer', 'name');
     }, [name]);
     useEffect(() => {
         const splited = orderData.customer.name.split(' ');
         splited[1] = surName;
-        changeOrderField(splited.join(' '), setOrderData, '', 'customer', 'name');
+        changeOrderField(splited.join(' '), '', 'customer', 'name');
     }, [surName]);
     useEffect(() => {
-        changeOrderField(email, setOrderData, '', 'customer', 'email');
+        changeOrderField(email, '', 'customer', 'email');
     }, [email]);
     useEffect(() => {
-        changeOrderField(city, setOrderData, '', 'delivery', 'city');
+        changeOrderField(city, '', 'delivery', 'city');
     }, [city]);
     useEffect(() => {
-        changeOrderField(street, setOrderData, '', 'delivery', 'street');
+        changeOrderField(street, '', 'delivery', 'street');
     }, [street]);
     useEffect(() => {
-        changeOrderField(house, setOrderData, '', 'delivery', 'house');
+        changeOrderField(house, '', 'delivery', 'house');
     }, [house]);
 
-    function changeOrderField(value, setter, defaultCheck, field, field2,) {
-        const newValue = value !== defaultCheck ? value : '';
-        setter(prev => {
-            const newObj = {...prev};
-            field2 ? newObj[field][field2] = newValue : newObj[field] = newValue;
-            return newObj;
-        })
-    }
+
 
     function sendPostOrder() {
         return async function (event) {
@@ -72,12 +65,18 @@ const CartForm = ({orderData, setOrderData}) => {
                 setErrors({});
                 navigate('/success-order');
             } catch (error) {
-                console.log(error)
                 setErrors(error.response.data.errors);
             }
         }
     }
-
+    function changeOrderField(value, defaultCheck, field, field2,) {
+        const newValue = value !== defaultCheck ? value : '';
+        setOrderData(prev => {
+            const newObj = {...prev};
+            field2 ? newObj[field][field2] = newValue : newObj[field] = newValue;
+            return newObj;
+        })
+    }
     return (
         <div className="cart__form">
             <form>
