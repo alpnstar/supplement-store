@@ -2,14 +2,15 @@ import React from 'react';
 import './pagination.scss';
 import axios from "axios";
 
-const Pagination = ({data,setData}) => {
+const Pagination = ({data, setData}) => {
     async function fetch(url) {
         const response = await axios.get(url);
         setData(response.data);
     }
+
     return (
         <div className="pagination">
-            {data && data.links.map((item, index, array) => {
+            {data && data.links.length !== 3 && data.links.map((item, index, array) => {
                 return (
                     <div
                         key={item.label}

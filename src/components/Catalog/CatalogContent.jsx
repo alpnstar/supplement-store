@@ -7,7 +7,7 @@ import axios from "axios";
 import Pagination from "../Pagination/Pagination";
 import brandsRequest from "../../API/brandsRequest";
 
-const Block2 = ({productsData, setProductsData, category, setCartTotalPrice, setCartTotalCount}) => {
+const CatalogContent = ({productsData, setProductsData, category, setCartTotalPrice, setCartTotalCount}) => {
     const navigate = useNavigate();
 
     const [brands, setBrands] = useState([{
@@ -202,4 +202,4 @@ const Block2 = ({productsData, setProductsData, category, setCartTotalPrice, set
     );
 };
 
-export default Block2;
+export default CatalogContent;

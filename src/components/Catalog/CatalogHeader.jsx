@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router";
 
-const Block1 = ({productsData, category}) => {
+const CatalogHeader = ({productsData, category}) => {
     console.log(productsData)
     const navigate = useNavigate();
     const currentCategory = productsData.breadcrumbs && productsData.breadcrumbs[productsData.breadcrumbs.length - 1]
@@ -30,4 +30,4 @@ const Block1 = ({productsData, category}) => {
     );
 };
 
-export default Block1;
+export default CatalogHeader;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import '../components/Catalog/catalog.scss';
-import Block2 from "../components/Catalog/Block2";
-import Block1 from "../components/Catalog/Block1";
+import CatalogContent from "../components/Catalog/CatalogContent";
+import CatalogHeader from "../components/Catalog/CatalogHeader";
 import {useParams} from "react-router";
 
 const Catalog = ({category, setCartTotalPrice, setCartTotalCount}) => {
@@ -10,8 +10,8 @@ const Catalog = ({category, setCartTotalPrice, setCartTotalCount}) => {
         <div
             className="catalog">
             <div className="catalog__wrapper container">
-                <Block1 category={category} productsData = {productsData}/>
-                <Block2
+                <CatalogHeader category={category} productsData = {productsData}/>
+                <CatalogContent
                     productsData={productsData}
                     setProductsData={setProductsData}
                     category={category}

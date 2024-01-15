@@ -15,6 +15,9 @@
 
   &__title-category-main {
     margin: 16px 0 24px 0;
+    display: inline-block;
+    max-height: 40px;
+    height: 100%;
   }
 
   &__subcategories {
