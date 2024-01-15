@@ -3,8 +3,10 @@ import CustomSelect from "../UI/Select/CustomSelect";
 import axios from "axios";
 import CartFormInput from "./CartFormInput";
 import CartFormSelect from "./CartFormSelect";
+import {useNavigate} from "react-router";
 
 const CartForm = ({orderData, setOrderData}) => {
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({});
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -68,13 +70,14 @@ const CartForm = ({orderData, setOrderData}) => {
             try {
                 await axios.post(process.env.API_URL + "api/orders/order", orderData);
                 setErrors({});
+                navigate('/success-order');
             } catch (error) {
+                console.log(error)
                 setErrors(error.response.data.errors);
             }
         }
     }
 
-    console.log(errors)
     return (
         <div className="cart__form">
             <form>
