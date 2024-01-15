@@ -132,4 +132,21 @@
       font-weight: 700;
     }
   }
+
+  &__form-error {
+    color: red;
+    font-weight: 500;
+    animation: ease-in .5s infinite normal errorColor;
+
+
+    @keyframes errorColor {
+      0% {
+        color: orange;
+      }
+      100% {
+        transform: rotate(360deg);
+        color: red;
+      }
+    }
+  }
 }

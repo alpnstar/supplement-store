@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import CustomSelect from "../UI/Select/CustomSelect";
 import axios from "axios";
+import CartFormInput from "./CartFormInput";
+import CartFormSelect from "./CartFormSelect";
 
 const CartForm = ({orderData, setOrderData}) => {
+    const [errors, setErrors] = useState({});
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [surName, setSurName] = useState('');
@@ -11,7 +14,7 @@ const CartForm = ({orderData, setOrderData}) => {
     const [countries, setCountries] = useState([{name: 'Российская Федерация'}]);
     const [countriesSelected, setCountriesSelected] = useState(countries[0]);
 
-    const [regions, setRegions] = useState([{name: 'Выберите регион'}, {name: 'Республика Дагестан'}]);
+    const [regions, setRegions] = useState([{name: 'Республика Дагестан'}]);
     const [regionsSelected, setRegionsSelected] = useState(regions[0]);
     const [city, setCity] = useState('');
     const [street, setStreet] = useState('');
@@ -54,7 +57,7 @@ const CartForm = ({orderData, setOrderData}) => {
         const newValue = value !== defaultCheck ? value : '';
         setter(prev => {
             const newObj = {...prev};
-            field2 ? newObj[field][field2] = value : newObj[field] = value;
+            field2 ? newObj[field][field2] = newValue : newObj[field] = newValue;
             return newObj;
         })
     }
@@ -62,70 +65,43 @@ const CartForm = ({orderData, setOrderData}) => {
     function sendPostOrder() {
         return async function (event) {
             event.preventDefault();
-           await axios.post(process.env.API_URL + "api/orders/order", orderData);
+            try {
+                await axios.post(process.env.API_URL + "api/orders/order", orderData);
+                setErrors({});
+            } catch (error) {
+                setErrors(error.response.data.errors);
+            }
         }
     }
 
+    console.log(errors)
     return (
         <div className="cart__form">
             <form>
                 <h2>Оформление</h2>
                 <div className="cart__form-wrapper">
-                    <div className="cart__form-input-wrapper">
-                                    <span className="cart__form-input-title">Имя <span
-                                        className="required-symbol">*</span></span>
-                        <input name="name" className="main-style-input" type="text" value={name}
-                               onChange={event => setName(event.target.value)}/>
-                    </div>
-                    <div className="cart__form-input-wrapper">
-                                <span className="cart__form-input-title">Фамилия <span
-                                    className="required-symbol">*</span></span>
-                        <input name="surname" className="main-style-input" type="text" value={surName}
-                               onChange={event => setSurName(event.target.value)}/>
-                    < /div>
-                    <div className="cart__form-input-wrapper">
-                                <span className="cart__form-input-title">Почта <span
-                                    className="required-symbol">*</span></span>
-                        <input name="surname" className="main-style-input" type="text" value={email}
-                               onChange={event => setEmail(event.target.value)}/>
-                    < /div>
-                    <div className="cart__form-input-wrapper">
-                                <span className="cart__form-input-title">Телефон<span
-                                    className="required-symbol">*</span></span>
-                        <input name="surname" className="main-style-input" type="text" value={phone}
-                               onChange={event => setPhone(event.target.value)}/>
-                    < /div>
-                    <div className="cart__form-input-wrapper">
-                                   <span className="cart__form-input-title">Страна <span
-                                       className="required-symbol">*</span></span>
-                        <CustomSelect options={countries} selected={countriesSelected}
-                                      setSelected={setCountriesSelected} disabled={true}/>
-                    </div>
-                    <div className="cart__form-input-wrapper">
-                                <span className="cart__form-input-title">Регион <span
-                                    className="required-symbol">*</span></span>
-                        <CustomSelect options={regions} selected={regionsSelected}
-                                      setSelected={setRegionsSelected}/>
-                    </div>
-                    <div className="cart__form-input-wrapper">
-                                <span className="cart__form-input-title">Город <span
-                                    className="required-symbol">*</span></span>
-                        <input className="main-style-input" type="text" value={city}
-                               onChange={event => setCity(event.target.value)}/>
-                    </div>
-                    <div className="cart__form-input-wrapper">
-                                <span className="cart__form-input-title">Улица<span
-                                    className="required-symbol">*</span></span>
-                        <input className="main-style-input" type="text" value={street}
-                               onChange={event => setStreet(event.target.value)}/>
-                    </div>
-                    <div className="cart__form-input-wrapper">
-                                <span className="cart__form-input-title">Дом<span
-                                    className="required-symbol">*</span></span>
-                        <input className="main-style-input" type="text" value={house}
-                               onChange={event => setHouse(event.target.value)}/>
-                    </div>
-                    <input onClick={sendPostOrder(event)} className="main-style-button" value="Отправить" type="submit"/>
+                    <CartFormInput title={'Имя'} state={name} setState={setName} errors={errors}
+                                   errorName={'customer.name'}/>
+                    <CartFormInput title={'Фамилия'} state={surName} setState={setSurName} errors={errors}
+                                   errorName={'customer.name'}/>
+                    <CartFormInput title={'Почта'} state={email} setState={setEmail} errors={errors}
+                                   errorName={'customer.email'}/>
+                    <CartFormInput title={'Телефон'} state={phone} setState={setPhone} errors={errors}
+                                   errorName={'customer.phone'}/>
+                    <CartFormSelect title={'Страна'} selected={countriesSelected} setSelected={setCountriesSelected}
+                                    options={countries} errors={errors} errorName={'delivery.country'}
+                                    disabled={true}/>
+                    <CartFormSelect title={'Регион'} selected={regionsSelected} setSelected={setRegionsSelected}
+                                    options={regions} errors={errors} errorName={'delivery.region'}
+                                    disabled={true}/>
+                    <CartFormInput title={'Город'} state={city} setState={setCity} errors={errors}
+                                   errorName={'delivery.city'}/>
+                    <CartFormInput title={'Улица'} state={street} setState={setStreet} errors={errors}
+                                   errorName={'delivery.street'}/>
+                    <CartFormInput title={'Дом'} state={house} setState={setHouse} errors={errors}
+                                   errorName={'delivery.house'}/>
+                    <input onClick={sendPostOrder(event)} className="main-style-button" value="Отправить"
+                           type="submit"/>
 
                 </div>
             </form>
