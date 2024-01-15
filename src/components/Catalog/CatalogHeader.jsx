@@ -13,9 +13,10 @@ const CatalogHeader = ({productsData, category}) => {
                 <span className="catalog__path-item"
                       onClick={() => navigate('/home')}>Главная</span> / Каталог
                 продукции {productsData.breadcrumbs && productsData.breadcrumbs.map(item => {
-                return (!item.isSelected ? <span key={item.name}>
-                    / <span className="catalog__path-item"
-                            onClick={() => navigate('/' + item.path)}> {item.name}</span></span> : '')
+                return (
+                    !item.isSelected
+                        ? <span key={item.name}> / <span className="catalog__path-item"
+                                                         onClick={() => navigate('/' + item.path)}> {item.name}</span></span> : '')
             })}
             </div>
             <h2 className="catalog__title-category-main">{currentCategory && currentCategory.name}</h2>

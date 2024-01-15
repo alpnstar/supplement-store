@@ -9,7 +9,13 @@ const Cart = ({setCartTotalCount, cartTotalPrice, setCartTotalPrice}) => {
 
     const [cartItems, setCartItems] = useState([]);
     const [orderData, setOrderData] = useState({
-        goods: []
+        note: '',
+        payment_method: 'cash',
+        customer: '',
+        delivery: {
+
+        },
+        goods: [],
     });
 
     function getCartItems() {
