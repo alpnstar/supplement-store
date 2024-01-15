@@ -9,14 +9,25 @@ const Cart = ({setCartTotalCount, cartTotalPrice, setCartTotalPrice}) => {
 
     const [cartItems, setCartItems] = useState([]);
     const [orderData, setOrderData] = useState({
-        note: '',
+        note: 'Note123',
         payment_method: 'cash',
-        customer: '',
+        customer: {
+            name: "",
+            phone: "",
+            email: ""
+        },
         delivery: {
-
+            country: '',
+            state: '',
+            city: '',
+            street: '',
+            house: '',
         },
         goods: [],
     });
+    useEffect(() => {
+        console.log(orderData)
+    }, [orderData]);
 
     function getCartItems() {
         return JSON.parse(localStorage.getItem('cartElements'));
