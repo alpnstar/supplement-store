@@ -69,7 +69,6 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
                     const newParams = {...prev}
                     if (option.attributes.name !== 'Выберите бренд') newParams['filter[brand_id]'] = option.id;
                     else delete newParams['filter[brand_id]'];
-                    productsFetch(newParams);
                     return newParams;
                 })
             });
@@ -86,7 +85,6 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
                     const newParams = {...prev}
                     if (option.modifier !== '') newParams.sort = option.modifier;
                     else delete newParams.sort;
-                    productsFetch(newParams);
                     return newParams;
                 })
             });
@@ -106,7 +104,6 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
                     if (newParams['filter[price_between]'].length <= 1) {
                         delete newParams["filter[price_between]"];
                     }
-                    productsFetch(newParams);
                     return newParams;
 
                 })
@@ -130,7 +127,6 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
         setFilterStartPrice('');
         setFilterEndPrice('');
         setFilterParams({'filter[category_id]': category.id})
-        productsFetch(filterParams);
     }
 
 
