@@ -2,7 +2,6 @@ import React from 'react';
 import {useNavigate} from "react-router";
 
 const CatalogHeader = ({productsData, category}) => {
-    console.log(productsData)
     const navigate = useNavigate();
     const currentCategory = productsData.breadcrumbs && productsData.breadcrumbs[productsData.breadcrumbs.length - 1]
 

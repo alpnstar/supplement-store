@@ -16,14 +16,7 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
     const [filterParams, setFilterParams] = useState({
         'filter[category_id]': category.id,
     });
-    useEffect(() => {
-        setFilterParams(prev => {
-            return {
-                ...prev,
-                'filter[category_id]': category.id,
-            }
-        })
-    }, [category]);
+
 
     async function brandsFetch() {
         const response = await brandsRequest();
@@ -31,13 +24,14 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
             [...prev, ...response.data]);
     }
 
-    async function productsPrimaryFetch(params = {}) {
+    async function productsFetch(params = {}) {
         const response = await productsRequest.allProducts.getAll(params);
         setProductsData(response);
     }
 
     useEffect(() => {
-        productsPrimaryFetch(filterParams);
+        productsFetch(filterParams);
+
     }, [filterParams]);
     useEffect(() => {
         brandsFetch();
@@ -75,8 +69,7 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
                     const newParams = {...prev}
                     if (option.attributes.name !== 'Выберите бренд') newParams['filter[brand_id]'] = option.id;
                     else delete newParams['filter[brand_id]'];
-                    console.log(newParams);
-                    productsPrimaryFetch(newParams);
+                    productsFetch(newParams);
                     return newParams;
                 })
             });
@@ -93,7 +86,7 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
                     const newParams = {...prev}
                     if (option.modifier !== '') newParams.sort = option.modifier;
                     else delete newParams.sort;
-                    productsPrimaryFetch(newParams);
+                    productsFetch(newParams);
                     return newParams;
                 })
             });
@@ -113,7 +106,7 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
                     if (newParams['filter[price_between]'].length <= 1) {
                         delete newParams["filter[price_between]"];
                     }
-                    productsPrimaryFetch(newParams);
+                    productsFetch(newParams);
                     return newParams;
 
                 })
@@ -137,7 +130,7 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
         setFilterStartPrice('');
         setFilterEndPrice('');
         setFilterParams({'filter[category_id]': category.id})
-        productsPrimaryFetch(filterParams);
+        productsFetch(filterParams);
     }
 
 

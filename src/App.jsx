@@ -63,7 +63,7 @@ const App = () => {
     return (
         <div className='app'>
             <Header cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
-            <Nav/>
+            <Nav categories={categories}/>
             <Routes>
                 <Route path="/home"
                        element={<Home
