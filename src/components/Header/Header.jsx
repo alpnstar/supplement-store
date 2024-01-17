@@ -18,26 +18,30 @@ const Header = ({cartTotalPrice, cartTotalCount}) => {
                 <div
                     onClick={homeNavigate}
                     className="logo header__block-1">
-                    Сайт для Саида
+                    Mekka Shop
                 </div>
                 <div className="header__block-2">
                     <div className="header__search">
                         <input placeholder="Введите название или артикул" type="text"/>
                     </div>
                     <div className="header__contacts">
-                            <span className='header__contacts-element'>
-                                <a title='telegram' href="#">
+                        <a title='telegram' href="https://telegram.me/ShiffaVit" target="_blank">
+                            <span className='second-style-button'>
                                     <img src={telegramImg} alt=""/>
-                                </a>
                             </span>
-                        <span className='header__contacts-element'>
-                                <a title='whatsapp' href="#">
-                                    <img src={whatsappImg} alt=""/>
-                                </a>
+                        </a>
+                        <a title='whatsapp'
+                           href="https://api.whatsapp.com/send/?phone=%2B79887212020&text&type=phone_number&app_absent=0"
+                           target="_blank">
+                            <span className='second-style-button'>
+                                <img src={whatsappImg} alt=""/>
                             </span>
-                        <span className='header__contacts-element'>
-                                <a href="tel:+8800500-50-50">8&nbsp;800&nbsp;500-50-50</a>
+                        </a>
+                        <a href="tel:+8800500-50-50">
+                        <span className='second-style-button'>
+                            8&nbsp;800&nbsp;500-50-50
                             </span>
+                        </a>
                     </div>
                     <div onClick={() => navigate('/cart')} className="header__cart">
                         <div className="header__cart-image">

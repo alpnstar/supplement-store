@@ -6,10 +6,13 @@ import CustomSelect from "../UI/Select/CustomSelect";
 import axios from "axios";
 import Pagination from "../Pagination/Pagination";
 import brandsRequest from "../../API/brandsRequest";
+import Error from "../../pages/Error";
 
 const CatalogContent = ({
                             productsData,
                             setProductsData,
+                            isLoaded,
+                            setIsLoaded,
                             category,
                             setCartItems
                         }) => {
@@ -30,8 +33,15 @@ const CatalogContent = ({
     }
 
     async function productsFetch(params = {}) {
-        const response = await productsRequest.allProducts.getAll(params);
-        setProductsData(response);
+        try {
+            setIsLoaded(false);
+            const response = await productsRequest.allProducts.getAll(params);
+            setProductsData(response);
+        } catch (error) {
+
+        } finally {
+            setIsLoaded(true);
+        }
     }
 
     useEffect(() => {
@@ -176,21 +186,21 @@ const CatalogContent = ({
                         </div>
                     </div>
                 </div>
-                <input onClick={resetParams} className="catalog__params-reset" type="button" value="Сбросить"/>
+                <input onClick={resetParams} className="second-style-button" type="button" value="Сбросить"/>
             </div>
             <div className="catalog__products">
-                {productsData.length !== 0
-                    && <ProductsList
+                {productsData.length !== 0 ?
+                    <ProductsList
                         data={productsData.data}
                         paramsSelected1={filterSelected1}
                         paramsSelected2={brandsSelected}
                         startPrice={filterStartPrice}
                         endPrice={filterEndPrice}
                         setCartItems={setCartItems}
-                    />}
+                    />
+                    : isLoaded ? <Error>Продукты не найдены</Error> : ''}
                 <Pagination data={productsData.meta} setData={setProductsData}/>
             </div>
-
         </div>
     );
 };

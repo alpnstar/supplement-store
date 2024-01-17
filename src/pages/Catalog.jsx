@@ -6,6 +6,7 @@ import {useParams} from "react-router";
 
 const Catalog = ({category, setCartItems}) => {
     const [productsData, setProductsData] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
     return (
         <div
             className="catalog">
@@ -14,6 +15,8 @@ const Catalog = ({category, setCartItems}) => {
                 <CatalogContent
                     productsData={productsData}
                     setProductsData={setProductsData}
+                    isLoaded={isLoaded}
+                    setIsLoaded={setIsLoaded}
                     category={category}
                     setCartItems={setCartItems}
                 />

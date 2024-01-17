@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router";
 
-const CatalogHeader = ({productsData, category}) => {
+const CatalogHeader = ({productsData}) => {
     const navigate = useNavigate();
     const currentCategory = productsData.breadcrumbs && productsData.breadcrumbs[productsData.breadcrumbs.length - 1]
 
@@ -22,7 +22,7 @@ const CatalogHeader = ({productsData, category}) => {
             <ul className="catalog__subcategories">
                 {currentCategory && currentCategory.subCategories.map(item => <li
                     key={item.name}
-                    className="catalog__subcategories-item"
+                    className="second-style-button"
                     onClick={() => navigate('/' + item.path)}>{item.name}</li>)}
             </ul>
         </div>

@@ -100,7 +100,7 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
             </div>
             <div className="products__item-inputs">
                 <div className="products__item-push-cart-button">
-                    <button onClick={() => {
+                    <button className="main-style-button"  onClick={() => {
                         addToCart(purchaseTypeBulk);
                     }}>
                         Добавить в корзину

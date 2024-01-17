@@ -93,12 +93,12 @@ h2 {
   color: white;
   font-weight: 600;
   border-radius: 16px;
-  background: #FFA800 !important;
-  transition: background-color 1s linear;
+  background-color: #FFA800 !important;
+  transition: background-color .07s linear;
 
   &:hover {
     cursor: pointer;
-    transition: background-color 1s linear;
+    transition: background-color .07s linear;
     background-color: #e9a31b !important;
 
   }
@@ -107,7 +107,13 @@ h2 {
 .second-style-button {
   cursor: pointer;
   border-radius: 16px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 10px;
   background: #F0F0F0;
+  transition: background-color .07s linear;
+
+  &:hover {
+    transition: background-color .07s linear;
+    background-color: #e6e6e6;
+  }
 }
