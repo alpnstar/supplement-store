@@ -4,6 +4,7 @@ import telegramImg from '../../../public/imgs/telegram.svg';
 import whatsappImg from '../../../public/imgs/whatsapp.svg';
 import cartImg from '../../../public/imgs/cart.svg';
 import {useNavigate} from "react-router";
+import HeaderSearch from "./HeaderSearch";
 
 const Header = ({cartTotalPrice, cartTotalCount}) => {
     const navigate = useNavigate();
@@ -21,9 +22,7 @@ const Header = ({cartTotalPrice, cartTotalCount}) => {
                     Mekka Shop
                 </div>
                 <div className="header__block-2">
-                    <div className="header__search">
-                        <input placeholder="Введите название или артикул" type="text"/>
-                    </div>
+                    <HeaderSearch/>
                     <div className="header__contacts">
                         <a title='telegram' href="https://telegram.me/ShiffaVit" target="_blank">
                             <span className='second-style-button'>

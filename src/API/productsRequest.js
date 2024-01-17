@@ -13,9 +13,18 @@ export default class ProductsRequest {
             return response.data;
         },
         async getById(id) {
-            const response = await axios.get(process.env.API_URL + 'api/products/'+id);
+            const response = await axios.get(process.env.API_URL + 'api/products/' + id);
+            return response.data;
+        },
+        async getBySearch(text) {
+            const response = await axios.get(process.env.API_URL + 'api/products', {
+                params: {
+                    'filter[name]': text,
+                },
+            });
             return response.data;
         }
+
     }
 
     static async newProducts() {

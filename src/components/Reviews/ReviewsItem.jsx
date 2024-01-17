@@ -3,7 +3,6 @@ import {useNavigate} from "react-router";
 
 const ReviewsItem = ({data, product, productView}) => {
     const navigate = useNavigate();
-    console.log(product)
     return (
         <div className="reviewsList__item">
             {productView
