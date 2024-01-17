@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ProductsList from "../../Products/ProductsList";
 import ProductsRequest from "../../../API/productsRequest";
 
-const NewGoods = ({setCartTotalPrice, setCartTotalCount}) => {
+const NewGoods = ({setCartItems}) => {
     const [newGoods, setNewGoods] = useState([]);
 
     async function newGoodsFetch() {
@@ -19,7 +19,7 @@ const NewGoods = ({setCartTotalPrice, setCartTotalCount}) => {
         <article className='newGoods'>
             <div className="newGoods__wrapper container">
                 <h2>Новинки</h2>
-                <ProductsList setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
+                <ProductsList setCartItems={setCartItems}
                               data={newGoods}/>
             </div>
         </article>

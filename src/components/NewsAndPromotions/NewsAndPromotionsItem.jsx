@@ -4,11 +4,10 @@ import {useNavigate} from "react-router";
 
 const NewsAndPromotionsItem = ({data}) => {
     const navigate = useNavigate();
-    console.log(data)
-
     return (
         <article className="newsAndPromotionsList__item">
-            <div onClick={() => navigate('')} className="newsAndPromotionsList__item-img-wrapper">
+            <div onClick={() => navigate('/novosti-i-akcii/' + data.id)}
+                 className="newsAndPromotionsList__item-img-wrapper">
                 <img src={data.preview_image} alt=""/>
             </div>
             <div className="newsAndPromotionsList__item-content-wrapper">

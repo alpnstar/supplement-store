@@ -3,7 +3,7 @@ import './popularGoods.scss';
 import ProductsList from "../../Products/ProductsList";
 import ProductsRequest from "../../../API/productsRequest";
 
-const PopularGoods = ({setCartTotalPrice, setCartTotalCount}) => {
+const PopularGoods = ({setCartItems}) => {
     const [popularGoods, setPopularGoods] = useState([]);
 
     async function popularGoodsFetch() {
@@ -18,7 +18,7 @@ const PopularGoods = ({setCartTotalPrice, setCartTotalCount}) => {
         <article className="popularGoods">
             <div className="popularGoods__wrapper container">
                 <h2>Популярные товары</h2>
-                <ProductsList setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
+                <ProductsList setCartItems ={setCartItems}
                               data={popularGoods}/>
             </div>
         </article>

@@ -2,11 +2,11 @@ import React from 'react';
 import ProductsItem from "./ProductsItem";
 import './Products.scss';
 
-const ProductsList = ({data, setCartTotalPrice, setCartTotalCount}) => {
+const ProductsList = ({data,setCartItems}) => {
     return (
         <div className="products">
             {data.map(item=> {
-                return <ProductsItem setCartTotalCount = {setCartTotalCount} setCartTotalPrice={setCartTotalPrice} key={item.id} data={item}/>
+                return <ProductsItem setCartItems={setCartItems} key={item.id} data={item}/>
             })}
         </div>
     );

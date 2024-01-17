@@ -1,13 +1,13 @@
 import cartRemoveImg from "../../../public/imgs/cart-remove.svg";
 import React from "react";
 
-const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCartTotalPrice}) => {
+const CartGoodsItem = ({data, cartItems, setCartElements}) => {
     const product = data.product;
     const details = data.details;
 
     function increaseCount() {
         let newItems = [];
-        goods.forEach(item => {
+        cartItems.forEach(item => {
             if (item.id !== data.id) {
                 newItems.push(item);
             } else {
@@ -20,12 +20,12 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
                 })
             }
         })
-        updateCart(newItems, (prev) => +prev + (details.is_bulk ? product.attributes.bulk_price : product.attributes.price))
+        setCartElements(newItems);
     }
 
     function decreaseCount() {
         let newItems = [];
-        goods.forEach(item => {
+        cartItems.forEach(item => {
             if (item.id !== data.id) {
                 newItems.push(item);
             } else {
@@ -40,35 +40,15 @@ const CartGoodsItem = ({data, goods, setCartElements, setCartTotalCount, setCart
                 }
             }
         })
-        updateCart(newItems, (prev) =>
-            +prev - (details.is_bulk ? product.attributes.bulk_price : product.attributes.price))
+        setCartElements(newItems);
 
 
     }
 
     function removeItem() {
-        let newItems = goods.filter(item => item.id !== data.id);
-        const curPrice = details.is_bulk ? product.attributes.bulk_price : product.attributes.price;
-        updateCart(newItems, (prev) =>
-            +prev - curPrice * details.quantity)
+        let newItems = cartItems.filter(item => item.id !== data.id);
+        setCartElements(newItems);
 
-    }
-
-    function updateCart(items, priceCalc) {
-        setCartElements(items);
-        localStorage.setItem('cartElements', JSON.stringify(items));
-
-        setCartTotalCount(() => {
-            const newCount = items.length;
-            localStorage.setItem('cartTotalCount', newCount);
-            return newCount;
-        });
-
-        setCartTotalPrice(prev => {
-            const newPrice = priceCalc(prev);
-            localStorage.setItem('cartTotalPrice', newPrice);
-            return newPrice;
-        })
     }
 
     return (

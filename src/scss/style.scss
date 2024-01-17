@@ -2,6 +2,7 @@
 @import "./vars";
 @import "../styles/fonts.css";
 @import "../styles/reset.css";
+@import "../styles/basic-styles.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 .container {
@@ -93,10 +94,13 @@ h2 {
   font-weight: 600;
   border-radius: 16px;
   background: #FFA800 !important;
+  transition: background-color 1s linear;
 
   &:hover {
     cursor: pointer;
+    transition: background-color 1s linear;
     background-color: #e9a31b !important;
+
   }
 }
 

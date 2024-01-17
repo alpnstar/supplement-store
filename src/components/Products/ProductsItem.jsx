@@ -2,7 +2,7 @@ import React from 'react';
 import {useNavigate} from "react-router";
 import ProductsItemInner from "./ProductsItemInner";
 
-const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
+const ProductsItem = ({data, setCartItems}) => {
     const navigate = useNavigate();
 
     function handleNavigate() {
@@ -15,7 +15,7 @@ const ProductsItem = ({data, setCartTotalPrice, setCartTotalCount}) => {
             <div onClick={handleNavigate} className="products__item-img-wrapper">
                 <img src={data.attributes.image} alt={data.attributes.name}/>
             </div>
-            <ProductsItemInner data={data} setCartTotalPrice={setCartTotalPrice} setCartTotalCount={setCartTotalCount}/>
+            <ProductsItemInner data={data} setCartItems={setCartItems}/>
         </article>
     );
 };

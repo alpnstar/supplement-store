@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CustomSelect from "../UI/Select/CustomSelect";
 import {options} from "axios";
 
-const CartFormSelect = ({title, selected, setSelected, options, errors, errorName, disabled}) => {
+const CartFormSelect = ({
+                            title,
+                            selected,
+                            setSelected,
+                            options,
+                            errors,
+                            errorName,
+                            handleChange,
+                            defaultCheck,
+                            field,
+                            field2,
+                            disabled
+                        }) => {
+    useEffect(() => {
+        handleChange(selected.name, defaultCheck, field, field2);
+    }, [selected]);
     return (
         <div className="cart__form-input-wrapper">
             <span className="cart__form-error">{errors[errorName] && errors[errorName]}</span>

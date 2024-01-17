@@ -5,7 +5,7 @@ import {useNavigate, useParams} from "react-router";
 import ProductsRequest from "../../../API/productsRequest";
 import ProductsItemInner from "../ProductsItemInner";
 
-const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
+const ProductCard = ({setCartTotalPrice, setCartTotalCount, setCartItems}) => {
     const navigate = useNavigate();
     const params = useParams();
 
@@ -48,8 +48,7 @@ const ProductCard = ({setCartTotalPrice, setCartTotalCount}) => {
                             </div>
                         </div>
                         <div className="productCard__content-right">
-                            <ProductsItemInner data={product} setCartTotalPrice={setCartTotalPrice}
-                                               setCartTotalCount={setCartTotalCount} full={true}/>
+                            <ProductsItemInner data={product} setCartItems={setCartItems} full={true}/>
                         </div>
                     </>
                     : <h2>Товар не найден</h2>}

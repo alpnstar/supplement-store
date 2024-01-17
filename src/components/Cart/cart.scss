@@ -88,7 +88,7 @@
 
   &__goods-item-price {
     text-align: center;
-    min-width: 60px;
+    min-width: 84px;
     font-size: 20px;
     font-weight: 600;
   }
@@ -134,9 +134,10 @@
   }
 
   &__form-error {
+    font-size: 13px;
     color: red;
     font-weight: 500;
-    animation: ease-in .5s infinite normal errorColor;
+    animation: ease-in 2s 2 normal errorColor;
 
 
     @keyframes errorColor {
@@ -144,7 +145,6 @@
         color: orange;
       }
       100% {
-        transform: rotate(360deg);
         color: red;
       }
     }

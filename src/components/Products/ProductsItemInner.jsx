@@ -3,7 +3,7 @@ import starImg from "../../../public/imgs/star.svg";
 import resetImg from "../../../public/imgs/reset.svg";
 import {useNavigate} from "react-router";
 
-const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount, full}) => {
+const ProductsItemInner = ({data, setCartItems, full}) => {
     const [purchaseTypeBulk, setPurchaseTypeBulk] = useState(false);
     const [counter, setCounter] = useState(1);
 
@@ -28,53 +28,29 @@ const ProductsItemInner = ({data, setCartTotalPrice, setCartTotalCount, full}) =
                 is_bulk: isBulk,
             }
         }
-        const cartItems = getCartElements();
-        presenceCheck();
-        setPrice();
-        localStorage.setItem('cartElements', JSON.stringify(cartItems));
+        setCartItems(prev => {
+            return presenceCheck(prev);
+        })
 
+        function presenceCheck(items) {
+            const copy = [...items];
 
-        setCartTotalCount(prev => {
-            const newValue = +prev + counter;
-            localStorage.setItem('cartTotalCount', newValue);
-            return newValue;
-        });
-
-        function getCartElements() {
-            !localStorage.getItem('cartElements')
-            && localStorage.setItem('cartElements', '[]');
-            return JSON.parse(localStorage.getItem('cartElements'));
-        }
-
-        function presenceCheck() {
-            const check = cartItems.findIndex(item => {
+            const check = items.findIndex(item => {
                 return item.product.id === newItem.product.id
                     && item.details.is_bulk === newItem.details.is_bulk;
             })
             if (check !== -1) {
-                const elem = cartItems[check];
-                cartItems[check] = {
-                    ...elem,
+                copy[check] = {
+                    ...copy[check],
                     details: {
-                        ...elem.details,
-                        quantity: elem.details.quantity + counter,
+                        ...copy[check].details,
+                        quantity: copy[check].details.quantity + counter,
                     }
                 };
-                return;
+                return copy;
             }
-            cartItems.push(newItem);
+            return [...copy, newItem]
         }
-
-        function setPrice() {
-            const getPrice = localStorage.getItem('cartTotalPrice');
-            !getPrice && localStorage.setItem('cartTotalPrice', '0');
-            let parsedPrice = JSON.parse(getPrice);
-            parsedPrice = +parsedPrice + (isBulk ? data.attributes.bulk_price : data.attributes.price) * counter;
-            setCartTotalPrice(parsedPrice);
-            localStorage.setItem('cartTotalPrice', parsedPrice);
-
-        }
-
     }
 
     return (

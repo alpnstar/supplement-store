@@ -7,7 +7,12 @@ import axios from "axios";
 import Pagination from "../Pagination/Pagination";
 import brandsRequest from "../../API/brandsRequest";
 
-const CatalogContent = ({productsData, setProductsData, category, setCartTotalPrice, setCartTotalCount}) => {
+const CatalogContent = ({
+                            productsData,
+                            setProductsData,
+                            category,
+                            setCartItems
+                        }) => {
     const navigate = useNavigate();
 
     const [brands, setBrands] = useState([{
@@ -181,8 +186,7 @@ const CatalogContent = ({productsData, setProductsData, category, setCartTotalPr
                         paramsSelected2={brandsSelected}
                         startPrice={filterStartPrice}
                         endPrice={filterEndPrice}
-                        setCartTotalCount={setCartTotalCount}
-                        setCartTotalPrice={setCartTotalPrice}
+                        setCartItems={setCartItems}
                     />}
                 <Pagination data={productsData.meta} setData={setProductsData}/>
             </div>

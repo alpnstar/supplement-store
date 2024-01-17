@@ -6,15 +6,15 @@ import NewGoods from "../components/Home/NewGoods/NewGoods";
 import RecentNews from "../components/Home/RecentNews/RecentNews";
 import LastReviews from "../components/Home/LastReviews/LastReviews";
 
-const Home = ({setCartTotalPrice, setCartTotalCount}) => {
+const Home = ({setCartItems}) => {
 
     return (
         <div className="home">
             <div className="home__wrapper">
                 <Banner/>
-                <PopularGoods setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
+                <PopularGoods setCartItems = {setCartItems}
                               />
-                <NewGoods setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice} />
+                <NewGoods setCartItems={setCartItems} />
                 <RecentNews/>
                 <LastReviews/>
             </div>

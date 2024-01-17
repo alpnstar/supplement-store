@@ -22,11 +22,23 @@ const App = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const [cartTotalPrice, setCartTotalPrice] = useState(localStorage.getItem('cartTotalPrice') || 0);
-    const [cartTotalCount, setCartTotalCount] = useState(localStorage.getItem('cartTotalCount') || 0);
-
     const [categories, setCategories] = useState([]);
 
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartElements')) || []);
+    const [cartTotalPrice, setCartTotalPrice] = useState(0);
+    const [cartTotalCount, setCartTotalCount] = useState(0);
+
+    useEffect(() => {
+        localStorage.setItem('cartElements', JSON.stringify(cartItems));
+        let totalPrice = 0;
+        let totalCount = 0;
+        cartItems.map(item => {
+            totalPrice = totalPrice + ((item.details.is_bulk ? item.product.attributes.bulk_price : item.product.attributes.price) * item.details.quantity);
+            totalCount = totalCount + item.details.quantity;
+        })
+        setCartTotalPrice(totalPrice);
+        setCartTotalCount(totalCount);
+    }, [cartItems]);
 
     useEffect(() => {
         location.pathname === '/' && navigate('/home');
@@ -47,11 +59,8 @@ const App = () => {
                     <Route
                         path={path}
                         element={<Catalog
-
-                            setCartTotalCount={setCartTotalCount} setCartTotalPrice={setCartTotalPrice}
-                            path={path} category={category}/>} // Замените на ваш компонент
-                    >
-                        {/* Если есть подкатегории, вызываем рекурсивно */}
+                            setCartItems={setCartItems}
+                            path={path} category={category}/>}>
                     </Route>
                     {category.attributes.subCategories.length !== 0
                         && renderRoutes(category.attributes.subCategories)
@@ -66,25 +75,24 @@ const App = () => {
             <Nav categories={categories}/>
             <Routes>
                 <Route path="/home"
-                       element={<Home
-                           setCartTotalCount={setCartTotalCount}
-                           setCartTotalPrice={setCartTotalPrice}/>}/>
+                       element={<Home setCartItems={setCartItems}/>}/>
                 {renderRoutes(categories)}
-                <Route path="/:productId" element={<ProductsCard setCartTotalPrice={setCartTotalPrice}
-                                                                 setCartTotalCount={setCartTotalCount}/>}></Route>
+                <Route path="/:productId" element={<ProductsCard
+                    setCartItems={setCartItems}/>}></Route>
                 <Route path="/reviews/:productId" element={<Reviews/>}/>
                 <Route path="/blog/:newId" element={<NewsCard/>}/>
                 <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
                 <Route path={"/success-order"} element={<SuccessOrder/>}/>
                 <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
                 <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>
+                <Route path="/novosti-i-akcii/:newsId" element={<NewsCard/>}/>
                 <Route path="/o-magazine" element={<About/>}/>
                 <Route path="/contacti" element={<Contacts/>}/>
                 <Route path="/cart"
                        element={<Cart
                            cartTotalPrice={cartTotalPrice}
-                           setCartTotalCount={setCartTotalCount}
-                           setCartTotalPrice={setCartTotalPrice}/>}/>
+                           cartItems={cartItems}
+                           setCartItems={setCartItems}/>}/>
                 <Route path="/*" element={<Error>Ошибка</Error>}/>
             </Routes>
             <Footer/>

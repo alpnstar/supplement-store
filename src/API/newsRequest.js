@@ -4,18 +4,12 @@ export default class NewsRequest {
     static allNews = {
         async getAll() {
             const response = await axios.get(process.env.API_URL + 'api/posts', {
-                params: {
-
-                }
+                params: {}
             });
             return response.data;
         },
         async getById(id) {
-            const response = await axios.get(process.env.API_URL + 'api/posts', {
-                params: {
-                    'id': id,
-                }
-            });
+            const response = await axios.get(process.env.API_URL + 'api/posts/' + id);
             return response.data;
         }
     }
