@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="footer__wrapper container">
                 <div className="footer__left-content">
                     <span className="logo">
-                        Сайт для Саида
+                        Mekka Shop
                     </span>
                 </div>
                 <div className="footer__right-content">
