@@ -114,6 +114,7 @@ const CatalogContent = ({
         const regex = /^[0-9\b]+$/;
         return function (event) {
             if (event.target.value === '' || regex.test(event.target.value)) {
+                func(event.target.value);
                 setFilterParams(prev => {
                     const newParams = changePriceRange(prev, which, event.target.value);
                     if (newParams['filter[price_between]'].length <= 1) {
@@ -173,6 +174,7 @@ const CatalogContent = ({
                         <div className="catalog__params-input-wrapper">
                             <input
                                 onChange={handleChangePriceParams(setFilterStartPrice, 'min')}
+                                value={filterStartPrice}
                                 className="catalog__params-input catalog__params-input--setPrice"
                                 type="text"
                                 maxLength={7}
@@ -180,6 +182,7 @@ const CatalogContent = ({
                         </div>
                         <div className="catalog__params-input-wrapper">
                             <input onChange={handleChangePriceParams(setFilterEndPrice, 'max')}
+                                   value={filterEndPrice}
                                    className="catalog__params-input catalog__params-input--setPrice"
                                    type="text"
                                    maxLength={7}/>
