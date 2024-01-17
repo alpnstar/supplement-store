@@ -16,7 +16,7 @@ const HeaderSearch = () => {
                 setSearchValue(event.target.value);
                 productFetch(event.target.value);
             }}
-                   placeholder="Введите название или артикул" type="text"/>
+                   placeholder="Ищите по названию или артикулу" type="text"/>
             <div className="header__search-result">
 
             </div>
