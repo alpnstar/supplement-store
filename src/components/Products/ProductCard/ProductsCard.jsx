@@ -27,6 +27,10 @@ const ProductCard = ({setCartItems}) => {
     }
 
     useEffect(() => {
+        product && (document.title = product.attributes.name);
+    }, [product]);
+
+    useEffect(() => {
         setProduct();
         productFetch();
     }, [params.productId]);

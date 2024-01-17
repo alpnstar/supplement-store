@@ -24,7 +24,9 @@ const Cart = ({cartItems,setCartItems, cartTotalPrice}) => {
         goods: [],
     });
 
-
+    useEffect(() => {
+        document.title = 'Корзина';
+    }, []);
     useEffect(() => {
         cartItems.map(item => {
             setOrderData(prev => {

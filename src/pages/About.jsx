@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../components/About/about.scss';
 
 const About = () => {
+    useEffect(() => {
+        document.title = 'О магазине';
+    }, []);
+
     return (
         <div className="about">
             <div className="about__wrapper container">

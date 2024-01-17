@@ -1,10 +1,13 @@
 import React from 'react';
+import {useNavigate} from "react-router";
 
 const ReviewsItem = ({data, product, productView}) => {
+    const navigate = useNavigate();
+    console.log(product)
     return (
         <div className="reviewsList__item">
             {productView
-                && <div className="reviewsList__item-title-block">
+                && <div onClick={()=> navigate('/'+product.id)} className="reviewsList__item-title-block">
                     <div className="reviewsList__item-img-wrapper">
                         <img
                             src={product.attributes.image}

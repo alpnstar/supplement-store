@@ -1,14 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './nav.scss';
 import expandSvg from '../../../public/imgs/expand.svg';
-import {useNavigate} from "react-router";
+import {useLocation, useNavigate} from "react-router";
 import NavContext from "./NavContext";
 import CategoriesRequest from "../../API/categoriesRequest";
 
 const Nav = ({categories, footer}) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [contextState, setContextState] = useState(false);
-    const ref = useRef();
     const anchor = document.getElementById('nav-expand');
 
     return (
@@ -29,7 +29,7 @@ const Nav = ({categories, footer}) => {
                         }}
                         onMouseEnter={() => !footer && setContextState(true)}
                         onMouseLeave={() => !footer && setContextState(false)}
-                        className='nav__list-item nav__list-item--expand'>
+                        className={`nav__list-item nav__list-item--expand ${location.pathname.indexOf('catalog') === 1 ? 'nav__list-item--active' : ''}`}>
                         <div
                             className="nav__list-item-wrapper">
                             Каталог продукции
@@ -40,11 +40,18 @@ const Nav = ({categories, footer}) => {
                     </li>
 
 
-                    <li className="nav__list-item" onClick={() => navigate('/dostavka-i-oplata')}>Доставка и оплата
+                    <li className={`nav__list-item ${location.pathname === '/dostavka-i-oplata' ? 'nav__list-item--active' : ''}`}
+                        onClick={() => navigate('/dostavka-i-oplata')}>Доставка и оплата
                     </li>
-                    <li className="nav__list-item" onClick={() => navigate('/novosti-i-akcii')}>Новости и акции</li>
-                    <li className="nav__list-item" onClick={() => navigate('/o-magazine')}>О магазине</li>
-                    <li className="nav__list-item" onClick={() => navigate('/contacti')}>Контакты</li>
+                    <li className={`nav__list-item ${location.pathname === '/novosti-i-akcii' ? 'nav__list-item--active' : ''}`}
+                        onClick={() => navigate('/novosti-i-akcii')}>Новости и акции
+                    </li>
+                    <li className={`nav__list-item ${location.pathname === '/o-magazine' ? 'nav__list-item--active' : ''}`}
+                        onClick={() => navigate('/o-magazine')}>О магазине
+                    </li>
+                    <li className={`nav__list-item ${location.pathname === '/contacti' ? 'nav__list-item--active' : ''}`}
+                        onClick={() => navigate('/contacti')}>Контакты
+                    </li>
                 </ul>
             </div>
         </nav>

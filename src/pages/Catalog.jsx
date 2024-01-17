@@ -1,10 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../components/Catalog/catalog.scss';
 import CatalogContent from "../components/Catalog/CatalogContent";
 import CatalogHeader from "../components/Catalog/CatalogHeader";
 import {useParams} from "react-router";
 
 const Catalog = ({category, setCartItems}) => {
+    console.log(category)
+    useEffect(() => {
+        document.title = category.attributes.name;
+    }, []);
+
     const [productsData, setProductsData] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     return (

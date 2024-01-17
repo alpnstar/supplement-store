@@ -21,12 +21,23 @@ html {
     flex-wrap: nowrap;
     height: 100vh;
 }
+
 .content {
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 0;
     margin-bottom: 100px;
 }
-.footer {
 
+a {
+    color: #FFA800 !important;
+    transition: color .07s linear;
+
+    &:hover {
+        cursor: pointer;
+        transition: color .07s linear;
+        color: #cf8800 !important;
+
+    }
+;
 }

@@ -74,6 +74,7 @@ const App = () => {
             <Header cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
             <Nav categories={categories}/>
           <main className="content">
+
               <Routes>
                   <Route path="/home"
                          element={<Home setCartItems={setCartItems}/>}/>

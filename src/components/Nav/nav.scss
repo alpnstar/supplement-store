@@ -1,20 +1,27 @@
 
 .nav {
-  border-bottom: 1px solid #E0E0E0;
   margin-bottom: 40px;
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #E0E0E0;
 
   &__list {
     display: flex;
     position: relative;
-    gap: 32px;
 
     &-item {
-      font-weight: 500;
+      display: block;
       user-select: none;
-      padding-bottom: 18px;
+      font-weight: 500;
+      padding: 10px 16px;
+      transition: background-color .1s linear;
+      border-radius: 16px;
+
+
       &:hover {
         cursor: pointer;
       }
+
       &-wrapper {
         display: flex;
         align-items: center;
@@ -26,6 +33,10 @@
         top: 100%;
       }
 
+      &--active {
+        transition: background-color .1s linear;
+        background-color: #F0F0F0;
+      }
 
       &--expand {
         gap: 6px;
@@ -72,6 +83,7 @@
 
     &-item {
       position: relative;
+
       &-wrapper {
         padding: 8px;
         width: 100%;

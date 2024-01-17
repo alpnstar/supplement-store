@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../components/SuccessOrder/successOrder.scss';
 import {useNavigate} from "react-router";
 
 const SuccessOrder = () => {
     const navigate = useNavigate();
+    useEffect(() => {
+        document.title = 'Заказ оформлен';
+    }, []);
+
     return (
         <div className="successOrder">
             <div className="successOrder__wrapper container">

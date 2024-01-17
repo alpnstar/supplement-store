@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "../components/ShipAndPay/shipAndPay.scss";
 
 const ShipAndPay = () => {
+    useEffect(() => {
+        document.title = 'Доставка и оплата';
+    }, []);
     return (
         <div className="shipAndPay">
             <div className="shipAndPay__wrapper container">

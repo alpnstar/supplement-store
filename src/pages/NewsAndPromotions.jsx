@@ -13,6 +13,8 @@ const NewsAndPromotions = () => {
 
     useEffect(() => {
         newsFetch();
+        document.title = 'Новости и акции';
+
     }, []);
 
     return (
