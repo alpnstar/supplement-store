@@ -10,6 +10,7 @@
   a {
     color: black !important;
   }
+
   &__wrapper {
     padding: 24px 10px 20px 10px;
     flex-wrap: nowrap;
@@ -29,6 +30,7 @@
   }
 
   &__search {
+    position: relative;
     flex-grow: 1;
 
     input {
@@ -41,12 +43,47 @@
 
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
     }
+
+    &-options {
+      display: flex;
+      flex-direction: column;
+
+      &-title {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        overflow: hidden;
+        height: 42px;
+        gap: 5px;
+        max-width: 250px;
+        font-weight: 500;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+        font-weight: 500;
+
+        img {
+          border: 0;
+          object-fit: contain;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
   }
 
   &__contacts {
     display: flex;
     align-items: center;
     gap: 8px;
+
     img {
       width: 17px;
       height: 17px;

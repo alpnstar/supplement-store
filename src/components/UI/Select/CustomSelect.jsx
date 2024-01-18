@@ -7,7 +7,9 @@ const CustomSelect = ({options, altOptions, selected, setSelected, disabled, alt
 
     function handleOptionsShow(func) {
         return function () {
-            func(prev => !prev);
+            if (!disabled) {
+                func(prev => !prev);
+            }
 
         }
     }
@@ -21,14 +23,19 @@ const CustomSelect = ({options, altOptions, selected, setSelected, disabled, alt
     }
 
     function closeOptions(event, state) {
+        console.log('hello')
         if (!ref.current.contains(event.target) && optionsShow) {
             setOptionsShow(false);
         }
     }
 
     useEffect(() => {
-        document.addEventListener('click', closeOptions);
-        return () => document.removeEventListener('click', closeOptions);
+        if (optionsShow) {
+            document.addEventListener('click', closeOptions);
+        } else {
+            document.removeEventListener('click', closeOptions);
+        }
+        // return () => document.removeEventListener('click', closeOptions);
     }, [optionsShow]);
 
     return (

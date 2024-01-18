@@ -36,7 +36,7 @@ a {
     &:hover {
         cursor: pointer;
         transition: color .07s linear;
-        color: #cf8800 !important;
+        color: #d9981a !important;
 
     }
 ;

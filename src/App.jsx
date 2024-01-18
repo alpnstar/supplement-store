@@ -17,6 +17,7 @@ import Reviews from "./pages/Reviews";
 import Error from "./pages/Error";
 import SuccessOrder from "./pages/SuccessOrder";
 import NewsCard from "./components/NewsAndPromotions/NewsCard";
+import SearchFullResult from "./pages/SearchFullResult";
 
 const App = () => {
     const location = useLocation();
@@ -60,7 +61,7 @@ const App = () => {
                         path={path}
                         element={<Catalog
                             setCartItems={setCartItems}
-                             category={category}/>}>
+                            category={category}/>}>
                     </Route>
                     {category.attributes.subCategories.length !== 0
                         && renderRoutes(category.attributes.subCategories)
@@ -73,32 +74,33 @@ const App = () => {
         <div className='app'>
             <Header cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
             <Nav categories={categories}/>
-          <main className="content">
+            <main className="content">
 
-              <Routes>
-                  <Route path="/home"
-                         element={<Home setCartItems={setCartItems}/>}/>
-                  {renderRoutes(categories)}
-                  <Route path="/:productId" element={<ProductsCard
-                      setCartItems={setCartItems}/>}></Route>
-                  <Route path="/reviews/:productId" element={<Reviews/>}/>
-                  <Route path="/blog/:newId" element={<NewsCard/>}/>
-                  <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
-                  <Route path={"/success-order"} element={<SuccessOrder/>}/>
-                  <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
-                  <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>
-                  <Route path="/novosti-i-akcii/:newsId" element={<NewsCard/>}/>
-                  <Route path="/o-magazine" element={<About/>}/>
-                  <Route path="/contacti" element={<Contacts/>}/>
-                  <Route path="/cart"
-                         element={<Cart
-                             cartTotalPrice={cartTotalPrice}
-                             cartItems={cartItems}
-                             setCartItems={setCartItems}/>}/>
-                  <Route path="/*" element={<Error>Товар не найден</Error>}/>
-                  <Route path="/category/*" element={<Error>Категория не найдена</Error>}/>
-              </Routes>
-          </main>
+                <Routes>
+                    <Route path="/home"
+                           element={<Home setCartItems={setCartItems}/>}/>
+                    {renderRoutes(categories)}
+                    <Route path="/:productId" element={<ProductsCard
+                        setCartItems={setCartItems}/>}/>
+                    <Route path="/search/:query" element={<SearchFullResult/>}/>
+                    <Route path="/reviews/:productId" element={<Reviews/>}/>
+                    <Route path="/blog/:newId" element={<NewsCard/>}/>
+                    <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
+                    <Route path={"/success-order"} element={<SuccessOrder/>}/>
+                    <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
+                    <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>
+                    <Route path="/novosti-i-akcii/:newsId" element={<NewsCard/>}/>
+                    <Route path="/o-magazine" element={<About/>}/>
+                    <Route path="/contacti" element={<Contacts/>}/>
+                    <Route path="/cart"
+                           element={<Cart
+                               cartTotalPrice={cartTotalPrice}
+                               cartItems={cartItems}
+                               setCartItems={setCartItems}/>}/>
+                    <Route path="/*" element={<Error>Товар не найден</Error>}/>
+                    <Route path="/category/*" element={<Error>Категория не найдена</Error>}/>
+                </Routes>
+            </main>
             <Footer/>
         </div>
     )

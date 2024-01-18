@@ -14,15 +14,22 @@ const CatalogContent = ({
                             isLoaded,
                             setIsLoaded,
                             category,
-                            setCartItems
+                            setCartItems,
+                            query
                         }) => {
     const navigate = useNavigate();
 
     const [brands, setBrands] = useState([{
         attributes: {name: 'Выберите бренд'},
     }]);
-    const [filterParams, setFilterParams] = useState({
-        'filter[category_id]': category.id,
+    const [filterParams, setFilterParams] = useState(() => {
+        if (category) {
+            return {
+                'filter[category_id]': category ? category.id : '',
+            }
+
+        }
+        return {}
     });
 
 
@@ -45,8 +52,10 @@ const CatalogContent = ({
     }
 
     useEffect(() => {
+        query && resetParams();
+    }, [query]);
+    useEffect(() => {
         productsFetch(filterParams);
-
     }, [filterParams]);
     useEffect(() => {
         brandsFetch();
@@ -142,7 +151,12 @@ const CatalogContent = ({
         setBrandsSelected(brands[0]);
         setFilterStartPrice('');
         setFilterEndPrice('');
-        setFilterParams({'filter[category_id]': category.id})
+        setFilterParams(() => {
+            if (category) {
+                return {'filter[category_id]': category ? category.id : ''}
+            }
+            return {}
+        })
     }
 
 
