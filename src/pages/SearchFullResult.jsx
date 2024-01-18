@@ -9,6 +9,21 @@ const SearchFullResult = () => {
 
     const [result, setResult] = useState();
     const [isLoaded, setIsLoaded] = useState(true);
+    const [total, setTotal] = useState({
+        loaded: false,
+    });
+    useEffect(() => {
+        if (!total.loaded && result) {
+            setTotal(prev => {
+                return {
+                    loaded: true,
+                    total: result.meta.total,
+                }
+
+            })
+
+        }
+    }, [result]);
     useEffect(() => {
         document.title = `${'«' + params.query + '»'}${' — Mekka Shop | Сеть магазинов восточных товаров'}`;
     }, []);
@@ -19,7 +34,7 @@ const SearchFullResult = () => {
             <div className="searchResult">
                 <div className="searchResult__wrapper container">
                     <div className="searchResult__header">
-                        <h2>По запросу «{params.query}» найдено {result && result.meta.total} товаров</h2>
+                        <h2>По запросу «{params.query}» найдено {total.total && total.total} товаров</h2>
                     </div>
                     <div className="searchResult__content">
                         <CatalogContent isLoaded={isLoaded} setIsLoaded={setIsLoaded} setProductsData={setResult}
