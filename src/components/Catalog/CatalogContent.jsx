@@ -17,6 +17,11 @@ const CatalogContent = ({
                             setCartItems,
                             query
                         }) => {
+
+    useEffect(() => {
+        setFilterParams(initialFilterParams());
+
+    }, [category]);
     const navigate = useNavigate();
     const [brands, setBrands] = useState([{
         attributes: {name: 'Выберите бренд'},
@@ -58,7 +63,7 @@ const CatalogContent = ({
 
     useEffect(() => {
         productsFetch(filterParams);
-    }, [filterParams, location]);
+    }, [filterParams]);
 
     useEffect(() => {
         brandsFetch();
@@ -204,7 +209,7 @@ const CatalogContent = ({
                 <input onClick={resetParams} className="second-style-button" type="button" value="Сбросить"/>
             </div>
             <div className="catalog__products">
-                {productsData && productsData.length !== 0 ?
+                {productsData && productsData.data && productsData.data.length !== 0 ?
                     <>
                         <ProductsList
                             data={productsData.data}

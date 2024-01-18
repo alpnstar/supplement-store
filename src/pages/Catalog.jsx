@@ -6,12 +6,11 @@ import {useParams} from "react-router";
 
 const Catalog = ({category, setCartItems}) => {
 
+    const [productsData, setProductsData] = useState({});
+    const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         document.title = category.attributes.name;
     }, []);
-
-    const [productsData, setProductsData] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
     return (
         <div
             className="catalog">
