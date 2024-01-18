@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import ProductsList from "../Products/ProductsList";
-import {useNavigate, useParams} from "react-router";
+import {useLocation, useNavigate, useParams} from "react-router";
 import productsRequest from "../../API/productsRequest";
 import CustomSelect from "../UI/Select/CustomSelect";
 import axios from "axios";
@@ -18,7 +18,6 @@ const CatalogContent = ({
                             query
                         }) => {
     const navigate = useNavigate();
-
     const [brands, setBrands] = useState([{
         attributes: {name: 'Выберите бренд'},
     }]);
@@ -56,9 +55,11 @@ const CatalogContent = ({
     useEffect(() => {
         query && resetParams();
     }, [query]);
+
     useEffect(() => {
         productsFetch(filterParams);
-    }, [filterParams]);
+    }, [filterParams, location]);
+
     useEffect(() => {
         brandsFetch();
     }, []);

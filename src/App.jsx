@@ -56,7 +56,7 @@ const App = () => {
         return data.map(category => {
             const path = category.attributes.path;
             return (
-                <Route key={path}>
+                <Route key={Math.random()}>
                     <Route
                         path={path}
                         element={<Catalog
@@ -98,7 +98,7 @@ const App = () => {
                                cartItems={cartItems}
                                setCartItems={setCartItems}/>}/>
                     <Route path="/*" element={<Error>Товар не найден</Error>}/>
-                    <Route path="/category/*" element={<Error>Категория не найдена</Error>}/>
+                    <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
                 </Routes>
             </main>
             <Footer/>
