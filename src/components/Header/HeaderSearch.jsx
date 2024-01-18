@@ -25,7 +25,7 @@ const HeaderSearch = () => {
     }, [fullResult]);
 
     function closeOptions(event) {
-        if (ref.current && !ref.current.contains(event.target) && display) {
+        if (ref.current.className === 'header__search' && !ref.current.contains(event.target) && display) {
             setDisplay(false);
         }
     }

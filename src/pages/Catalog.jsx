@@ -5,7 +5,7 @@ import CatalogHeader from "../components/Catalog/CatalogHeader";
 import {useParams} from "react-router";
 
 const Catalog = ({category, setCartItems}) => {
-    console.log(category)
+
     useEffect(() => {
         document.title = category.attributes.name;
     }, []);

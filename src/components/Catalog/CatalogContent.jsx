@@ -22,16 +22,18 @@ const CatalogContent = ({
     const [brands, setBrands] = useState([{
         attributes: {name: 'Выберите бренд'},
     }]);
-    const [filterParams, setFilterParams] = useState(() => {
-        if (category) {
-            return {
-                'filter[category_id]': category ? category.id : '',
-            }
+    const [filterParams, setFilterParams] = useState(initialFilterParams());
 
-        }
-        return {}
-    });
+    function initialFilterParams() {
+        const categoryParam = category && category.id ? {
+            'filter[category_id]': category.id,
+        } : {};
+        const queryParam = query ? {
+            'filter[name]': query,
+        } : {};
+        return {...categoryParam, ...queryParam}
 
+    }
 
     async function brandsFetch() {
         const response = await brandsRequest();
@@ -151,12 +153,7 @@ const CatalogContent = ({
         setBrandsSelected(brands[0]);
         setFilterStartPrice('');
         setFilterEndPrice('');
-        setFilterParams(() => {
-            if (category) {
-                return {'filter[category_id]': category ? category.id : ''}
-            }
-            return {}
-        })
+        setFilterParams(initialFilterParams());
     }
 
 
@@ -206,17 +203,19 @@ const CatalogContent = ({
                 <input onClick={resetParams} className="second-style-button" type="button" value="Сбросить"/>
             </div>
             <div className="catalog__products">
-                {productsData.length !== 0 ?
-                    <ProductsList
-                        data={productsData.data}
-                        paramsSelected1={filterSelected1}
-                        paramsSelected2={brandsSelected}
-                        startPrice={filterStartPrice}
-                        endPrice={filterEndPrice}
-                        setCartItems={setCartItems}
-                    />
+                {productsData && productsData.length !== 0 ?
+                    <>
+                        <ProductsList
+                            data={productsData.data}
+                            paramsSelected1={filterSelected1}
+                            paramsSelected2={brandsSelected}
+                            startPrice={filterStartPrice}
+                            endPrice={filterEndPrice}
+                            setCartItems={setCartItems}
+                        />
+                        <Pagination data={productsData.meta} setData={setProductsData}/>
+                    </>
                     : isLoaded ? <Error>Продукты не найдены</Error> : ''}
-                <Pagination data={productsData.meta} setData={setProductsData}/>
             </div>
         </div>
     );

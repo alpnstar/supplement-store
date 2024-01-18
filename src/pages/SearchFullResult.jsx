@@ -10,17 +10,8 @@ const SearchFullResult = () => {
     const [result, setResult] = useState();
     const [isLoaded, setIsLoaded] = useState(true);
 
-    async function productsFetch(value) {
-        try {
-            const response = await ProductsRequest.allProducts.getBySearch(value);
-            setResult(response);
-        } catch (error) {
-        }
-    }
 
-    useEffect(() => {
-        productsFetch(params.query);
-    }, [params.query]);
+
 
     return (
         <div>
@@ -30,9 +21,8 @@ const SearchFullResult = () => {
                         <h2>По запросу «{params.query}» найдено {result && result.meta.total} товаров</h2>
                     </div>
                     <div className="searchResult__content">
-                        {result &&
                             <CatalogContent isLoaded={isLoaded} setIsLoaded={setIsLoaded} setProductsData={setResult}
-                                            productsData={result} query={params.query}/>}
+                                            productsData={result} query={params.query}/>
                     </div>
                 </div>
             </div>
