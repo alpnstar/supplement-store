@@ -31,10 +31,8 @@ const NewsCard = () => {
                         {data.title}</h2>
 
                     <div className="newsCard__content">
-                        <div className="newsCard__img-wrapper">
-                            <img src={data.preview_image} alt=""/>
-                        </div>
-                        <p>{data.content}</p>
+
+                        <p><img src={data.preview_image} alt=""/>{data.content}</p>
                     </div>
 
                 </div>

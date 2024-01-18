@@ -21,6 +21,7 @@
       max-width: 370px;
       height: 453px;
       display: flex;
+      flex-wrap: nowrap;
       flex-direction: column;
       border-radius: 16px;
       box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
@@ -33,7 +34,8 @@
 
     &__item-img-wrapper {
       width: 100%;
-      max-height: 280px;
+      height: 100%;
+      max-height: 288px;
 
       &:hover {
         cursor: pointer;
@@ -87,9 +89,6 @@
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
   }
 
   h2 {
@@ -97,21 +96,19 @@
   }
 
   p {
+
     font-size: 16px;
     font-weight: 500;
     line-height: 150%; /* 24px */
   }
 
-  &__img-wrapper {
-    width: 100%;
-    text-align: center;
 
-
-    img {
-      width: 100%;
-      border-radius: 5px;
-      object-fit: contain;
-      max-height: 400px;
-    }
+  img {
+    margin: 0 20px 0 0;
+    width: 289px;
+    height: 208px;
+    border-radius: 8px;
+    float: left;
+    object-fit: contain;
   }
 }
