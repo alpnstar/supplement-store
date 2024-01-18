@@ -9,6 +9,7 @@ const Reviews = () => {
         const productId = params.productId;
 
         const [reviews, setReviews] = useState([]);
+        const [error, setError] = useState();
 
         const [inputName, setInputName] = useState('');
         const [inputReview, setInputReview] = useState('');
@@ -21,9 +22,7 @@ const Reviews = () => {
 
         function handleSendPostRequest(event) {
             return async function (event) {
-                event.preventDefault();
-                const regex = /^\s*$/;
-                if (!regex.test(inputName) && !regex.test(inputReview)) {
+                try {
                     const data = {
                         product_id: productId,
                         author: inputName,
@@ -32,11 +31,17 @@ const Reviews = () => {
                     };
                     const response = await axios.post(process.env.API_URL + "api/reviews", data);
                     await reviewsFetch();
+                    setError();
 
 
+                } catch (error) {
+                    setError(error);
+                    console.log(error);
+
+                } finally {
+                    setInputReview('');
+                    setInputName('');
                 }
-                setInputReview('');
-                setInputName('');
             }
         }
 
@@ -60,7 +65,9 @@ const Reviews = () => {
                         <h2>Отзывы</h2>
                         <form className="reviews__form">
                             <div className="reviews__form-input-wrapper">
-                            <span className="reviews__form-input-title">
+                                <span
+                                    className="form-input-error">{error && error.response.data.errors['author'] && error.response.data.errors['author']}</span>
+                                <span className="reviews__form-input-title">
                                 Ваше имя
                             </span>
                                 <input maxLength='25' required value={inputName} onChange={handleInputChange(setInputName)}
@@ -68,14 +75,17 @@ const Reviews = () => {
                                        className="main-style-input"/>
                             </div>
                             <div className="reviews__form-input-wrapper">
-                            <span className="reviews__form-input-title">
+                                <span
+                                    className="form-input-error">{error && error.response.data.errors['content'] && error.response.data.errors['content']}</span>
+                                <span className="reviews__form-input-title">
                                 Ваш отзыв
                             </span>
                                 <textarea maxLength='900' required value={inputReview}
                                           onChange={handleInputChange(setInputReview)}
                                           className="main-style-input"/>
                             </div>
-                            <input onClick={handleSendPostRequest()} type="submit" className="main-style-button"/>
+                            <input onClick={handleSendPostRequest()} type="button" value='Отправить'
+                                   className="main-style-button"/>
                         </form>
                         <ReviewsList full={true} reviews={reviews}/>
                     </div>

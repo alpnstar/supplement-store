@@ -19,7 +19,7 @@ const CartFormInput = ({
     }, [state]);
     return (
         <div className="cart__form-input-wrapper">
-            <span className="cart__form-error">
+            <span className="form-input-error">
                 {errors[errorName] && errors[errorName]}
             </span>
             <span className="cart__form-input-title">{title}<span

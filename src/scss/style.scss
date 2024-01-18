@@ -117,3 +117,20 @@ h2 {
     background-color: #e6e6e6;
   }
 }
+
+.form-input-error {
+  font-size: 13px;
+  color: red;
+  font-weight: 500;
+  animation: ease-in 2s 2 normal errorColor;
+
+
+  @keyframes errorColor {
+    0% {
+      color: orange;
+    }
+    100% {
+      color: red;
+    }
+  }
+}
