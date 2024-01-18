@@ -18,15 +18,13 @@ const CatalogContent = ({
                             query
                         }) => {
 
-    useEffect(() => {
-        setFilterParams(initialFilterParams());
 
-    }, [category]);
     const navigate = useNavigate();
     const [brands, setBrands] = useState([{
         attributes: {name: 'Выберите бренд'},
     }]);
     const [filterParams, setFilterParams] = useState(initialFilterParams());
+
 
     function initialFilterParams() {
         const categoryParam = category && category.id ? {
@@ -68,6 +66,12 @@ const CatalogContent = ({
     useEffect(() => {
         brandsFetch();
     }, []);
+
+    useEffect(() => {
+        if (filterParams['filter[category_id]'] && filterParams['filter[category_id]'] !== category.id) {
+            setFilterParams(initialFilterParams());
+        }
+    }, [category]);
     const filterOptions1 = [
         {
             name: 'Выберите сортировку',
