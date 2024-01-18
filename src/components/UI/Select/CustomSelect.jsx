@@ -23,8 +23,7 @@ const CustomSelect = ({options, altOptions, selected, setSelected, disabled, alt
     }
 
     function closeOptions(event, state) {
-        console.log('hello')
-        if (!ref.current.contains(event.target) && optionsShow) {
+        if (ref.current && !ref.current.contains(event.target) && optionsShow) {
             setOptionsShow(false);
         }
     }
