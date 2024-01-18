@@ -34,7 +34,7 @@ const CustomSelect = ({options, altOptions, selected, setSelected, disabled, alt
         } else {
             document.removeEventListener('click', closeOptions);
         }
-        // return () => document.removeEventListener('click', closeOptions);
+        return () => document.removeEventListener('click', closeOptions);
     }, [optionsShow]);
 
     return (
