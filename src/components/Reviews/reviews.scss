@@ -15,12 +15,30 @@
   }
 
   &__form {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 24px;
     align-items: flex-start;
-
     margin-bottom: 40px;
+    animation: fadeIn 0.5s ease-in-out forwards;
+
+    &--expanded {
+      display: flex;
+    }
+
+    .main-style-button {
+      width: auto;
+    }
+  }
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   &__form-input-wrapper {
@@ -117,7 +135,7 @@
     p {
       max-width: 357px;
       max-height: 37px;
-      line-height:25px;
+      line-height: 25px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -154,6 +172,7 @@
         &-review-content {
           width: 100%;
         }
+
         &-review-body {
           width: 100%;
 
