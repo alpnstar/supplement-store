@@ -10,14 +10,12 @@ import ReviewsRequest from "../../../API/reviewsRequest";
 
 const ProductCard = ({setCartItems}) => {
 
-    const navigate = useNavigate();
     const params = useParams();
     const [product, setProduct] = useState();
     const [reviewsExpanded, setReviewsExpanded] = useState(false);
 
     const productId = params.productId;
 
-    const [reviews, setReviews] = useState([]);
     const [ReviewsError, setReviewsError] = useState();
 
     const [inputName, setInputName] = useState('');
@@ -39,13 +37,13 @@ const ProductCard = ({setCartItems}) => {
                     content: inputReview,
                 };
                 await axios.post(process.env.API_URL + "api/reviews", data);
-                await reviewsFetch();
+                setReviewsExpanded(false);
+                await productFetch();
                 setReviewsError();
 
 
             } catch (error) {
                 setReviewsError(error);
-                console.log(error);
 
             } finally {
                 setInputReview('');
@@ -54,19 +52,6 @@ const ProductCard = ({setCartItems}) => {
         }
     }
 
-    async function reviewsFetch() {
-        const data = await ReviewsRequest.productReviews(productId);
-        setReviews(data);
-
-    }
-
-    useEffect(() => {
-        reviewsFetch();
-        window.scrollTo({
-            top: 0,
-            behavior: 'auto' // Добавление плавности прокрутки (не обязательно)
-        });
-    }, []);
 
     async function productFetch() {
         try {
@@ -100,36 +85,37 @@ const ProductCard = ({setCartItems}) => {
                         <div className="productCard__reviews">
                             <div className="productCard__reviews-title">
                                 <h2>Отзывы</h2>
-                                <button onClick={()=> setReviewsExpanded(!reviewsExpanded)} className="second-style-button">
+                                <button onClick={() => setReviewsExpanded(!reviewsExpanded)}
+                                        className="second-style-button">
                                     Оставить отзыв
                                 </button>
                             </div>
-                                <form className={`reviews__form ${reviewsExpanded ? 'reviews__form--expanded' : ''}`}>
-                                    <div className="reviews__form-input-wrapper">
+                            <form className={`reviews__form ${reviewsExpanded ? 'reviews__form--expanded' : ''}`}>
+                                <div className="reviews__form-input-wrapper">
                                 <span
                                     className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['author'] && ReviewsError.response.data.errors['author']}</span>
-                                        <span className="reviews__form-input-title">
+                                    <span className="reviews__form-input-title">
                                 Ваше имя
                             </span>
-                                        <input maxLength='25' required value={inputName}
-                                               onChange={handleInputChange(setInputName)}
-                                               type="text"
-                                               className="main-style-input"/>
-                                    </div>
-                                    <div className="reviews__form-input-wrapper">
+                                    <input maxLength='25' required value={inputName}
+                                           onChange={handleInputChange(setInputName)}
+                                           type="text"
+                                           className="main-style-input"/>
+                                </div>
+                                <div className="reviews__form-input-wrapper">
                                 <span
                                     className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['content'] && ReviewsError.response.data.errors['content']}</span>
-                                        <span className="reviews__form-input-title">
+                                    <span className="reviews__form-input-title">
                                 Ваш отзыв
                             </span>
-                                        <textarea maxLength='900' required value={inputReview}
-                                                  onChange={handleInputChange(setInputReview)}
-                                                  className="main-style-input"/>
-                                    </div>
-                                    <input onClick={handleSendPostRequest()} type="button" value='Отправить'
-                                           className="main-style-button"/>
-                                </form>
-                            <ReviewsList productView={false} full={true} reviews={reviews}/>
+                                    <textarea maxLength='900' required value={inputReview}
+                                              onChange={handleInputChange(setInputReview)}
+                                              className="main-style-input"/>
+                                </div>
+                                <input onClick={handleSendPostRequest()} type="button" value='Отправить'
+                                       className="main-style-button"/>
+                            </form>
+                            <ReviewsList productView={false} full={true} reviews={product.attributes.reviews}/>
                         </div>
                     </div>
                     <div className="productCard__content-right">

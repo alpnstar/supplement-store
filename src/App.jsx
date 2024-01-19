@@ -13,7 +13,6 @@ import Contacts from "./pages/Contacts";
 import Cart from "./pages/Cart";
 import CategoriesRequest from "./API/categoriesRequest";
 import ProductsCard from "./components/Products/ProductCard/ProductsCard";
-import Reviews from "./pages/Reviews";
 import Error from "./pages/Error";
 import SuccessOrder from "./pages/SuccessOrder";
 import NewsCard from "./components/NewsAndPromotions/NewsCard";
@@ -83,7 +82,6 @@ const App = () => {
                     <Route path="/:productId" element={<ProductsCard
                         setCartItems={setCartItems}/>}/>
                     <Route path="/search/:query" element={<SearchFullResult/>}/>
-                    <Route path="/reviews/:productId" element={<Reviews/>}/>
                     <Route path="/blog/:newId" element={<NewsCard/>}/>
                     <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
                     <Route path={"/success-order"} element={<SuccessOrder/>}/>

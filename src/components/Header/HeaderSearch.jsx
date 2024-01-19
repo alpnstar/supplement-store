@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import ProductsRequest from "../../API/productsRequest";
 import {useNavigate} from "react-router";
-import nav from "../Nav/Nav";
 
 const HeaderSearch = () => {
     const navigate = useNavigate();

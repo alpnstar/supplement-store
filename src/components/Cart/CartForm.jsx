@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import CustomSelect from "../UI/Select/CustomSelect";
+import React, {useState} from 'react';
 import axios from "axios";
 import CartFormInput from "./CartFormInput";
 import CartFormSelect from "./CartFormSelect";

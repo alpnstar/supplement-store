@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import CustomSelect from "../components/UI/Select/CustomSelect";
 import '../components/Cart/cart.scss';
-import cartRemoveImg from '../../public/imgs/cart-remove.svg';
 import CartGoodsList from "../components/Cart/CartGoodsList";
 import CartForm from "../components/Cart/CartForm";
 

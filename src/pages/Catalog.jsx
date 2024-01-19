@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import '../components/Catalog/catalog.scss';
 import CatalogContent from "../components/Catalog/CatalogContent";
 import CatalogHeader from "../components/Catalog/CatalogHeader";
-import {useParams} from "react-router";
 
 const Catalog = ({category, setCartItems}) => {
 

@@ -5,6 +5,7 @@ import PopularGoods from "../components/Home/PopularGoods/PopularGoods";
 import NewGoods from "../components/Home/NewGoods/NewGoods";
 import RecentNews from "../components/Home/RecentNews/RecentNews";
 import LastReviews from "../components/Home/LastReviews/LastReviews";
+
 const Home = ({setCartItems}) => {
     useEffect(() => {
         document.title = 'Mekka Shop | Сеть магазинов восточных товаров';

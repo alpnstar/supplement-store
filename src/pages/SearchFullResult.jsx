@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router";
-import ProductsRequest from "../API/productsRequest";
 import CatalogContent from "../components/Catalog/CatalogContent";
 import '../components/SearchFullResult/searchFullResult.scss';
 

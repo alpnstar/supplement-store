@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import CustomSelect from "../UI/Select/CustomSelect";
-import {options} from "axios";
 
 const CartFormSelect = ({
                             title,

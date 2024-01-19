@@ -1,9 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import './nav.scss';
 import expandSvg from '../../../public/imgs/expand.svg';
 import {useLocation, useNavigate} from "react-router";
 import NavContext from "./NavContext";
-import CategoriesRequest from "../../API/categoriesRequest";
 
 const Nav = ({categories, footer}) => {
     const navigate = useNavigate();
