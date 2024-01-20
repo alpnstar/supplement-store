@@ -86,10 +86,17 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
                 </div>
 
                 <div className="products__item-right-content">
-                            <span onClick={handleChangePurchaseType()} className="products__item-wholesale">
-                                <img src={resetImg} alt=""/>
-                                {purchaseTypeBulk ? (full ? 'Розничная' : 'Роз') : full ? 'Оптовая' : 'Опт'}
-                            </span>
+                    {data.attributes.bulk_price ?
+                        <span onClick={handleChangePurchaseType()} className="products__item-wholesale">
+
+                        {
+                            data.attributes.bulk_price ? (
+                                purchaseTypeBulk ? (full ? 'Розничная' : 'Роз') : full ? 'Оптовая' : 'Опт'
+                            ) : ''
+                        }
+                            <img src={resetImg} alt=""/>
+                                </span> : ''
+                    }
                 </div>
 
             </div>
@@ -100,7 +107,7 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
             </div>
             <div className="products__item-inputs">
                 <div className="products__item-push-cart-button">
-                    <button className="main-style-button"  onClick={() => {
+                    <button className="main-style-button" onClick={() => {
                         addToCart(purchaseTypeBulk);
                     }}>
                         Добавить в корзину
