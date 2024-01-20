@@ -18,13 +18,17 @@ const Breadcrumbs = ({data}) => {
             })}
             </div>
             <h2 className="catalog__title-category-main">{currentCategory && currentCategory.name}</h2>
-            <ul className="catalog__subcategories">
-                {currentCategory && currentCategory.subCategories.map(item => <li
-                    key={item.name}
-                    className="second-style-button"
-                    onClick={() => navigate('/' + item.path)}>{item.name}</li>)}
-            </ul>
+            {currentCategory && currentCategory.subCategories.length !== 0 &&
+                <ul className="catalog__subcategories">
+                    {currentCategory.subCategories.map(item =>
+                        <li
+                            key={item.name}
+                            className="second-style-button"
+                            onClick={() => navigate('/' + item.path)}>{item.name}</li>)}
 
+                </ul>
+
+            }
         </>
 
     )

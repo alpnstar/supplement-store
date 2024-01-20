@@ -24,10 +24,13 @@ const MobileMenu = ({state, setState, title, listTitle, categories, children}) =
                 </div>
             </div>
             <div className="mobileMenu__content">
-                <ul className="mobileMenu__list mobileMenu__list--first">
-                    {categories && <MobileMenuListItem listTitle={listTitle} data={categories}/>}
-                    {children}
-                </ul>
+                {categories &&
+                    <ul className="mobileMenu__list mobileMenu__list--first">
+                        <MobileMenuListItem listTitle={listTitle} data={categories}/>
+                        {categories && children}
+                    </ul>
+                }
+                {!categories && children}
             </div>
         </div>
     );

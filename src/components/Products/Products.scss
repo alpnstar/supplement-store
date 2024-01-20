@@ -1,5 +1,7 @@
 .products {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   column-gap: 16px;
   row-gap: 30px;
 
@@ -147,5 +149,18 @@
   &__item-push-cart-button {
     flex-grow: 1;
 
+  }
+}
+
+@media screen and (max-width: 772px) {
+  .products {
+    &__item {
+      max-width: 366px;
+    }
+  }
+}
+@media screen and (max-width: 430px) {
+  .products{
+    justify-content: center;
   }
 }

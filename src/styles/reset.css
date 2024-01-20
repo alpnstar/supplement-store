@@ -4,9 +4,11 @@
     margin: 0px;
     border: none;
 }
-textarea:focus{
+
+textarea:focus {
     outline: 0;
 }
+
 *,
 *::before,
 *::after {
@@ -61,8 +63,9 @@ p {
 }
 
 ul,
-ul li {
+ul li,li {
     list-style: none;
+
 }
 
 img {

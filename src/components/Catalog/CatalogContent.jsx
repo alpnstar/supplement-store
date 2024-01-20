@@ -6,6 +6,8 @@ import CustomSelect from '../UI/Select/CustomSelect';
 import Pagination from '../Pagination/Pagination';
 import ProductsList from '../Products/ProductsList';
 import Error from '../../pages/Error';
+import filterDisplayImg from '../../../public/imgs/filterDisplay.svg';
+import MobileMenu from "../Header/MobileMenu/MobileMenu";
 
 const CatalogContent = ({
                             productsData,
@@ -20,6 +22,7 @@ const CatalogContent = ({
     const [brands, setBrands] = useState([
         {attributes: {name: 'Выберите бренд'}},
     ]);
+    const [filterDisplay, setFilterDisplay] = useState(false);
     const [filterParams, setFilterParams] = useState(initialFilterParams());
     const firstDownload = useRef(true);
 
@@ -156,59 +159,69 @@ const CatalogContent = ({
         setFilterParams(initialFilterParams());
     }
 
-    return (
-        <div className="catalog__block-2">
-            <div className="catalog__params">
-                <div className="catalog__params-element-wrapper">
-                    <span className="catalog__params-title">Сортировка</span>
-                    <div className="catalog__params-inputs-wrapper">
-                        <CustomSelect
-                            options={filterOptions1}
-                            selected={filterSelected1}
-                            setSelected={setFilterSelected1}
-                        />
-                    </div>
-                </div>
-                <div className="catalog__params-element-wrapper">
-                    <span className="catalog__params-title">Бренды</span>
-                    <div className="catalog__params-inputs-wrapper">
-                        <CustomSelect
-                            altOptions={brands}
-                            selected={brandsSelected}
-                            setSelected={setBrandsSelected}
-                        />
-                    </div>
-                </div>
-                <div className="catalog__params-element-wrapper">
-                    <span className="catalog__params-title">Сортировка</span>
-                    <div className="catalog__params-inputs-wrapper catalog__params-inputs-wrapper--setPrice">
-                        <div className="catalog__params-input-wrapper">
-                            <input
-                                onChange={handleChangePriceParams(setFilterStartPrice)}
-                                value={filterStartPrice}
-                                className="catalog__params-input catalog__params-input--setPrice"
-                                type="text"
-                                maxLength={7}
-                            />
-                        </div>
-                        <div className="catalog__params-input-wrapper">
-                            <input
-                                onChange={handleChangePriceParams(setFilterEndPrice)}
-                                value={filterEndPrice}
-                                className="catalog__params-input catalog__params-input--setPrice"
-                                type="text"
-                                maxLength={7}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <input
-                    onClick={resetParams}
-                    className="second-style-button"
-                    type="button"
-                    value="Сбросить"
+    const catalogParamsHTML = <div className="catalog__params">
+        <div className="catalog__params-element-wrapper">
+            <span className="catalog__params-title">Сортировка</span>
+            <div className="catalog__params-inputs-wrapper">
+                <CustomSelect
+                    options={filterOptions1}
+                    selected={filterSelected1}
+                    setSelected={setFilterSelected1}
                 />
             </div>
+        </div>
+        <div className="catalog__params-element-wrapper">
+            <span className="catalog__params-title">Бренды</span>
+            <div className="catalog__params-inputs-wrapper">
+                <CustomSelect
+                    altOptions={brands}
+                    selected={brandsSelected}
+                    setSelected={setBrandsSelected}
+                />
+            </div>
+        </div>
+        <div className="catalog__params-element-wrapper">
+            <span className="catalog__params-title">Сортировка</span>
+            <div className="catalog__params-inputs-wrapper catalog__params-inputs-wrapper--setPrice">
+                <div className="catalog__params-input-wrapper">
+                    <input
+                        onChange={handleChangePriceParams(setFilterStartPrice)}
+                        value={filterStartPrice}
+                        className="catalog__params-input catalog__params-input--setPrice"
+                        type="text"
+                        maxLength={7}
+                    />
+                </div>
+                <div className="catalog__params-input-wrapper">
+                    <input
+                        onChange={handleChangePriceParams(setFilterEndPrice)}
+                        value={filterEndPrice}
+                        className="catalog__params-input catalog__params-input--setPrice"
+                        type="text"
+                        maxLength={7}
+                    />
+                </div>
+            </div>
+        </div>
+        <input
+            onClick={resetParams}
+            className="second-style-button"
+            type="button"
+            value="Сбросить"
+        />
+    </div>
+
+    return (
+        <div className="catalog__block-2">
+            <button onClick={() => setFilterDisplay(true)} className="catalog__filter-display second-style-button"><img
+                src={filterDisplayImg} alt=""/>
+                Фильтры
+            </button>
+            {filterDisplay
+                && <MobileMenu title='Фильтры' state={filterDisplay} setState={setFilterDisplay}>
+                    {catalogParamsHTML}
+                </MobileMenu>}
+            {catalogParamsHTML}
             <div className="catalog__products">
                 {productsData && productsData.data && productsData.data.length !== 0 ? (
                     <>

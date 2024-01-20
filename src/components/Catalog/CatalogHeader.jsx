@@ -6,7 +6,6 @@ const CatalogHeader = ({productsData}) => {
     const navigate = useNavigate();
 
     return (
-        // <Breadcrumbs data= {productsData.breadcrumbs} />
         <div className="catalog__block-1">
             {productsData.breadcrumbs && <Breadcrumbs data={productsData.breadcrumbs}/>}
         </div>

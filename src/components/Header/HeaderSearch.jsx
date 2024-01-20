@@ -10,7 +10,6 @@ const HeaderSearch = () => {
     const [fullResult, setFullResult] = useState();
     const [pinchedResult, setPinchedResult] = useState();
     const ref = useRef();
-
     async function productsFetch(value) {
         try {
             setIsLoading(true);
@@ -69,6 +68,7 @@ const HeaderSearch = () => {
                                         <span className="header__search-options-price">{item.attributes.price} ₽</span>
                                     </li>)}
                                     {fullResult.length > 4 && <li onClick={() => {
+                                        setDisplay(false);
                                         navigate('/search/' + searchValue)
                                     }}>
                                         Остальные {fullResult.length - pinchedResult.length} товаров
