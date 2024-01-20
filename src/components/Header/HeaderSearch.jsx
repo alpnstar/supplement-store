@@ -8,7 +8,6 @@ const HeaderSearch = () => {
     const [display, setDisplay] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [firstDownload, setFirstDownload] = useState(false);
     const [fullResult, setFullResult] = useState();
     const [pinchedResult, setPinchedResult] = useState();
     const ref = useRef();
@@ -19,7 +18,6 @@ const HeaderSearch = () => {
             const response = await ProductsRequest.allProducts.getBySearch(value);
             setFullResult(response.data);
             setDisplay(true);
-            setFirstDownload(true)
         } catch (error) {
         } finally {
             setIsLoading(false)
@@ -53,10 +51,10 @@ const HeaderSearch = () => {
                     productsFetch(event.target.value);
                 } else setDisplay(false);
             }
-            } onFocus={() => setDisplay(true)}
+            } onFocus={(event) => event.target.value !== '' && setDisplay(true)}
                    placeholder="Ищите по названию или артикулу" type="text"/>
             <div className="header__search-result">
-                <ul className="custom-select-options header__search-options">
+                <ul className={`custom-select-options header__search-options ${!display ? 'border-none' : ''}`}>
                     {display ? (!isLoading ? (fullResult && fullResult.length !== 0 && pinchedResult
                                 ? <>
                                     {pinchedResult.map(item => <li
