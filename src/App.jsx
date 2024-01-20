@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./scss/style.scss";
 import Header from "./components/Header/Header";
-import Nav from "./components/Nav/Nav";
+import Nav from "./components/Header/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import {Route, Routes, useLocation, useNavigate} from "react-router";
 import Home from "./pages/Home";
@@ -71,8 +71,7 @@ const App = () => {
     };
     return (
         <div className='app'>
-            <Header cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
-            <Nav categories={categories}/>
+            <Header categories = {categories} cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
             <main className="content">
 
                 <Routes>

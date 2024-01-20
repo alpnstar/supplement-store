@@ -6,13 +6,40 @@
   cursor: pointer;
 }
 
+
+.burger {
+  display: none;
+  flex-direction: column;
+  margin-right: 10px;
+  cursor: pointer;
+  gap: 3px;
+
+  span {
+    display: block;
+    background-color: black;
+    border-radius: 2px;
+    width: 18px;
+    height: 2px;
+  }
+}
+
+
 .header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #E0E0E0;
+
   a {
     color: black !important;
   }
 
   &__wrapper {
-    padding: 24px 10px 20px 10px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__main {
+    padding: 25px 0;
     flex-wrap: nowrap;
     display: flex;
     align-items: center;
@@ -43,6 +70,7 @@
 
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
     }
+
 
     &-options {
       display: flex;
@@ -88,6 +116,10 @@
       width: 17px;
       height: 17px;
     }
+
+    &Mobile {
+      display: none;
+    }
   }
 
   &__cart {
@@ -97,14 +129,21 @@
     cursor: pointer;
 
     &-image {
+
       position: relative;
       display: inline-block;
       margin-right: 12px;
-      padding: 9px;
+      padding: 9px 9px 5px;
 
       background: #FFA800;
       font-weight: 700;
       border-radius: 16px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+      }
     }
 
     &-amount {
@@ -122,7 +161,7 @@
       border: 2px solid #FFF;
       font-size: 11px;
       color: white;
-      background: red;
+      background: #FFA800;
 
 
     }
@@ -140,6 +179,62 @@
     &-sum {
       display: inline-block;
       min-width: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 772px) {
+  .burger {
+    display: flex;
+  }
+  .header {
+    margin-bottom: 16px;
+
+    &__main {
+      justify-content: space-between;
+    }
+
+    &__block-1, &__block-2 {
+      flex-grow: 0;
+    }
+
+    &__block-2 {
+      justify-content: flex-end;
+    }
+
+    &__search {
+      display: none;
+    }
+
+    &__contacts {
+      display: none;
+
+      &Mobile {
+        display: block;
+      }
+    }
+
+    &__cart {
+      margin-top: 2px;
+
+      &-content {
+        display: none;
+      }
+
+      &-image {
+        background: none;
+        padding: 0;
+        margin: 0;
+
+        svg {
+          fill: black;
+        }
+      }
+
+      &-amount {
+        left: 64%;
+        bottom: 83%;
+      }
     }
   }
 }

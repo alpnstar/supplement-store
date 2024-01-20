@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router";
-import expandSvg from "../../../public/imgs/expand.svg";
+import expandSvg from "../../../../public/imgs/expand.svg";
 import NavContext from "./NavContext";
 
 const NavContextItem = ({data}) => {

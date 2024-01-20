@@ -1,0 +1,107 @@
+.mobileMenu {
+  font-size: 16px;
+  font-weight: 500;
+  overflow-y: scroll;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  padding: 0 12px;
+  width: 100%;
+  height: 100%;
+
+  &__header {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px #E0E0E0 solid;
+
+    h2 {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__exit {
+    width: 20px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    margin-top: -10px;
+
+    span {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 18px;
+      height: 2px;
+      background-color: black;
+
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.1s linear forwards;
+
+
+    &-item {
+      &-img--expanded {
+        rotate: 180deg;
+        transition: rotate 0.2s linear;
+      }
+      &--first {
+         > .mobileMenu__list-item-title {
+          border-top: 0;
+        }
+      }
+
+      img {
+        rotate: 0;
+        width: 13px;
+        transition: rotate 0.2s linear;
+      }
+
+      &-title {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 16px 0;
+
+        border-top: 1px #E0E0E0 solid;
+      }
+    }
+
+    ul {
+      margin-left: 32px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+
+}
+
+.--hidden {
+  overflow: hidden;
+}
+

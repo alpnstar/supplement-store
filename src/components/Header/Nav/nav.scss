@@ -1,9 +1,7 @@
 
 .nav {
-  margin-bottom: 40px;
   padding-bottom: 15px;
 
-  border-bottom: 1px solid #E0E0E0;
 
   &__list {
     display: flex;
@@ -104,12 +102,8 @@
     }
   }
 }
-
-@keyframes anim {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+@media screen and (max-width: 772px) {
+  .nav {
+    display: none;
   }
 }

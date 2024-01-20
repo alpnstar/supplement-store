@@ -27,8 +27,8 @@ const ProductCard = ({setCartItems}) => {
         }
     }
 
-    function handleSendPostRequest(event) {
-        return async function (event) {
+    function handleSendPostRequest() {
+        return async function () {
             try {
                 const data = {
                     product_id: productId,
