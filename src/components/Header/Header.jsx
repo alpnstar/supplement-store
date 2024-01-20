@@ -12,7 +12,7 @@ import Nav from "./Nav/Nav";
 const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
     console.log(categories)
     const navigate = useNavigate();
-    const [burgerOpened, setBurgerOpened] = useState(true);
+    const [burgerOpened, setBurgerOpened] = useState(false);
     const [contactsOpened, setContactsOpened] = useState(false);
 
     function homeNavigate() {
@@ -62,7 +62,7 @@ const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
                         </div>
                         {contactsOpened &&
                             <MobileMenu title={'Контакты'} state={contactsOpened} setState={setContactsOpened}>
-                                <li className="mobileMenu__list-item">
+                                <li className="mobileMenu__list-item--first">
                                 <span className="mobileMenu__list-item-title">
                                     <a href="tel:+8800500-50-50">
                                     8&nbsp;800&nbsp;500-50-50
