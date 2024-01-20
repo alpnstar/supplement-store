@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import expandImg from '../../../../public/imgs/expand.svg';
-import {list} from "postcss";
 
 const MobileMenuListItem = ({data, listTitle}) => {
     const [expand, setExpand] = useState(false);

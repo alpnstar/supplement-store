@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./scss/style.scss";
 import Header from "./components/Header/Header";
-import Nav from "./components/Header/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import {Route, Routes, useLocation, useNavigate} from "react-router";
 import Home from "./pages/Home";

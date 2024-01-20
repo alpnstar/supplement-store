@@ -28,7 +28,8 @@ const CartForm = ({orderData, setOrderData, setCartItems}) => {
                 changeOrderField(value, defaultCheck, field, field2);
             } else {
                 const splited = orderData.customer.name.split(' ');
-                splited[0] = isSurName ? surName : name;
+                if (isSurName) splited[1] = value;
+                else splited[0] = value;
                 changeOrderField(splited.join(' '), '', 'customer', 'name');
             }
         }

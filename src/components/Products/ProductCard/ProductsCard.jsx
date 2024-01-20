@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './productsCard.scss'
 import ReviewsList from "../../Reviews/ReviewsList";
-import {useNavigate, useParams} from "react-router";
+import {useParams} from "react-router";
 import ProductsRequest from "../../../API/productsRequest";
 import ProductsItemInner from "../ProductsItemInner";
 import Error from "../../../pages/Error";
 import axios from "axios";
-import ReviewsRequest from "../../../API/reviewsRequest";
 import Breadcrumbs from "../../Breadcrumbs/Breadcrumbs";
 
 const ProductCard = ({setCartItems}) => {

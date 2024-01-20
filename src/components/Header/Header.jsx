@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './header.scss';
 import telegramImg from '../../../public/imgs/telegram.svg';
 import whatsappImg from '../../../public/imgs/whatsapp.svg';
-import cartImg from '../../../public/imgs/cart.svg';
 import contactsImg from '../../../public/imgs/contacts.svg'
 import {useNavigate} from "react-router";
 import HeaderSearch from "./HeaderSearch";
