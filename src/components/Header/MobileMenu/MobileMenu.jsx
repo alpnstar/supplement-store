@@ -14,15 +14,21 @@ const MobileMenu = ({state, setState, title, listTitle, categories, children}) =
     return (
         <div className="mobileMenu">
             <div className="mobileMenu__header">
-                <h2>{title}</h2>
-                <div onClick={() => setState(false)} className="mobileMenu__exit">
-                    <span></span><span></span>
+                <div className="mobileMenu__header-wrapper">
+
+                    <h2>{title}</h2>
+                    <div onClick={() => setState(false)} className="mobileMenu__exit">
+                        <span></span><span></span>
+                    </div>
+
                 </div>
             </div>
-            <ul className="mobileMenu__list mobileMenu__list--first">
-                {categories && <MobileMenuListItem listTitle={listTitle} data={categories}/>}
-                {children}
-            </ul>
+            <div className="mobileMenu__content">
+                <ul className="mobileMenu__list mobileMenu__list--first">
+                    {categories && <MobileMenuListItem listTitle={listTitle} data={categories}/>}
+                    {children}
+                </ul>
+            </div>
         </div>
     );
 };
