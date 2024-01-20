@@ -19,6 +19,10 @@ const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
         navigate('/home')
     }
 
+
+
+
+
     function handleNavigate(arg, setState) {
         return function () {
             setState(false);
