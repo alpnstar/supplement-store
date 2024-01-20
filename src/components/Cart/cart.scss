@@ -132,6 +132,15 @@
       font-weight: 700;
     }
   }
+}
 
-
+@media screen and (max-width: 772px) {
+  .cart {
+    &__wrapper {
+      flex-direction: column;
+    }
+    &__form {
+      max-width: none;
+    }
+  }
 }
