@@ -72,7 +72,10 @@
       }
 
       &--first {
+
         > .mobileMenu__list-item-title {
+          margin-top: -4px;
+          padding-top: 0;
           border-top: 0;
         }
       }

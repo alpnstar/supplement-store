@@ -115,3 +115,21 @@
     object-fit: contain;
   }
 }
+
+@media screen and (max-width: 772px) {
+  .newsAndPromotionsList {
+    &__item {
+      max-width: 366px;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .newsAndPromotionsList {
+    justify-content: center;
+
+    &__item {
+      max-width: 366px;
+    }
+  }
+}
