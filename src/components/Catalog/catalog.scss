@@ -32,7 +32,7 @@
     }
   }
 
-  &__block-1 {
+  &__breadcrumbs {
     display: flex;
     flex-direction: column;
 
@@ -83,10 +83,6 @@
     &-inputs-wrapper {
       position: relative;
 
-      input {
-        max-width: 140px;
-        flex-grow: 1;
-      }
 
       &--setPrice {
         display: flex;
@@ -95,6 +91,8 @@
     }
 
     &-input {
+      max-width: 140px;
+      flex-grow: 1;
       display: block;
       padding: 10px 16px;
       cursor: pointer;
@@ -112,7 +110,7 @@
       }
 
       &--setPrice {
-        padding-left: 40px;
+        padding-left: 46px;
       }
     }
 
@@ -199,7 +197,7 @@
       }
     }
 
-    &__block-1 {
+    &__breadcrumbs {
       gap: 15px;
     }
 

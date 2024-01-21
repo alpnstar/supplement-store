@@ -122,6 +122,7 @@
       max-width: 366px;
     }
   }
+
 }
 
 @media screen and (max-width: 430px) {
@@ -131,5 +132,24 @@
     &__item {
       max-width: 366px;
     }
+  }
+  .newsCard {
+    p {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &__img-wrapper {
+      display: block;
+      width: 100%;
+      text-align: center;
+
+      img {
+        float: none;
+
+
+      }
+    }
+
   }
 }

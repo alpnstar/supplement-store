@@ -1,6 +1,5 @@
 .cart {
 
-
   &__wrapper {
     display: flex;
     gap: 40px;
@@ -68,6 +67,7 @@
 
   &__goods-item-counter {
     display: flex;
+    flex-wrap: nowrap;
     gap: 20px;
     padding: 10px 16px;
     user-select: none;

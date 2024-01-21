@@ -79,53 +79,57 @@ const ProductCard = ({setCartItems}) => {
                     </div>
                     <div className="productCard__content">
 
-                        <div className="productCard__content-left">
-                            <div className="productCard__img-wrapper">
-                                <img src={product.data.attributes.image} alt=""/>
-                            </div>
-                            <div className="productCard__description">
-                                <h2>Описание</h2>
-                                <p dangerouslySetInnerHTML={{__html: product.data.attributes.description}}>
-                                </p>
-                            </div>
-                            <div className="productCard__reviews">
-                                <div className="productCard__reviews-title">
-                                    <h2>Отзывы</h2>
-                                    <button onClick={() => setReviewsExpanded(!reviewsExpanded)}
-                                            className="second-style-button">
-                                        Оставить отзыв
-                                    </button>
+                        <div className="productCard__product">
+                            <div className="productCard__product-content-left">
+                                <div className="productCard__img-wrapper">
+                                    <img src={product.data.attributes.image} alt=""/>
                                 </div>
-                                <form className={`reviews__form ${reviewsExpanded ? 'reviews__form--expanded' : ''}`}>
-                                    <div className="reviews__form-input-wrapper">
-                                <span
-                                    className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['author'] && ReviewsError.response.data.errors['author']}</span>
-                                        <span className="reviews__form-input-title">
-                                Ваше имя
-                            </span>
-                                        <input maxLength='25' required value={inputName}
-                                               onChange={handleInputChange(setInputName)}
-                                               type="text"
-                                               className="main-style-input"/>
-                                    </div>
-                                    <div className="reviews__form-input-wrapper">
-                                <span
-                                    className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['content'] && ReviewsError.response.data.errors['content']}</span>
-                                        <span className="reviews__form-input-title">
-                                Ваш отзыв
-                            </span>
-                                        <textarea maxLength='900' required value={inputReview}
-                                                  onChange={handleInputChange(setInputReview)}
-                                                  className="main-style-input"/>
-                                    </div>
-                                    <input onClick={handleSendPostRequest()} type="button" value='Отправить'
-                                           className="main-style-button"/>
-                                </form>
-                                <ReviewsList productView={false} full={true} reviews={product.data.attributes.reviews}/>
+                            </div>
+                            <div className="productCard__product-content-right">
+                                <ProductsItemInner data={product.data} setCartItems={setCartItems} full={true}/>
                             </div>
                         </div>
-                        <div className="productCard__content-right">
-                            <ProductsItemInner data={product.data} setCartItems={setCartItems} full={true}/>
+
+                        <div className="productCard__description productCard__container">
+                            <h2>Описание</h2>
+                            <p dangerouslySetInnerHTML={{__html: product.data.attributes.description}}>
+                            </p>
+                        </div>
+
+                        <div className="productCard__reviews productCard__container">
+                            <div className="productCard__reviews-title">
+                                <h2>Отзывы</h2>
+                                <button onClick={() => setReviewsExpanded(!reviewsExpanded)}
+                                        className="second-style-button">
+                                    Оставить отзыв
+                                </button>
+                            </div>
+                            <form className={`reviews__form ${reviewsExpanded ? 'reviews__form--expanded' : ''}`}>
+                                <div className="reviews__form-input-wrapper">
+                                <span
+                                    className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['author'] && ReviewsError.response.data.errors['author']}</span>
+                                    <span className="reviews__form-input-title">
+                                Ваше имя
+                            </span>
+                                    <input maxLength='25' required value={inputName}
+                                           onChange={handleInputChange(setInputName)}
+                                           type="text"
+                                           className="main-style-input"/>
+                                </div>
+                                <div className="reviews__form-input-wrapper">
+                                <span
+                                    className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['content'] && ReviewsError.response.data.errors['content']}</span>
+                                    <span className="reviews__form-input-title">
+                                Ваш отзыв
+                            </span>
+                                    <textarea maxLength='900' required value={inputReview}
+                                              onChange={handleInputChange(setInputReview)}
+                                              className="main-style-input"/>
+                                </div>
+                                <input onClick={handleSendPostRequest()} type="button" value='Отправить'
+                                       className="main-style-button"/>
+                            </form>
+                            <ReviewsList productView={false} full={true} reviews={product.data.attributes.reviews}/>
                         </div>
 
                     </div>

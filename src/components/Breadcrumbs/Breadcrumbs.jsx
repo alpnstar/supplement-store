@@ -5,7 +5,7 @@ const Breadcrumbs = ({data}) => {
     const navigate = useNavigate();
     const currentCategory = data && data[data.length - 1]
     return (
-        <>
+        <div className="catalog__breadcrumbs">
             <div
                 className="catalog__path">
                 <span className="catalog__path-item"
@@ -29,7 +29,7 @@ const Breadcrumbs = ({data}) => {
                 </ul>
 
             }
-        </>
+        </div>
 
     )
         ;

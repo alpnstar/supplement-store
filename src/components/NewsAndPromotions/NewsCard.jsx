@@ -32,7 +32,9 @@ const NewsCard = () => {
 
                     <div className="newsCard__content">
 
-                        <p><img src={data.preview_image} alt=""/>{data.content}</p>
+                        <p><span className="newsCard__img-wrapper">
+                            <img src={data.preview_image} alt=""/>
+                        </span>{data.content}</p>
                     </div>
 
                 </div>
