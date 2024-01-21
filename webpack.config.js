@@ -14,7 +14,7 @@ module.exports = {
     devtool,
     target,
 
-    entry: ['@babel/polyfill', path.resolve(__dirname, './src/Index.jsx')],
+    entry: ['@babel/polyfill', path.resolve(__dirname, './client/src/Index.jsx')],
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
@@ -31,7 +31,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './public/index.html'),
+            template: path.resolve(__dirname, './client/public/index.html'),
             minify: true,
         }),
 
