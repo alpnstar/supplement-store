@@ -19,7 +19,7 @@ const RecentNews = () => {
         <article className="homeNews">
             <div className="homeNews__wrapper container">
                 <h2>Новости и акции</h2>
-                {recentNews.length !== 0 ? <NewsAndPromotionsList data={recentNews}/> : 'Не найдено'}
+                {recentNews.length !== 0 ? <NewsAndPromotionsList data={recentNews}/> : ''}
             </div>
         </article>
     );
