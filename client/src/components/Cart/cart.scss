@@ -197,6 +197,9 @@
         }
       }
       &-item {
+        &-counter {
+          gap: 7px;
+        }
         &-price {
           min-width: 60px;
         }
@@ -218,11 +221,14 @@
       }
       &-item {
         &-price {
-          min-width: 50px;
+          min-width: 54.5px;
         }
        &-counter {
          gap: 6px;
        }
+        &-img {
+          width: 38px;
+        }
       }
 
 
