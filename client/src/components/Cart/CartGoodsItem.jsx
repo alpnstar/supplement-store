@@ -78,7 +78,7 @@ const CartGoodsItem = ({data, cartItems, setCartElements}) => {
 
                 </div>
                 <div className="cart__goods-item-price">
-                    {(details.is_bulk ? product.attributes.bulk_price : product.attributes.price) * details.quantity} ₽
+                    <span> {(details.is_bulk ? product.attributes.bulk_price : product.attributes.price) * details.quantity} ₽</span>
                 </div>
                 <img onClick={removeItem} src={cartRemoveImg} alt="" className="cart__goods-item-deleteImg"/>
             </div>
