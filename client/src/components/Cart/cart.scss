@@ -151,15 +151,19 @@
     &__goods {
 
       &-list {
+        * {
+          flex-wrap: nowrap;
 
+        }
       }
 
       &-item {
         padding: 10px;
+
         * {
-          flex-wrap: nowrap;
           font-size: 13px;
         }
+
         &-content {
           &-right {
             gap: 0px;
@@ -191,19 +195,26 @@
     &__goods {
 
       &-list {
-
-      }
-      &-item {
         * {
           flex-wrap: nowrap;
+
+        }
+
+      }
+
+      &-item {
+        * {
           font-size: 12px;
         }
+
         &-counter {
           gap: 7px;
         }
+
         &-price {
           min-width: 60px;
         }
+
         &-img {
           width: 50px;
           height: auto;
@@ -214,19 +225,24 @@
     }
 
   }
-}@media screen and (max-width: 325px) {
+}
+
+@media screen and (max-width: 325px) {
   .cart {
     &__goods {
 
       &-list {
       }
+
       &-item {
         &-price {
           min-width: 54.5px;
         }
-       &-counter {
-         gap: 6px;
-       }
+
+        &-counter {
+          gap: 6px;
+        }
+
         &-img {
           width: 38px;
         }
