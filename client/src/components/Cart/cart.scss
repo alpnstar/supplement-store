@@ -151,15 +151,15 @@
     &__goods {
 
       &-list {
-        * {
-          flex-wrap: nowrap;
-          font-size: 13px;
-        }
+
       }
 
       &-item {
         padding: 10px;
-
+        * {
+          flex-wrap: nowrap;
+          font-size: 13px;
+        }
         &-content {
           &-right {
             gap: 0px;
@@ -191,12 +191,13 @@
     &__goods {
 
       &-list {
+
+      }
+      &-item {
         * {
           flex-wrap: nowrap;
           font-size: 12px;
         }
-      }
-      &-item {
         &-counter {
           gap: 7px;
         }
