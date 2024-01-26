@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import NewsRequest from "../API/newsRequest";
 import NewsAndPromotionsList from "../components/NewsAndPromotions/NewsAndPromotionsList";
-import Pagination from "../components/Pagination/Pagination";
+import Pagination from "../components/UI/Pagination/Pagination";
 
 const NewsAndPromotions = () => {
     const [news, setNews] = useState();

@@ -72,7 +72,6 @@ const App = () => {
         <div className='app'>
             <Header categories = {categories} cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
             <main className="content">
-
                 <Routes>
                     <Route path="/home"
                            element={<Home setCartItems={setCartItems}/>}/>

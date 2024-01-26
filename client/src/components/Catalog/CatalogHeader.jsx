@@ -1,6 +1,6 @@
 import React from 'react';
 import {useNavigate} from "react-router";
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import Breadcrumbs from "../UI/Breadcrumbs/Breadcrumbs";
 
 const CatalogHeader = ({productsData}) => {
     const navigate = useNavigate();

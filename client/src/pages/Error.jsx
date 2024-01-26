@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import '../components/Error/error.scss';
+import '../components/UI/Error/error.scss';
 
 const Error = ({children}) => {
     const [display, setDisplay] = useState(false);

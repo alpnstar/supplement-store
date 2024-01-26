@@ -6,7 +6,7 @@ import ProductsRequest from "../../../API/productsRequest";
 import ProductsItemInner from "../ProductsItemInner";
 import Error from "../../../pages/Error";
 import axios from "axios";
-import Breadcrumbs from "../../Breadcrumbs/Breadcrumbs";
+import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
 
 const ProductCard = ({setCartItems}) => {
 

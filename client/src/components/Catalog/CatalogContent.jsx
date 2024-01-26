@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import productsRequest from '../../API/productsRequest';
 import brandsRequest from '../../API/brandsRequest';
 import CustomSelect from '../UI/Select/CustomSelect';
-import Pagination from '../Pagination/Pagination';
+import Pagination from '../UI/Pagination/Pagination';
 import ProductsList from '../Products/ProductsList';
 import Error from '../../pages/Error';
 import filterDisplayImg from '../../../public/imgs/filterDisplay.svg';
