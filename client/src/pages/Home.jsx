@@ -8,7 +8,7 @@ import LastReviews from "../components/Home/LastReviews/LastReviews";
 
 const Home = ({setCartItems}) => {
     useEffect(() => {
-        document.title = 'Mekka Shop | Сеть магазинов восточных товаров';
+        document.title = 'Лекавит | Сеть магазинов восточных товаров';
     }, []);
 
     return (

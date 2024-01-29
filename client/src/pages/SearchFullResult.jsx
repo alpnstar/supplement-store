@@ -30,7 +30,7 @@ const SearchFullResult = () => {
     }, [result]);
     useEffect(() => {
         productsFetching(filterParams);
-        document.title = `${'«' + params.query + '»'}${' — Mekka Shop | Сеть магазинов восточных товаров'}`;
+        document.title = `${'«' + params.query + '»'}${' — Лекавит | Сеть магазинов восточных товаров'}`;
     }, []);
     useEffect(() => {
         setTotal({

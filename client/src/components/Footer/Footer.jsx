@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="footer__wrapper container">
                 <div className="footer__left-content">
                     <span className="logo">
-                        Mekka Shop<br/>
+                        Лекавит<br/>
                     </span>
                     Copyright © 2023 Все права защищены.
                 </div>

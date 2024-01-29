@@ -36,7 +36,7 @@ const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
                     <div
                         onClick={homeNavigate}
                         className="logo header__block-1">
-                        Mekka Shop
+                        Лекавит
                     </div>
                     <div className="header__block-2">
                         <HeaderSearch/>
