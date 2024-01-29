@@ -2,12 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router";
 import CatalogContent from "../components/Catalog/CatalogContent";
 import '../components/SearchFullResult/searchFullResult.scss';
+import useFetching from "../hooks/useFetching";
+import ProductsRequest from "../API/productsRequest";
 
 const SearchFullResult = () => {
     const params = useParams();
-
+    const [filterParams, setFilterParams] = useState({'filter[name]': params.query});
     const [result, setResult] = useState();
-    const [isLoaded, setIsLoaded] = useState(true);
+    const [productsFetching, productsIsLoading, productsError] = useFetching(async (params = {}) => {
+        const response = await ProductsRequest.allProducts.getAll(params);
+        setResult(response);
+    })
     const [total, setTotal] = useState({
         loaded: false,
     });
@@ -24,8 +29,14 @@ const SearchFullResult = () => {
         }
     }, [result]);
     useEffect(() => {
+        productsFetching(filterParams);
         document.title = `${'«' + params.query + '»'}${' — Mekka Shop | Сеть магазинов восточных товаров'}`;
     }, []);
+    useEffect(() => {
+        setTotal({
+            loaded: false,
+        })
+    }, [params.query]);
 
 
     return (
@@ -36,8 +47,13 @@ const SearchFullResult = () => {
                         <h2>По запросу «{params.query}» найдено {total.total && total.total} товаров</h2>
                     </div>
                     <div className="searchResult__content">
-                        <CatalogContent isLoaded={isLoaded} setIsLoaded={setIsLoaded} setProductsData={setResult}
-                                        productsData={result} query={params.query}/>
+                        <CatalogContent isLoading={productsIsLoading}
+                                        filterParams={filterParams}
+                                        setFilterParams={setFilterParams}
+                                        productsFetching={productsFetching}
+                                        productsData={result}
+                                        setProductsData={setResult}
+                                        query={params.query}/>
                     </div>
                 </div>
             </div>

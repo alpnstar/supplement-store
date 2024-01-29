@@ -1,6 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import productsRequest from '../../API/productsRequest';
+import React, {useEffect, useState} from 'react';
 import brandsRequest from '../../API/brandsRequest';
 import CustomSelect from '../UI/Select/CustomSelect';
 import Pagination from '../UI/Pagination/Pagination';
@@ -8,64 +6,56 @@ import ProductsList from '../Products/ProductsList';
 import Error from '../../pages/Error';
 import filterDisplayImg from '../../../public/imgs/filterDisplay.svg';
 import MobileMenu from "../Header/MobileMenu/MobileMenu";
+import useFetching from "../../hooks/useFetching";
 
+
+const sortFilterOptions = [
+    {name: 'Выберите сортировку', modifier: ''},
+    {name: 'Популярные', modifier: 'popular'},
+    {name: 'Новинки', modifier: 'new'},
+    {name: 'Высокий рейтинг', modifier: 'high_rating'},
+];
 const CatalogContent = ({
                             productsData,
                             setProductsData,
-                            isLoaded,
-                            setIsLoaded,
+                            productsFetching,
+                            isLoading,
                             category,
                             setCartItems,
+                            filterParams,
+                            setFilterParams,
+                            isFirstDownload = false,
                             query,
                         }) => {
-    const navigate = useNavigate();
     const [brands, setBrands] = useState([
         {attributes: {name: 'Выберите бренд'}},
     ]);
-    const [filterDisplay, setFilterDisplay] = useState(false);
-    const [filterParams, setFilterParams] = useState(initialFilterParams());
-    const firstDownload = useRef(true);
-
-    function initialFilterParams() {
-        const categoryParam = category && category.id
-            ? {'filter[category_id]': category.id}
-            : {};
-        const queryParam = query ? {'filter[name]': query} : {};
-        return {...categoryParam, ...queryParam};
-    }
-
-    async function brandsFetch() {
-        const response = await brandsRequest();
-        setBrands((prev) => [...prev, ...response.data]);
-    }
-
-    async function productsFetch(params = {}, func) {
-        try {
-            setIsLoaded(false);
-            const response = await productsRequest.allProducts.getAll(params);
-            setProductsData(response);
-            func();
-        } catch (error) {
-        } finally {
-            setIsLoaded(true);
+    const [brandsFetching, brandsIsLoading, brandsError] = useFetching(
+        async () => {
+            const response = await brandsRequest();
+            setBrands((prev) => [...prev, ...response.data]);
         }
-    }
+    );
+
+    const [filterDisplay, setFilterDisplay] = useState(false);
+
+    const [sortFilterSelected, setSortFilterSelected] = useState(sortFilterOptions[0]);
+    const [filterStartPrice, setFilterStartPrice] = useState('');
+    const [filterEndPrice, setFilterEndPrice] = useState('');
+
+    const [brandsSelected, setBrandsSelected] = useState(brands[0]);
+
 
     useEffect(() => {
         query && resetParams();
     }, [query]);
 
     useEffect(() => {
-        if (!firstDownload.current) {
-            productsFetch(filterParams);
-        }
+        if (!isFirstDownload.current) productsFetching(filterParams);
     }, [filterParams]);
 
     useEffect(() => {
-        brandsFetch();
-        productsFetch(filterParams, () => {
-            firstDownload.current = false;
-        });
+        brandsFetching();
     }, []);
 
     useEffect(() => {
@@ -77,17 +67,6 @@ const CatalogContent = ({
 
     }, [category]);
 
-    const filterOptions1 = [
-        {name: 'Выберите сортировку', modifier: ''},
-        {name: 'Популярные', modifier: 'popular'},
-        {name: 'Новинки', modifier: 'new'},
-        {name: 'Высокий рейтинг', modifier: 'high_rating'},
-    ];
-
-    const [filterSelected1, setFilterSelected1] = useState(filterOptions1[0]);
-    const [brandsSelected, setBrandsSelected] = useState(brands[0]);
-    const [filterStartPrice, setFilterStartPrice] = useState('');
-    const [filterEndPrice, setFilterEndPrice] = useState('');
 
     useEffect(() => {
         setFilterParams((prev) => {
@@ -104,14 +83,14 @@ const CatalogContent = ({
     useEffect(() => {
         setFilterParams((prev) => {
             const newParams = {...prev};
-            if (filterSelected1.modifier !== '') {
-                newParams.sort = filterSelected1.modifier;
+            if (sortFilterSelected.modifier !== '') {
+                newParams.sort = sortFilterSelected.modifier;
             } else {
                 delete newParams.sort;
             }
             return newParams;
         });
-    }, [filterSelected1]);
+    }, [sortFilterSelected]);
 
     useEffect(() => {
         setFilterParams((prev) => {
@@ -133,6 +112,14 @@ const CatalogContent = ({
         });
     }, [filterEndPrice]);
 
+    function initialFilterParams() {
+        const categoryParam = category && category.id
+            ? {'filter[category_id]': category.id}
+            : {};
+        const queryParam = query ? {'filter[name]': query} : {};
+        return {...categoryParam, ...queryParam};
+    }
+
     function changePriceRange(params, foo, value) {
         const prices = params['filter[price_between]']
             ? params['filter[price_between]'].split(',')
@@ -152,7 +139,7 @@ const CatalogContent = ({
     };
 
     function resetParams() {
-        setFilterSelected1(filterOptions1[0]);
+        setSortFilterSelected(sortFilterOptions[0]);
         setBrandsSelected(brands[0]);
         setFilterStartPrice('');
         setFilterEndPrice('');
@@ -164,9 +151,9 @@ const CatalogContent = ({
             <span className="catalog__params-title">Сортировка</span>
             <div className="catalog__params-inputs-wrapper">
                 <CustomSelect
-                    options={filterOptions1}
-                    selected={filterSelected1}
-                    setSelected={setFilterSelected1}
+                    options={sortFilterOptions}
+                    selected={sortFilterSelected}
+                    setSelected={setSortFilterSelected}
                 />
             </div>
         </div>
@@ -227,7 +214,7 @@ const CatalogContent = ({
                     <>
                         <ProductsList
                             data={productsData.data}
-                            paramsSelected1={filterSelected1}
+                            paramsSelected1={sortFilterSelected}
                             paramsSelected2={brandsSelected}
                             startPrice={filterStartPrice}
                             endPrice={filterEndPrice}
@@ -235,7 +222,7 @@ const CatalogContent = ({
                         />
                         <Pagination data={productsData.meta} setData={setProductsData}/>
                     </>
-                ) : isLoaded ? (
+                ) : isLoading ? (
                     <Error>Продукты не найдены</Error>
                 ) : (
                     ''
