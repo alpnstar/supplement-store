@@ -16,6 +16,7 @@ import Error from "./pages/Error";
 import SuccessOrder from "./pages/SuccessOrder";
 import NewsCard from "./components/NewsAndPromotions/NewsCard";
 import SearchFullResult from "./pages/SearchFullResult";
+import RatingStarsList from "./components/UI/RatingStars/RatingStarsList";
 
 const App = () => {
     const location = useLocation();
@@ -70,7 +71,7 @@ const App = () => {
     };
     return (
         <div className='app'>
-            <Header categories = {categories} cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
+            <Header categories={categories} cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
             <main className="content">
                 <Routes>
                     <Route path="/home"

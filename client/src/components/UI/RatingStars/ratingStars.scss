@@ -1,0 +1,14 @@
+.ratingStars {
+  display: flex;
+  &__item {
+    svg {
+      fill: #E0E0E0;
+    }
+
+    &--active {
+      svg {
+        fill: #FFA800;
+      }
+    }
+  }
+}

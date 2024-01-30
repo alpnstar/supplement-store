@@ -7,6 +7,7 @@ import ProductsItemInner from "../ProductsItemInner";
 import Error from "../../../pages/Error";
 import axios from "axios";
 import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
+import RatingStarsList from "../../UI/RatingStars/RatingStarsList";
 
 const ProductCard = ({setCartItems}) => {
 
@@ -20,6 +21,7 @@ const ProductCard = ({setCartItems}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputReview, setInputReview] = useState('');
+    const [ratingReview, setRatingReview] = useState(null);
 
     function handleInputChange(setInput) {
         return function (event) {
@@ -33,7 +35,7 @@ const ProductCard = ({setCartItems}) => {
                 const data = {
                     product_id: productId,
                     author: inputName,
-                    rating: 5,
+                    rating: ratingReview,
                     content: inputReview,
                 };
                 await axios.post(process.env.API_URL + "api/reviews", data);
@@ -48,6 +50,7 @@ const ProductCard = ({setCartItems}) => {
             } finally {
                 setInputReview('');
                 setInputName('');
+                setRatingReview(null)
             }
         }
     }
@@ -125,6 +128,11 @@ const ProductCard = ({setCartItems}) => {
                                     <textarea maxLength='900' required value={inputReview}
                                               onChange={handleInputChange(setInputReview)}
                                               className="main-style-input"/>
+                                </div>
+                                <div className="reviews__form-input-wrapper">
+                                    <span
+                                        className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['rating'] && ReviewsError.response.data.errors['rating']}</span>
+                                    <RatingStarsList edit={true} current={ratingReview} setCurrent={setRatingReview}/>
                                 </div>
                                 <input onClick={handleSendPostRequest()} type="button" value='Отправить'
                                        className="main-style-button"/>
