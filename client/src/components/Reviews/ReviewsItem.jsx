@@ -4,7 +4,6 @@ import RatingStarsList from "../UI/RatingStars/RatingStarsList";
 
 const ReviewsItem = ({data, product, productView}) => {
     const navigate = useNavigate();
-    console.log(data.rating)
     return (
         <div className="reviewsList__item">
             {productView

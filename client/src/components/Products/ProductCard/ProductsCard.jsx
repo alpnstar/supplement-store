@@ -132,7 +132,7 @@ const ProductCard = ({setCartItems}) => {
                                 <div className="reviews__form-input-wrapper">
                                     <span
                                         className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['rating'] && ReviewsError.response.data.errors['rating']}</span>
-                                    <RatingStarsList edit={true} current={ratingReview} setCurrent={setRatingReview}/>
+                                    <RatingStarsList edit={true} current={ratingReview - 1} setCurrent={setRatingReview}/>
                                 </div>
                                 <input onClick={handleSendPostRequest()} type="button" value='Отправить'
                                        className="main-style-button"/>

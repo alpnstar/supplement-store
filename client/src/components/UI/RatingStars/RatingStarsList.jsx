@@ -7,7 +7,7 @@ const RatingStarsList = ({current, setCurrent, count = 5, edit}) => {
     const [starsCount, setStarsCount] = useState(Array(count).fill(null));
     return (
         <div className="ratingStars">
-            {hoverCurrent && starsCount.map((item, index) => {
+            {hoverCurrent !== undefined && starsCount.map((item, index) => {
                 let active = false;
                 if (index <= (edit ? hoverCurrent : current)) active = true;
                 if (edit)
