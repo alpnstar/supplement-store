@@ -16,7 +16,6 @@ import Error from "./pages/Error";
 import SuccessOrder from "./pages/SuccessOrder";
 import NewsCard from "./components/NewsAndPromotions/NewsCard";
 import SearchFullResult from "./pages/SearchFullResult";
-import RatingStarsList from "./components/UI/RatingStars/RatingStarsList";
 
 const App = () => {
     const location = useLocation();

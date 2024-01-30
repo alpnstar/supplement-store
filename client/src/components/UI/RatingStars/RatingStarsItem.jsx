@@ -6,11 +6,13 @@ const RatingStarsItem = ({active, index, setHoverCurrent, current, setCurrent}) 
 
             className={`ratingStars__item ${active ? 'ratingStars__item--active' : ''}`}>
             <svg
-                onMouseEnter={() => {setHoverCurrent && setHoverCurrent(index)}}
-                onMouseLeave={() => setHoverCurrent && setHoverCurrent(current !== null ? current : -1)}
+                onMouseEnter={() => {
+                    setHoverCurrent && setHoverCurrent(index)
+                }}
+                onMouseLeave={() => setHoverCurrent && setHoverCurrent(current !== null ? current - 1 : -1)}
                 onClick={() => {
                     if (setCurrent) {
-                        if (current === index) return setCurrent(-1);
+                        if (current - 1 === index) return setCurrent(-1);
                         setCurrent(index + 1);
                     }
                 }}

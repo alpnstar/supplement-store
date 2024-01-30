@@ -21,7 +21,7 @@ const ProductCard = ({setCartItems}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputReview, setInputReview] = useState('');
-    const [ratingReview, setRatingReview] = useState(null);
+    const [ratingReview, setRatingReview] = useState(0);
 
     function handleInputChange(setInput) {
         return function (event) {
@@ -50,7 +50,7 @@ const ProductCard = ({setCartItems}) => {
             } finally {
                 setInputReview('');
                 setInputName('');
-                setRatingReview(null)
+                setRatingReview(0)
             }
         }
     }
@@ -132,7 +132,7 @@ const ProductCard = ({setCartItems}) => {
                                 <div className="reviews__form-input-wrapper">
                                     <span
                                         className="form-input-error">{ReviewsError && ReviewsError.response.data.errors['rating'] && ReviewsError.response.data.errors['rating']}</span>
-                                    <RatingStarsList edit={true} current={ratingReview - 1} setCurrent={setRatingReview}/>
+                                    <RatingStarsList edit={true} current={ratingReview} setCurrent={setRatingReview}/>
                                 </div>
                                 <input onClick={handleSendPostRequest()} type="button" value='Отправить'
                                        className="main-style-button"/>
