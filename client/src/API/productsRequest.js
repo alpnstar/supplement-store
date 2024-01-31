@@ -5,7 +5,7 @@ export default class ProductsRequest {
 
     static allProducts = {
         async getAll(params = {}) {
-            const response = await axios.get(process.env.API_URL + 'api/products', {
+            const response = await axios.get(process.env.API_URL + 'products', {
                 params: {
                     ...params,
                 }
@@ -13,11 +13,11 @@ export default class ProductsRequest {
             return response.data;
         },
         async getById(id) {
-            const response = await axios.get(process.env.API_URL + 'api/products/' + id);
+            const response = await axios.get(process.env.API_URL + 'products/' + id);
             return response.data;
         },
         async getBySearch(text) {
-            const response = await axios.get(process.env.API_URL + 'api/products', {
+            const response = await axios.get(process.env.API_URL + 'products', {
                 params: {
                     'filter[name]': text,
                 },
@@ -28,12 +28,12 @@ export default class ProductsRequest {
     }
 
     static async newProducts() {
-        const response = await axios.get(process.env.API_URL + 'api/main/new-products');
+        const response = await axios.get(process.env.API_URL + 'main/new-products');
         return response.data;
     }
 
     static async popularProducts() {
-        const response = await axios.get(process.env.API_URL + 'api/main/popular-products');
+        const response = await axios.get(process.env.API_URL + 'main/popular-products');
         return response.data;
     }
 
