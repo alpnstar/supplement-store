@@ -38,7 +38,7 @@ const ProductCard = ({setCartItems}) => {
                     rating: ratingReview,
                     content: inputReview,
                 };
-                await axios.post(process.env.API_URL + "api/reviews", data);
+                await axios.post(process.env.API_URL + "reviews", data);
                 setReviewsExpanded(false);
                 await productFetch();
                 setReviewsError();

@@ -39,7 +39,7 @@ const CartForm = ({orderData, setOrderData, setCartItems}) => {
         return async function (event) {
             event.preventDefault();
             try {
-                await axios.post(process.env.API_URL + "api/orders/order", orderData);
+                await axios.post(process.env.API_URL + "orders/order", orderData);
                 setErrors({});
                 setCartItems([]);
                 navigate('/success-order');
