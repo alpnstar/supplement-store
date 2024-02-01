@@ -15,13 +15,18 @@ const PopularGoods = ({setCartItems}) => {
         popularGoodsFetch();
     }, []);
     return (
-        <article className="popularGoods">
-            <div className="popularGoods__wrapper container">
-                <h2>Популярные товары</h2>
-                <ProductsList setCartItems ={setCartItems}
-                              data={popularGoods}/>
-            </div>
-        </article>
+        <>
+            {
+                popularGoods.length !== 0 &&
+                <article className="popularGoods">
+                    <div className="popularGoods__wrapper container">
+                        <h2>Популярные товары</h2>
+                        <ProductsList setCartItems={setCartItems}
+                                      data={popularGoods}/>
+                    </div>
+                </article>
+            }
+        </>
     );
 };
 
