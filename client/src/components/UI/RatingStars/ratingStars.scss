@@ -1,6 +1,7 @@
 .ratingStars {
   display: flex;
   &__item {
+    cursor: pointer;
     svg {
       fill: #E0E0E0;
     }

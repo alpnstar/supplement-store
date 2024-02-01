@@ -26,7 +26,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 88px;
+    min-height: 88px;
     padding: 12px 40px 12px 12px;
     border-radius: 16px;
     border: 1px solid #E0E0E0;
@@ -54,6 +54,7 @@
   &__goods-item-text-content {
     display: flex;
     flex-direction: column;
+    max-width: 200px;
     gap: 3px;
   }
 
@@ -164,6 +165,7 @@
           font-size: 13px;
         }
 
+
         &-content {
           &-right {
             gap: 0px;
@@ -190,6 +192,20 @@
   }
 }
 
+@media screen and (max-width: 430px) {
+  .cart {
+    &__goods {
+
+      &-item {
+        &-text-content {
+          width: 115px;
+        }
+
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 380px) {
   .cart {
     &__goods {
@@ -205,6 +221,10 @@
       &-item {
         * {
           font-size: 12px;
+        }
+
+        &-text-content {
+          width: 100px;
         }
 
         &-counter {
@@ -237,6 +257,10 @@
       &-item {
         &-price {
           min-width: 54.5px;
+        }
+
+        &-text-content {
+          width: 75px;
         }
 
         &-counter {
