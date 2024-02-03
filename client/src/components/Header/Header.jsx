@@ -9,7 +9,6 @@ import MobileMenu from "./MobileMenu/MobileMenu";
 import Nav from "./Nav/Nav";
 
 const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
-    console.log(categories)
     const navigate = useNavigate();
     const [burgerOpened, setBurgerOpened] = useState(false);
     const [contactsOpened, setContactsOpened] = useState(false);

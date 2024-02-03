@@ -1,0 +1,47 @@
+
+.main-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.window {
+  height: 100%;
+  width: 100%;
+  transition: height 0.2s ease;
+  overflow: hidden;
+}
+
+.window * {
+  flex-wrap: nowrap;
+}
+
+.all-pages-container {
+  height: 100%;
+  display: flex;
+  transition: translate;
+  transition-property: transform;
+  /* transition-duration: 300ms; */
+  transition-timing-function: ease-in-out;
+}
+
+.arrow {
+  cursor: pointer;
+  z-index: 1;
+
+  &-left {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translate(-100%, -50%);
+  }
+
+  &-right {
+    position: absolute;
+    left: 98.5%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+  }
+}
+

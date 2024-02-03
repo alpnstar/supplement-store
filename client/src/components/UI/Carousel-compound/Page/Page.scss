@@ -1,0 +1,12 @@
+.page__main-container {
+  height: 100%;
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    width: 100%;
+  }
+
+}
