@@ -29,6 +29,13 @@
 .arrow {
   cursor: pointer;
   z-index: 1;
+  fill: none;
+  stroke: gray;
+  transition: stroke 0.1s ease;
+
+  &:hover {
+    stroke: white;
+  }
 
   &-left {
     position: absolute;
@@ -45,3 +52,19 @@
   }
 }
 
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &-wrapper {
+    height: fit-content;
+  }
+}

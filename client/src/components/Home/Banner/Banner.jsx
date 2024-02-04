@@ -10,12 +10,16 @@ const Banner = () => {
     return (
         <article className="banner">
             <div className="banner__wrapper container">
-                <Carousel infinite={true}>
+                <Carousel infinite={true} widthInput={1190}>
                     <Page>
-                        <img className="item" src={bannerImg2} alt=""/>
+                        <div className="item">
+                            <img className="item-img" src={bannerImg2} alt=""/>
+                        </div>
                     </Page>
                     <Page>
-                        <img className="item" src={bannerImg} alt=""/>
+                        <div className="item">
+                            <img className="item-img" src={bannerImg} alt=""/>
+                        </div>
                     </Page>
                 </Carousel>
 
