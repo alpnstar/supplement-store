@@ -1,4 +1,4 @@
-import React, {Children, cloneElement, useEffect, useMemo, useRef, useState} from 'react'
+import React, {Children, cloneElement, useEffect, useRef, useState} from 'react'
 import Page from './Page'
 import {CarouselContext} from './carousel-context'
 import './Carousel.scss'
@@ -8,15 +8,16 @@ const INTERVAL_SLIDE_DELAY = 5000;
 let sliderTimeout;
 
 export const Carousel = ({children, widthInput, infinite}) => {
+    const isFirstRendered = useRef(true);
     const [slideDelayActive, setSlideDelayActive] = useState(true);
-    const [step, setStep] = useState(0);
-    const [offset, setOffset] = useState(0)
+    const [step, setStep] = useState(1);
     const [width, setWidth] = useState(widthInput)
+    const [offset, setOffset] = useState(widthInput * step)
     const [height, setHeight] = useState('auto');
     const [pages, setPages] = useState([])
     const [realItems, setRealItems] = useState([]);
     const [clonesCount, setClonesCount] = useState({head: 0, tail: 0})
-    const [transitionDuration, setTransitionDuration] = useState(300)
+    const [transitionDuration, setTransitionDuration] = useState(0)
     const [timeoutRevival, setTimeoutRevival] = useState(true);
     const windowElRef = useRef();
 
@@ -29,7 +30,7 @@ export const Carousel = ({children, widthInput, infinite}) => {
         setTimeout(() => {
             if (realItems[step]) {
                 let itemHeight = window.getComputedStyle(realItems[step]).height;
-                setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : 'initial');
+                setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : 'auto');
             }
         }, 50)
     }, [step]);
@@ -50,22 +51,23 @@ export const Carousel = ({children, widthInput, infinite}) => {
         setPages(children)
     }, [children, infinite])
     useEffect(() => {
-        sliderTimeout = setTimeout(() => {
-            if (offset !== 0) {
-                handleRightArrowClick();
-            }
-            setTimeoutRevival(!timeoutRevival);
-        }, INTERVAL_SLIDE_DELAY)
+        // sliderTimeout = setTimeout(() => {
+        //     if (offset !== 0) {
+        //         handleRightArrowClick();
+        //     }
+        //     setTimeoutRevival(!timeoutRevival);
+        // }, INTERVAL_SLIDE_DELAY)
 
 
     }, [timeoutRevival]);
+    console.log(step)
     useEffect(() => {
         const resizeHandler = () => {
             const windowElWidth = windowElRef.current.offsetWidth
             setWidth(windowElWidth)
-            setOffset(-(clonesCount.head * width)) // to prevent wrong offset
+            setOffset(-(step * windowElWidth)) // to prevent wrong offset
         }
-        resizeHandler()
+        resizeHandler();
         window.addEventListener('resize', resizeHandler)
 
         return () => {
@@ -85,50 +87,35 @@ export const Carousel = ({children, widthInput, infinite}) => {
         if (!infinite) return
 
         // с элемента 0 (clone) -> к предпоследнему (реальный)
-        if (offset === 0) {
+        if (offset === 0 && !isFirstRendered.current) {
             setTimeout(() => {
                 setTransitionDuration(0)
                 setOffset(-(width * (pages.length - 1 - clonesCount.tail)))
             }, TRANSITION_DURATION)
-            setStep(realItems.length - 1 < 0 ? 0 : realItems.length - 1);
+            setStep(pages.length - 1 - clonesCount.tail);
             return
         }
         // с элемента n (clone) -> к элементу 1 (реальный)
-        if (offset === -(width * (pages.length - 1))) {
+        if (offset === -(width * (pages.length - 1)) && !isFirstRendered.current) {
             setTimeout(() => {
                 setTransitionDuration(0)
                 setOffset(-(clonesCount.head * width))
             }, TRANSITION_DURATION)
-            setStep(0);
+            setStep(1);
         }
+        isFirstRendered.current = false;
     }, [offset, infinite, pages, clonesCount, width])
 
-    const handleLeftArrowClick = () => {
+    const handleClick = () => {
         if (slideDelayActive) {
             setSlideDelayActive(false);
-            setOffset((currentOffset) => {
-                const newOffset = currentOffset + width
-                return Math.min(newOffset, 0)
-            })
-            setStep(step === 0 ? realItems.length - 1 : step - 1);
+            setOffset(-(width * step))
             setTimeout(() => setSlideDelayActive(true), 600)
         }
     }
-    const handleRightArrowClick = () => {
-        if (slideDelayActive) {
-            setSlideDelayActive(false)
-            setOffset((currentOffset) => {
-                const newOffset = currentOffset - width
-                const maxOffset = -(width * (pages.length - 1))
-                return Math.max(newOffset, maxOffset)
-            })
-            setStep(step === realItems.length - 1 ? 0 : step + 1);
-            setTimeout(() => {
-                setSlideDelayActive(true);
-            }, 600)
-
-        }
-    }
+    useEffect(() => {
+        handleClick();
+    }, [step]);
     return (
         <CarouselContext.Provider value={{width}}>
             <div className="carousel-main-container">
@@ -147,35 +134,44 @@ export const Carousel = ({children, widthInput, infinite}) => {
                             </div>
                         })}
                     </div>
-
                 </div>
                 <svg onClick={() => {
-                    clearTimeout(sliderTimeout);
-                    handleLeftArrowClick();
-                    setTimeout(() => {
-                        setTimeoutRevival(!timeoutRevival);
-                    }, 3000)
+                    if (slideDelayActive) {
+                        setStep(step - 1);
+                        clearTimeout(sliderTimeout);
+                        setTimeout(() => {
+                            setTimeoutRevival(!timeoutRevival);
+                        }, 3000)
+                    }
+
                 }} className="carousel-arrow carousel-arrow-left" width="25px" height="40px"
                      viewBox="0 0 25 40" xmlns="http://www.w3.org/2000/svg"
                      data-svg="carousel-slidenav-previous-large">
                     <polyline strokeWidth="2" points="20.527,1.5 2,20.024 20.525,38.547 "/>
                 </svg>
                 <svg onClick={() => {
-                    clearTimeout(sliderTimeout);
-                    handleRightArrowClick();
-                    setTimeout(() => {
-                        setTimeoutRevival(!timeoutRevival);
-                    }, 3000)
+
+                    if (slideDelayActive) {
+                        setStep(step + 1);
+                        clearTimeout(sliderTimeout);
+                        setTimeout(() => {
+                            setTimeoutRevival(!timeoutRevival);
+                        }, 3000)
+                    }
                 }} className="carousel-arrow carousel-arrow-right" width="25px" height="40px"
                      viewBox="0 0 25 40" xmlns="http://www.w3.org/2000/svg"
                      data-svg="carousel-slidenav-next-large">
                     <polyline strokeWidth="2" points="4.002,38.547 22.527,20.024 4,1.5 "/>
                 </svg>
                 <div className="carousel-bullet-list">
-                    {realItems.length !== 0 && realItems.map((i, index) =>
-                            <span key={index}
-                                  className={`carousel-bullet-item ${step === index ? 'carousel-bullet-item--active' : ''}`}>
-            </span>
+                    {pages.length !== 0 && pages.map((i, index) =>
+                        // (index !== 0 && index !== pages.length - 1) &&
+                        <span key={index}
+                              onClick={() => {
+                                  setStep(index);
+                              }}
+                              className={`carousel-bullet-item ${step === index ? 'carousel-bullet-item--active' : ''}`}>
+                        </span>
                     )}
                 </div>
             </div>

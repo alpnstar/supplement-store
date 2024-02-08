@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  background-color: pink;
 }
 
 .carousel-window {
@@ -82,14 +83,14 @@
     }
 
     &-item {
-      background-color: #FFFFFF;
+      background-color: transparent;
       width: 8px;
       height: 8px;
       border-radius: 50%;
       border: 1px rgba(255, 255, 255) solid;
 
       &--active {
-        background-color: transparent;
+        background-color: #FFFFFF;
       }
     }
   }
