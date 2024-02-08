@@ -6,21 +6,22 @@ import './Carousel.scss'
 const TRANSITION_DURATION = 300;
 const INTERVAL_SLIDE_DELAY = 5000;
 let sliderTimeout;
+
 export const Carousel = ({children, widthInput, infinite}) => {
     const [slideDelayActive, setSlideDelayActive] = useState(true);
     const [step, setStep] = useState(0);
     const [offset, setOffset] = useState(0)
     const [width, setWidth] = useState(widthInput)
-    const [height, setHeight] = useState();
+    const [height, setHeight] = useState('auto');
     const [pages, setPages] = useState([])
     const [realItems, setRealItems] = useState([]);
     const [clonesCount, setClonesCount] = useState({head: 0, tail: 0})
     const [transitionDuration, setTransitionDuration] = useState(300)
-    const [intervalStarted, setIntervalStarted] = useState(true);
     const [timeoutRevival, setTimeoutRevival] = useState(true);
     const windowElRef = useRef();
+
     useEffect(() => {
-        const items = document.querySelectorAll('.item-img');
+        const items = document.querySelectorAll('.carousel-item-img');
         const array = Array.from(items);
         setRealItems(array.slice(1, array.length - 1));
     }, [pages]);
@@ -28,8 +29,7 @@ export const Carousel = ({children, widthInput, infinite}) => {
         setTimeout(() => {
             if (realItems[step]) {
                 let itemHeight = window.getComputedStyle(realItems[step]).height;
-                console.log(itemHeight)
-                setHeight(itemHeight);
+                setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : 'initial');
             }
         }, 50)
     }, [step]);
@@ -51,11 +51,12 @@ export const Carousel = ({children, widthInput, infinite}) => {
     }, [children, infinite])
     useEffect(() => {
         sliderTimeout = setTimeout(() => {
-            if (offset !== 0 && intervalStarted) {
+            if (offset !== 0) {
                 handleRightArrowClick();
             }
             setTimeoutRevival(!timeoutRevival);
         }, INTERVAL_SLIDE_DELAY)
+
 
     }, [timeoutRevival]);
     useEffect(() => {
@@ -89,7 +90,7 @@ export const Carousel = ({children, widthInput, infinite}) => {
                 setTransitionDuration(0)
                 setOffset(-(width * (pages.length - 1 - clonesCount.tail)))
             }, TRANSITION_DURATION)
-            setStep(realItems.length - 1);
+            setStep(realItems.length - 1 < 0 ? 0 : realItems.length - 1);
             return
         }
         // с элемента n (clone) -> к элементу 1 (реальный)
@@ -115,7 +116,6 @@ export const Carousel = ({children, widthInput, infinite}) => {
     }
     const handleRightArrowClick = () => {
         if (slideDelayActive) {
-
             setSlideDelayActive(false)
             setOffset((currentOffset) => {
                 const newOffset = currentOffset - width
@@ -129,21 +129,20 @@ export const Carousel = ({children, widthInput, infinite}) => {
 
         }
     }
-
     return (
         <CarouselContext.Provider value={{width}}>
-            <div className="main-container">
-                <div className="window" ref={windowElRef}>
+            <div className="carousel-main-container">
+                <div className="carousel-window" ref={windowElRef}>
 
                     <div
-                        className="all-pages-container"
+                        className="carousel-all-pages-container"
                         style={{
                             transform: `translateX(${offset}px)`,
                             transitionDuration: `${transitionDuration}ms`,
                         }}
                     >
-                        {pages.map((page, index, array) => {
-                            return <div className="item-wrapper" key={index}>
+                        {pages.map((page, index) => {
+                            return <div className="carousel-item-wrapper" key={index}>
                                 {page}
                             </div>
                         })}
@@ -156,9 +155,9 @@ export const Carousel = ({children, widthInput, infinite}) => {
                     setTimeout(() => {
                         setTimeoutRevival(!timeoutRevival);
                     }, 3000)
-                }} className="arrow arrow-left" width="25px" height="40px"
+                }} className="carousel-arrow carousel-arrow-left" width="25px" height="40px"
                      viewBox="0 0 25 40" xmlns="http://www.w3.org/2000/svg"
-                     data-svg="slidenav-previous-large">
+                     data-svg="carousel-slidenav-previous-large">
                     <polyline strokeWidth="2" points="20.527,1.5 2,20.024 20.525,38.547 "/>
                 </svg>
                 <svg onClick={() => {
@@ -167,11 +166,18 @@ export const Carousel = ({children, widthInput, infinite}) => {
                     setTimeout(() => {
                         setTimeoutRevival(!timeoutRevival);
                     }, 3000)
-                }} className="arrow arrow-right" width="25px" height="40px"
+                }} className="carousel-arrow carousel-arrow-right" width="25px" height="40px"
                      viewBox="0 0 25 40" xmlns="http://www.w3.org/2000/svg"
-                     data-svg="slidenav-next-large">
+                     data-svg="carousel-slidenav-next-large">
                     <polyline strokeWidth="2" points="4.002,38.547 22.527,20.024 4,1.5 "/>
                 </svg>
+                <div className="carousel-bullet-list">
+                    {realItems.length !== 0 && realItems.map((i, index) =>
+                            <span key={index}
+                                  className={`carousel-bullet-item ${step === index ? 'carousel-bullet-item--active' : ''}`}>
+            </span>
+                    )}
+                </div>
             </div>
         </CarouselContext.Provider>
     )

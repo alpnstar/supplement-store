@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import '../components/Cart/cart.scss';
 import CartGoodsList from "../components/Cart/CartGoodsList";
 import CartForm from "../components/Cart/CartForm";
+import axios from "axios";
+import ProductsRequest from "../API/productsRequest";
 
-const Cart = ({cartItems,setCartItems, cartTotalPrice}) => {
+const Cart = ({cartItems, setCartItems, cartTotalPrice}) => {
     const [orderData, setOrderData] = useState({
         note: 'Note123',
         payment_method: 'cash',
@@ -26,6 +28,9 @@ const Cart = ({cartItems,setCartItems, cartTotalPrice}) => {
         document.title = 'Корзина';
     }, []);
     useEffect(() => {
+        deletingUnavailable();
+    }, []);
+    useEffect(() => {
         cartItems.map(item => {
             setOrderData(prev => {
                 return {
@@ -42,6 +47,27 @@ const Cart = ({cartItems,setCartItems, cartTotalPrice}) => {
         })
     }, [cartItems]);
 
+    async function deletingUnavailable() {
+        const newItems = [];
+        await checkAvailability();
+        setCartItems(newItems);
+
+        async function checkAvailability() {
+            for (let i = 0; i <= cartItems.length - 1; i++) {
+                try {
+                    const response = await ProductsRequest.allProducts.getById(cartItems[i].product.id);
+                    const status = response.data.attributes.status;
+
+                    if (status !== 'coming-soon' && status !== 'sold-out') {
+                        newItems.push(cartItems[i]);
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }
+    }
+
 
     return (
         <div className="cart">
@@ -53,7 +79,7 @@ const Cart = ({cartItems,setCartItems, cartTotalPrice}) => {
                         cartItems={cartItems}/>
                     <h2 className="cart__totalPrice">Итого: {cartTotalPrice + ' ₽'}</h2>
                 </div>
-                <CartForm orderData={orderData} setOrderData={setOrderData} setCartItems = {setCartItems}/>
+                <CartForm orderData={orderData} setOrderData={setOrderData} setCartItems={setCartItems}/>
             </div>
         </div>)
 };

@@ -1,23 +1,23 @@
 
-.main-container {
+.carousel-main-container {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
 }
 
-.window {
+.carousel-window {
   height: 100%;
   width: 100%;
   transition: height 0.2s ease;
   overflow: hidden;
 }
 
-.window * {
+.carousel-window * {
   flex-wrap: nowrap;
 }
 
-.all-pages-container {
+.carousel-all-pages-container {
   height: 100%;
   display: flex;
   transition: translate;
@@ -26,7 +26,8 @@
   transition-timing-function: ease-in-out;
 }
 
-.arrow {
+.carousel-arrow {
+  width: 2.5%;
   cursor: pointer;
   z-index: 1;
   fill: none;
@@ -39,7 +40,7 @@
 
   &-left {
     position: absolute;
-    left: 40px;
+    left: 4%;
     top: 50%;
     transform: translate(-100%, -50%);
   }
@@ -52,19 +53,44 @@
   }
 }
 
-.item {
+.carousel-item {
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
   width: 100%;
 
-  img {
+  &-img {
     width: 100%;
     height: auto;
   }
 
   &-wrapper {
     height: fit-content;
+  }
+}
+
+.carousel {
+  &-bullet {
+    &-list {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -300%);
+      display: flex;
+      gap: 10px;
+    }
+
+    &-item {
+      background-color: #FFFFFF;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px rgba(255, 255, 255) solid;
+
+      &--active {
+        background-color: transparent;
+      }
+    }
   }
 }

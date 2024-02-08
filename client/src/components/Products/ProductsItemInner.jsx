@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import starImg from "../../../public/imgs/star.svg";
 import resetImg from "../../../public/imgs/reset.svg";
 import {useNavigate} from "react-router";
@@ -6,7 +6,9 @@ import {useNavigate} from "react-router";
 const ProductsItemInner = ({data, setCartItems, full}) => {
     const [purchaseTypeBulk, setPurchaseTypeBulk] = useState(false);
     const [counter, setCounter] = useState(1);
-
+    const available = useMemo(() => {
+        return data.attributes.status !== 'sold-out' && data.attributes.status !== 'coming-soon';
+    }, [data])
     const navigate = useNavigate();
 
     function handleChangePurchaseType() {
@@ -107,18 +109,20 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
             </div>
             <div className="products__item-inputs">
                 <div className="products__item-push-cart-button">
-                    <button className="main-style-button" onClick={() => {
-                        addToCart(purchaseTypeBulk);
+                    <button disabled={!available} className="main-style-button" onClick={() => {
+                        if (available) {
+                            addToCart(purchaseTypeBulk);
+                        }
                     }}>
                         Добавить в корзину
                     </button>
                 </div>
                 {full &&
                     <div className="cart__goods-item-counter">
-                    <span onClick={() => setCounter(prev => {
-                        if (counter > 1) return prev - 1;
-                        return prev;
-                    })} className="cart__goods-item-counter-control">
+                        <span onClick={() => setCounter(prev => {
+                            if (counter > 1) return prev - 1;
+                            return prev;
+                        })} className="cart__goods-item-counter-control">
                         -
                     </span>
                         <span className="cart__goods-item-counter-display">

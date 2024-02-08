@@ -4,6 +4,9 @@ import CartFormInput from "./CartFormInput";
 import CartFormSelect from "./CartFormSelect";
 import {useNavigate} from "react-router";
 
+let countries = [{name: 'Российская Федерация'}];
+let regions = [{name: 'Республика Дагестан'}];
+
 const CartForm = ({orderData, setOrderData, setCartItems}) => {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
@@ -12,10 +15,7 @@ const CartForm = ({orderData, setOrderData, setCartItems}) => {
     const [surName, setSurName] = useState('');
     const [phone, setPhone] = useState('');
 
-    const [countries, setCountries] = useState([{name: 'Российская Федерация'}]);
     const [countriesSelected, setCountriesSelected] = useState(countries[0]);
-
-    const [regions, setRegions] = useState([{name: 'Республика Дагестан'}]);
     const [regionsSelected, setRegionsSelected] = useState(regions[0]);
 
     const [city, setCity] = useState('');
@@ -44,7 +44,6 @@ const CartForm = ({orderData, setOrderData, setCartItems}) => {
                 setCartItems([]);
                 navigate('/success-order');
             } catch (error) {
-                console.log(error)
                 setErrors(error.response.data.errors);
             }
         }
