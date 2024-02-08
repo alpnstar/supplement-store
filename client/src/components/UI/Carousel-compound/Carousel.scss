@@ -84,10 +84,13 @@
 
     &-item {
       background-color: transparent;
+      cursor: pointer;
+
       width: 8px;
       height: 8px;
       border-radius: 50%;
       border: 1px rgba(255, 255, 255) solid;
+      transition: background-color 0.2s linear;
 
       &--active {
         background-color: #FFFFFF;

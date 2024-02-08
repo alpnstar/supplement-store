@@ -27,16 +27,18 @@ export const Carousel = ({children, widthInput, infinite}) => {
         setRealItems(array.slice(1, array.length - 1));
     }, [pages]);
     useEffect(() => {
-        setTimeout(() => {
-            if (realItems[step]) {
-                let itemHeight = window.getComputedStyle(realItems[step]).height;
-                setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : 'auto');
-            }
-        }, 50)
+        // setTimeout(() => {
+        //     if (realItems[step]) {
+        //         let itemHeight = window.getComputedStyle(realItems[step]).height;
+        //         setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : 'auto');
+        //     }
+        // }, 50)
+        handleClick();
+
     }, [step]);
     useEffect(() => {
-        const windowStyles = windowElRef.current.style;
-        if (height) windowStyles.height = height;
+        // const windowStyles = windowElRef.current.style;
+        // if (height) windowStyles.height = height;
     }, [height]);
     useEffect(() => {
         if (infinite) {
@@ -60,7 +62,6 @@ export const Carousel = ({children, widthInput, infinite}) => {
 
 
     }, [timeoutRevival]);
-    console.log(step)
     useEffect(() => {
         const resizeHandler = () => {
             const windowElWidth = windowElRef.current.offsetWidth
@@ -90,32 +91,26 @@ export const Carousel = ({children, widthInput, infinite}) => {
         if (offset === 0 && !isFirstRendered.current) {
             setTimeout(() => {
                 setTransitionDuration(0)
-                setOffset(-(width * (pages.length - 1 - clonesCount.tail)))
+                setStep(pages.length - 1 - clonesCount.tail);
+
             }, TRANSITION_DURATION)
-            setStep(pages.length - 1 - clonesCount.tail);
             return
         }
         // с элемента n (clone) -> к элементу 1 (реальный)
         if (offset === -(width * (pages.length - 1)) && !isFirstRendered.current) {
             setTimeout(() => {
                 setTransitionDuration(0)
-                setOffset(-(clonesCount.head * width))
+                setStep(1);
             }, TRANSITION_DURATION)
-            setStep(1);
         }
         isFirstRendered.current = false;
     }, [offset, infinite, pages, clonesCount, width])
 
     const handleClick = () => {
-        if (slideDelayActive) {
-            setSlideDelayActive(false);
-            setOffset(-(width * step))
-            setTimeout(() => setSlideDelayActive(true), 600)
-        }
+        setSlideDelayActive(false);
+        setOffset(-(width * step))
+        setTimeout(() => setSlideDelayActive(true), 600)
     }
-    useEffect(() => {
-        handleClick();
-    }, [step]);
     return (
         <CarouselContext.Provider value={{width}}>
             <div className="carousel-main-container">
@@ -165,7 +160,7 @@ export const Carousel = ({children, widthInput, infinite}) => {
                 </svg>
                 <div className="carousel-bullet-list">
                     {pages.length !== 0 && pages.map((i, index) =>
-                        // (index !== 0 && index !== pages.length - 1) &&
+                        (index !== 0 && index !== pages.length - 1) &&
                         <span key={index}
                               onClick={() => {
                                   setStep(index);
