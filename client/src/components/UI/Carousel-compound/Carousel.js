@@ -8,7 +8,6 @@ const INTERVAL_SLIDE_DELAY = 5000;
 let sliderTimeout;
 
 export const Carousel = ({children, widthInput, infinite}) => {
-    const isFirstRendered = useRef(true);
     const [slideDelayActive, setSlideDelayActive] = useState(true);
     const [step, setStep] = useState(1);
     const [width, setWidth] = useState(widthInput)
@@ -18,28 +17,28 @@ export const Carousel = ({children, widthInput, infinite}) => {
     const [realItems, setRealItems] = useState([]);
     const [clonesCount, setClonesCount] = useState({head: 0, tail: 0})
     const [transitionDuration, setTransitionDuration] = useState(0)
-    const [timeoutRevival, setTimeoutRevival] = useState(true);
     const windowElRef = useRef();
 
     useEffect(() => {
         const items = document.querySelectorAll('.carousel-item-img');
         const array = Array.from(items);
-        setRealItems(array.slice(1, array.length - 1));
+        setRealItems(array);
     }, [pages]);
     useEffect(() => {
-        // setTimeout(() => {
-        //     if (realItems[step]) {
-        //         let itemHeight = window.getComputedStyle(realItems[step]).height;
-        //         setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : 'auto');
-        //     }
-        // }, 50)
-        handleClick();
-
-    }, [step]);
+        setTimeout(() => {
+            if (realItems[step]) {
+                let itemHeight = window.getComputedStyle(realItems[step]).height;
+                setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : '0');
+            }
+        }, 100)
+    }, [step, realItems]);
     useEffect(() => {
-        // const windowStyles = windowElRef.current.style;
-        // if (height) windowStyles.height = height;
+        const windowStyles = windowElRef.current.style;
+        if (height) windowStyles.height = height;
     }, [height]);
+    useEffect(() => {
+        setOffset(-(step * width));
+    }, [width]);
     useEffect(() => {
         if (infinite) {
             setPages([
@@ -53,20 +52,18 @@ export const Carousel = ({children, widthInput, infinite}) => {
         setPages(children)
     }, [children, infinite])
     useEffect(() => {
-        // sliderTimeout = setTimeout(() => {
-        //     if (offset !== 0) {
-        //         handleRightArrowClick();
-        //     }
-        //     setTimeoutRevival(!timeoutRevival);
-        // }, INTERVAL_SLIDE_DELAY)
+        sliderTimeout = setTimeout(() => {
+            setStep(step + 1);
+        }, INTERVAL_SLIDE_DELAY)
+        return () => {
+            clearTimeout(sliderTimeout);
+        }
 
-
-    }, [timeoutRevival]);
+    }, [step]);
     useEffect(() => {
         const resizeHandler = () => {
             const windowElWidth = windowElRef.current.offsetWidth
-            setWidth(windowElWidth)
-            setOffset(-(step * windowElWidth)) // to prevent wrong offset
+            setWidth(windowElWidth)// to prevent wrong offset
         }
         resizeHandler();
         window.addEventListener('resize', resizeHandler)
@@ -75,6 +72,7 @@ export const Carousel = ({children, widthInput, infinite}) => {
             window.removeEventListener('resize', resizeHandler)
         }
     }, [])
+
 
     useEffect(() => {
         if (transitionDuration === 0) {
@@ -88,7 +86,7 @@ export const Carousel = ({children, widthInput, infinite}) => {
         if (!infinite) return
 
         // с элемента 0 (clone) -> к предпоследнему (реальный)
-        if (offset === 0 && !isFirstRendered.current) {
+        if (step === 0) {
             setTimeout(() => {
                 setTransitionDuration(0)
                 setStep(pages.length - 1 - clonesCount.tail);
@@ -96,16 +94,19 @@ export const Carousel = ({children, widthInput, infinite}) => {
             }, TRANSITION_DURATION)
             return
         }
+
         // с элемента n (clone) -> к элементу 1 (реальный)
-        if (offset === -(width * (pages.length - 1)) && !isFirstRendered.current) {
+        if (step === pages.length - 1) {
             setTimeout(() => {
                 setTransitionDuration(0)
                 setStep(1);
+
             }, TRANSITION_DURATION)
         }
-        isFirstRendered.current = false;
     }, [offset, infinite, pages, clonesCount, width])
-
+    useEffect(() => {
+        handleClick();
+    }, [step]);
     const handleClick = () => {
         setSlideDelayActive(false);
         setOffset(-(width * step))
@@ -133,10 +134,6 @@ export const Carousel = ({children, widthInput, infinite}) => {
                 <svg onClick={() => {
                     if (slideDelayActive) {
                         setStep(step - 1);
-                        clearTimeout(sliderTimeout);
-                        setTimeout(() => {
-                            setTimeoutRevival(!timeoutRevival);
-                        }, 3000)
                     }
 
                 }} className="carousel-arrow carousel-arrow-left" width="25px" height="40px"
@@ -148,10 +145,6 @@ export const Carousel = ({children, widthInput, infinite}) => {
 
                     if (slideDelayActive) {
                         setStep(step + 1);
-                        clearTimeout(sliderTimeout);
-                        setTimeout(() => {
-                            setTimeoutRevival(!timeoutRevival);
-                        }, 3000)
                     }
                 }} className="carousel-arrow carousel-arrow-right" width="25px" height="40px"
                      viewBox="0 0 25 40" xmlns="http://www.w3.org/2000/svg"

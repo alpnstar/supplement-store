@@ -13,12 +13,12 @@ const Banner = () => {
                 <Carousel infinite={true} widthInput={1190}>
                     <Page>
                         <div className="item">
-                            <img className="carousel-item-img" src={bannerImg2} alt=""/>
+                            <img className="carousel-item-img" src={bannerImg} alt=""/>
                         </div>
                     </Page>
                     <Page>
                         <div className="item">
-                            <img className="carousel-item-img" src={bannerImg} alt=""/>
+                            <img className="carousel-item-img" src={bannerImg2} alt=""/>
                         </div>
                     </Page>
                 </Carousel>
