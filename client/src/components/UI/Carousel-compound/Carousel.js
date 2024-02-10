@@ -4,7 +4,7 @@ import {CarouselContext} from './carousel-context'
 import './Carousel.scss'
 
 const TRANSITION_DURATION = 300;
-const INTERVAL_SLIDE_DELAY = 5000;
+const INTERVAL_SLIDE_DELAY = 10000;
 let sliderTimeout;
 
 export const Carousel = ({children, widthInput, infinite}) => {
