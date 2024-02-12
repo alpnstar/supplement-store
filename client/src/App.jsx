@@ -78,6 +78,7 @@ const App = () => {
                     {renderRoutes(categories)}
                     <Route path="/:productId" element={<ProductsCard
                         setCartItems={setCartItems}/>}/>
+                    <Route path="/:productId/:reviews" element={<ProductsCard setCartItems={setCartItems}/>}/>
                     <Route path="/search/:query" element={<SearchFullResult/>}/>
                     <Route path="/blog/:newId" element={<NewsCard/>}/>
                     <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>

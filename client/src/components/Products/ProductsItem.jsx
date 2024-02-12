@@ -9,7 +9,6 @@ const ProductsItem = ({data, setCartItems}) => {
         navigate('../' + data.id);
     }
 
-
     return (
         <article className="products__item">
             <div onClick={handleNavigate} className="products__item-img-wrapper">

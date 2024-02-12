@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './productsCard.scss'
 import ReviewsList from "../../Reviews/ReviewsList";
-import {useParams} from "react-router";
+import {useLocation, useNavigate, useParams} from "react-router";
 import ProductsRequest from "../../../API/productsRequest";
 import ProductsItemInner from "../ProductsItemInner";
 import Error from "../../../pages/Error";
@@ -9,11 +9,13 @@ import axios from "axios";
 import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
 import RatingStarsList from "../../UI/RatingStars/RatingStarsList";
 
+let scrolled = false;
 const ProductCard = ({setCartItems}) => {
-
     const params = useParams();
+    const navigate = useNavigate();
     const [product, setProduct] = useState();
     const [reviewsExpanded, setReviewsExpanded] = useState(false);
+    const reviewsRef = useRef();
 
     const productId = params.productId;
 
@@ -66,6 +68,14 @@ const ProductCard = ({setCartItems}) => {
     }
 
     useEffect(() => {
+        if (params.reviews === 'reviews' && reviewsRef.current && product) {
+            console.log(reviewsRef)
+            reviewsRef.current.scrollIntoView({behavior: 'smooth'});
+            navigate('/' + params.productId);
+        }
+    }, [params, product]);
+
+    useEffect(() => {
         product && (document.title = product.data.attributes.name);
     }, [product]);
 
@@ -89,7 +99,8 @@ const ProductCard = ({setCartItems}) => {
                                 </div>
                             </div>
                             <div className="productCard__product-content-right">
-                                <ProductsItemInner data={product.data} setCartItems={setCartItems} full={true}/>
+                                <ProductsItemInner data={product.data} setCartItems={setCartItems}
+                                                   full={true}/>
                             </div>
                         </div>
 
@@ -99,7 +110,7 @@ const ProductCard = ({setCartItems}) => {
                             </p>
                         </div>
 
-                        <div className="productCard__reviews productCard__container">
+                        <div ref={reviewsRef} className="productCard__reviews productCard__container">
                             <div className="productCard__reviews-title">
                                 <h2>Отзывы</h2>
                                 <button onClick={() => setReviewsExpanded(!reviewsExpanded)}

@@ -70,7 +70,7 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
 
                 }
 
-                <div className="products__item-reviews">
+                <div className="products__item-reviews" onClick={() => navigate('/' + data.id + '/reviews')}>
                     <img src={starImg} alt=""/>
                     {data.attributes.average_rating}/5 ({data.attributes.reviews_count} отзывов)
                 </div>
