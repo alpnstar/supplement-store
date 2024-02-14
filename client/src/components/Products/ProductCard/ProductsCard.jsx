@@ -69,7 +69,6 @@ const ProductCard = ({setCartItems}) => {
 
     useEffect(() => {
         if (params.reviews === 'reviews' && reviewsRef.current && product) {
-            console.log(reviewsRef)
             reviewsRef.current.scrollIntoView({behavior: 'smooth'});
             navigate('/' + params.productId);
         }
