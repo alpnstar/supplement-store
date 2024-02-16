@@ -56,12 +56,12 @@ const Header = ({siteContent, categories, cartTotalPrice, cartTotalCount}) => {
                                 <img src={youtubeImg} alt=""/>
                             </span>
                         </a>
-                            <a href="tel:+8800500-50-50">
-                        <span className='second-style-button'>
-                            8&nbsp;800&nbsp;500-50-50
-
-                            </span>
-                            </a>
+                            {siteContent.contact_phone &&
+                                <a href={"tel:" + siteContent.contact_phone}>
+                                    <span className='second-style-button'>
+                                        {siteContent.contact_phone}
+                                    </span>
+                                </a>}
                         </div>
                         <div className="header__contactsMobile" onClick={() => setContactsOpened(!contactsOpened)}>
                             <img src={contactsImg} alt="Contacts"/>
