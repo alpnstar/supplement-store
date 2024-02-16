@@ -1,8 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../components/Cart/cart.scss';
 import CartGoodsList from "../components/Cart/CartGoodsList";
 import CartForm from "../components/Cart/CartForm";
-import axios from "axios";
 import ProductsRequest from "../API/productsRequest";
 
 const Cart = ({cartItems, setCartItems, cartTotalPrice}) => {
@@ -57,8 +56,9 @@ const Cart = ({cartItems, setCartItems, cartTotalPrice}) => {
                 try {
                     const response = await ProductsRequest.allProducts.getById(cartItems[i].product.id);
                     const status = response.data.attributes.status;
+                    const totalQuantity = response.data.attributes.totalQuantity;
 
-                    if (status !== 'coming-soon' && status !== 'sold-out') {
+                    if (status !== 'coming-soon' && status !== 'sold-out' && cartItems[i].details.quantity <= totalQuantity) {
                         newItems.push(cartItems[i]);
                     }
                 } catch (error) {

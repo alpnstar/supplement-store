@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import "../components/ShipAndPay/shipAndPay.scss";
 
-const ShipAndPay = () => {
+const ShipAndPay = ({content}) => {
     useEffect(() => {
         document.title = 'Доставка и оплата';
     }, []);
@@ -11,12 +11,11 @@ const ShipAndPay = () => {
                 <h2>
                     Доставка и оплата
                 </h2>
-                <div className="shipAndPay__content">
-                    <p>В нашем магазине есть доставка почтой, транспортными компаниями и разнообразные способы оплаты
-                        заказа для вашего удобства.</p>
-                    &nbsp;
-                    <p>Наш сайт пользуется расчетами сайта <a href="https://postcalc.ru/">Postcalc.RU</a></p>
-                </div>
+                <div className="shipAndPay__content"></div>
+                <span dangerouslySetInnerHTML={{
+                    __html: content,
+                }}></span>
+
             </div>
         </div>
     )

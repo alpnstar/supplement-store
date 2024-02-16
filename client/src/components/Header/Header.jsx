@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import './header.scss';
 import telegramImg from '../../../public/imgs/telegram.svg';
 import whatsappImg from '../../../public/imgs/whatsapp.svg';
-import contactsImg from '../../../public/imgs/contacts.svg'
+import contactsImg from '../../../public/imgs/contacts.svg';
+import youtubeImg from '../../../public/imgs/youtube.png';
 import {useNavigate} from "react-router";
 import HeaderSearch from "./HeaderSearch";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import Nav from "./Nav/Nav";
 
-const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
+const Header = ({siteContent, categories, cartTotalPrice, cartTotalCount}) => {
     const navigate = useNavigate();
     const [burgerOpened, setBurgerOpened] = useState(false);
     const [contactsOpened, setContactsOpened] = useState(false);
@@ -16,9 +17,6 @@ const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
     function homeNavigate() {
         navigate('/home')
     }
-
-
-
 
 
     function handleNavigate(arg, setState) {
@@ -35,23 +33,29 @@ const Header = ({categories, cartTotalPrice, cartTotalCount}) => {
                     <div
                         onClick={homeNavigate}
                         className="logo header__block-1">
-                        Лекавит
+                        {siteContent.name}
                     </div>
                     <div className="header__block-2">
                         <HeaderSearch/>
                         <div className="header__contacts">
-                            <a title='telegram' href="https://telegram.me/ShiffaVit" target="_blank">
+                            <a title='telegram' href={siteContent.telegram} target="_blank">
                             <span className='second-style-button'>
                                     <img src={telegramImg} alt=""/>
                             </span>
                             </a>
                             <a title='whatsapp'
-                               href="https://api.whatsapp.com/send/?phone=%2B79887212020&text&type=phone_number&app_absent=0"
+                               href={siteContent.whatsapp}
                                target="_blank">
                             <span className='second-style-button'>
                                 <img src={whatsappImg} alt=""/>
                             </span>
-                            </a>
+                            </a><a title='youtube'
+                                   href={siteContent.youtube}
+                                   target="_blank">
+                            <span className='second-style-button'>
+                                <img src={youtubeImg} alt=""/>
+                            </span>
+                        </a>
                             <a href="tel:+8800500-50-50">
                         <span className='second-style-button'>
                             8&nbsp;800&nbsp;500-50-50

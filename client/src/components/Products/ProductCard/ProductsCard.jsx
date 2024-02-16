@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './productsCard.scss'
 import ReviewsList from "../../Reviews/ReviewsList";
-import {useLocation, useNavigate, useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import ProductsRequest from "../../../API/productsRequest";
 import ProductsItemInner from "../ProductsItemInner";
 import Error from "../../../pages/Error";

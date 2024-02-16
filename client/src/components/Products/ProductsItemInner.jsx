@@ -4,6 +4,7 @@ import resetImg from "../../../public/imgs/reset.svg";
 import {useNavigate} from "react-router";
 
 const ProductsItemInner = ({data, setCartItems, full}) => {
+    console.log(data)
     const [purchaseTypeBulk, setPurchaseTypeBulk] = useState(false);
     const [counter, setCounter] = useState(1);
     const available = useMemo(() => {
@@ -27,6 +28,7 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
             product: {...data},
             details: {
                 quantity: counter,
+                totalQuantity: data.attributes.totalQuantity,
                 is_bulk: isBulk,
             }
         }
@@ -36,19 +38,20 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
 
         function presenceCheck(items) {
             const copy = [...items];
-
             const check = items.findIndex(item => {
                 return item.product.id === newItem.product.id
                     && item.details.is_bulk === newItem.details.is_bulk;
             })
             if (check !== -1) {
-                copy[check] = {
-                    ...copy[check],
-                    details: {
-                        ...copy[check].details,
-                        quantity: copy[check].details.quantity + counter,
-                    }
-                };
+                if (copy[check].details.quantity < data.attributes.totalQuantity) {
+                    copy[check] = {
+                        ...copy[check],
+                        details: {
+                            ...copy[check].details,
+                            quantity: copy[check].details.quantity + counter,
+                        }
+                    };
+                }
                 return copy;
             }
             return [...copy, newItem]
@@ -129,7 +132,7 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
                         {counter}
                     </span>
                         <span onClick={() => setCounter(prev => {
-                            if (counter < 50) return prev + 1;
+                            if (counter < data.attributes.totalQuantity) return prev + 1;
                             return prev;
                         })} className="cart__goods-item-counter-control">
                         +

@@ -15,7 +15,7 @@ const CartGoodsItem = ({data, cartItems, setCartElements}) => {
                     ...item,
                     details: {
                         ...item.details,
-                        quantity: item.details.quantity + 1,
+                        quantity: item.details.quantity < item.details.totalQuantity ? item.details.quantity + 1 : item.details.quantity,
                     }
                 })
             }

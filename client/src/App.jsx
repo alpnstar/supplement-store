@@ -16,11 +16,12 @@ import Error from "./pages/Error";
 import SuccessOrder from "./pages/SuccessOrder";
 import NewsCard from "./components/NewsAndPromotions/NewsCard";
 import SearchFullResult from "./pages/SearchFullResult";
+import axios from "axios";
 
 const App = () => {
     const location = useLocation();
     const navigate = useNavigate();
-
+    const [siteContent, setSiteContent] = useState({});
     const [categories, setCategories] = useState([]);
 
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartElements')) || []);
@@ -42,11 +43,19 @@ const App = () => {
     useEffect(() => {
         location.pathname === '/' && navigate('/home');
         categoriesFetch();
+        siteContentFetch();
     }, []);
 
     async function categoriesFetch() {
         const response = await CategoriesRequest.getAll();
         await setCategories(response.data);
+
+    }
+
+
+    async function siteContentFetch() {
+        const response = await axios.get(process.env.API_URL + 'settings');
+        setSiteContent(response.data.data);
 
     }
 
@@ -70,7 +79,8 @@ const App = () => {
     };
     return (
         <div className='app'>
-            <Header categories={categories} cartTotalCount={cartTotalCount} cartTotalPrice={cartTotalPrice}/>
+            <Header siteContent={siteContent} categories={categories} cartTotalCount={cartTotalCount}
+                    cartTotalPrice={cartTotalPrice}/>
             <main className="content">
                 <Routes>
                     <Route path="/home"
@@ -83,11 +93,12 @@ const App = () => {
                     <Route path="/blog/:newId" element={<NewsCard/>}/>
                     <Route path="/catalog/*" element={<Error>Категория не найдена</Error>}/>
                     <Route path={"/success-order"} element={<SuccessOrder/>}/>
-                    <Route path="/dostavka-i-oplata" element={<ShipAndPay/>}/>
+                    <Route path="/dostavka-i-oplata"
+                           element={<ShipAndPay content={siteContent.delivery_and_payment}/>}/>
                     <Route path="/novosti-i-akcii" element={<NewsAndPromotions/>}/>
                     <Route path="/novosti-i-akcii/:newsId" element={<NewsCard/>}/>
-                    <Route path="/o-magazine" element={<About/>}/>
-                    <Route path="/contacti" element={<Contacts/>}/>
+                    <Route path="/o-magazine" element={<About content={siteContent.about_shop}/>}/>
+                    <Route path="/contacti" element={<Contacts content={siteContent}/>}/>
                     <Route path="/cart"
                            element={<Cart
                                cartTotalPrice={cartTotalPrice}

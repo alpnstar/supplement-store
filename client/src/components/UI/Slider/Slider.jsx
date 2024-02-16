@@ -1,4 +1,3 @@
-import React, {useEffect, useRef, useState} from 'react';
 import './slider.scss';
 
 const Slider = ({items = [], children}) => {
