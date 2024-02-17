@@ -24,8 +24,6 @@ const YaMap = () => {
         shops.map(function (shop){
             map.geoObjects.add(shop);
         })
-
-
     };
 
     useEffect(() => {
