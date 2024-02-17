@@ -44,7 +44,7 @@ const Header = ({siteContent, categories, cartTotalPrice, cartTotalCount}) => {
                             </span>
                             </a>
                             <a title='whatsapp'
-                               href={siteContent.whatsapp}
+                               href={'https://api.whatsapp.com/send/?phone=' + siteContent.whatsapp + '&text&type=phone_number&app_absent=0'}
                                target="_blank">
                             <span className='second-style-button'>
                                 <img src={whatsappImg} alt=""/>
@@ -70,21 +70,32 @@ const Header = ({siteContent, categories, cartTotalPrice, cartTotalCount}) => {
                             <MobileMenu title={'Контакты'} state={contactsOpened} setState={setContactsOpened}>
                                 <li className="mobileMenu__list-item--first">
                                 <span className="mobileMenu__list-item-title">
-                                    <a href="tel:+8800500-50-50">
-                                    8&nbsp;800&nbsp;500-50-50
+                                    <a href={"tel:" + siteContent.contact_phone}>
+                                        {siteContent.contact_phone}
                                 </a>
                                 </span>
                                 </li>
                                 <li className="mobileMenu__list-item">
                                <span className="mobileMenu__list-item-title">
-                                   <a
-                                       href="https://api.whatsapp.com/send/?phone=%2B79887212020&text&type=phone_number&app_absent=0">Написать
-                                    в WhatsApp</a>
+                                    <a title='whatsapp'
+                                       href={'https://api.whatsapp.com/send/?phone=' + siteContent.whatsapp + '&text&type=phone_number&app_absent=0'}
+                                       target="_blank">
+                                        Написать в WhatsApp
+                                    </a>
                                </span>
                                 </li>
                                 <li className="mobileMenu__list-item">
                                 <span className="mobileMenu__list-item-title">
-                                    <a href="https://telegram.me/ShiffaVit">Написать в Telegram</a>
+                                    <a title='telegram' href={siteContent.telegram} target="_blank">
+                                        Написать в Telegram
+                                    </a>
+                                </span>
+                                </li>
+                                <li className="mobileMenu__list-item">
+                                <span className="mobileMenu__list-item-title">
+                                    <a title='youtube' href={siteContent.youtube} target="_blank">
+                                        YouTube
+                                    </a>
                                 </span>
                                 </li>
                             </MobileMenu>
