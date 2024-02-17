@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import '../components/Contacts/contacts.scss';
+import YaMap from "../components/GepMap/YaMap";
 
 const Contacts = ({content}) => {
     useEffect(() => {
@@ -29,7 +30,7 @@ const Contacts = ({content}) => {
                         </div>
                     </div>
                     <div className="contacts__content-bottom">
-
+                            <YaMap />
                     </div>
                 </div>
             </div>
