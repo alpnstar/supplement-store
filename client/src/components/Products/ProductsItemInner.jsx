@@ -4,9 +4,10 @@ import resetImg from "../../../public/imgs/reset.svg";
 import {useNavigate} from "react-router";
 
 const ProductsItemInner = ({data, setCartItems, full}) => {
-    console.log(data)
     const [purchaseTypeBulk, setPurchaseTypeBulk] = useState(false);
     const [counter, setCounter] = useState(1);
+    const [maxCount, setMaxCount] = useState(data.attributes.totalQuantity);
+
     const available = useMemo(() => {
         return data.attributes.status !== 'sold-out' && data.attributes.status !== 'coming-soon';
     }, [data])
@@ -43,7 +44,7 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
                     && item.details.is_bulk === newItem.details.is_bulk;
             })
             if (check !== -1) {
-                if (copy[check].details.quantity < data.attributes.totalQuantity) {
+                if (copy[check].details.quantity < data.attributes.totalQuantity && counter <= maxCount) {
                     copy[check] = {
                         ...copy[check],
                         details: {
@@ -52,8 +53,12 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
                         }
                     };
                 }
+                setMaxCount(maxCount - counter);
+                setCounter(1);
                 return copy;
             }
+            setMaxCount(maxCount - counter);
+            setCounter(1);
             return [...copy, newItem]
         }
     }
@@ -132,7 +137,7 @@ const ProductsItemInner = ({data, setCartItems, full}) => {
                         {counter}
                     </span>
                         <span onClick={() => setCounter(prev => {
-                            if (counter < data.attributes.totalQuantity) return prev + 1;
+                            if (counter < maxCount) return prev + 1;
                             return prev;
                         })} className="cart__goods-item-counter-control">
                         +
