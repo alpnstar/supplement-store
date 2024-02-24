@@ -28,9 +28,9 @@ export const Carousel = ({children, widthInput, infinite}) => {
         setTimeout(() => {
             if (realItems[step]) {
                 let itemHeight = window.getComputedStyle(realItems[step]).height;
-                setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : '0');
+                setHeight(itemHeight !== '' && itemHeight !== '0px' && itemHeight !== '0' ? itemHeight : 'auto');
             }
-        }, 100)
+        }, 110)
     }, [step, realItems]);
     useEffect(() => {
         const windowStyles = windowElRef.current.style;

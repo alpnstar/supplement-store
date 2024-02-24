@@ -26,7 +26,7 @@ const MobileMenu = ({state, setState, title, listTitle, categories, children}) =
             <div className="mobileMenu__content">
                 {categories &&
                     <ul className="mobileMenu__list mobileMenu__list--first">
-                        <MobileMenuListItem listTitle={listTitle} data={categories}/>
+                        <MobileMenuListItem setState={setState} listTitle={listTitle} data={categories}/>
                         {categories && children}
                     </ul>
                 }

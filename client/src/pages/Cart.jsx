@@ -62,7 +62,6 @@ const Cart = ({cartItems, setCartItems, cartTotalPrice}) => {
                         newItems.push(cartItems[i]);
                     }
                 } catch (error) {
-                    console.log(error);
                 }
             }
         }
